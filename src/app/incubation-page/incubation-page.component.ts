@@ -1273,111 +1273,12 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
   @ViewChild('incubationCarousel') incubationCarousel?: ElementRef<HTMLElement>;
 
-  activeMainTab: 'core' | 'focused' | 'sectorCohorts' = 'core';
-  activeSubTab: 'sector' | 'solo' = 'sector';
+  activeMainTab: 'core' | 'sectorCohorts' = 'core';
 
   private autoplayTimer?: number;
   private autoplayPaused = false;
 
-  readonly corePrograms: ProgramTrack[] = [
-    {
-      slug: 'spark',
-      title: 'SPARK',
-      duration: '1-2 Days',
-      selection: 'Open application',
-      desc: 'A founder-first idea exploration bootcamp for early-stage teams and aspiring entrepreneurs.',
-      imagePath: 'incubation/spark.jpg',
-      route: '/spark',
-    },
-    {
-      slug: 'future-founders',
-      title: 'FUTURE FOUNDERS',
-      duration: '6 Weeks',
-      selection: 'Shortlisting + interview',
-      desc: 'Cohort-based mentorship and business validation for founders ready to prototype.',
-      imagePath: 'incubation/ff.jpg',
-      route: '/future-founders',
-    },
-    {
-      slug: 'catalyst',
-      title: 'CATALYST COHORT',
-      duration: '4-6 Months',
-      selection: 'Pitch review',
-      desc: 'Growth-focused incubation for startups ready to commercialize and scale.',
-      imagePath: 'incubation/catalyst.jpg',
-      route: '/catalyst',
-    },
-    {
-      slug: 'velocity-lab',
-      title: 'VELOCITY LAB',
-      duration: '3-4 Months',
-      selection: 'Demo day selection',
-      desc: 'Acceleration support for proven startups that need market expansion and investor readiness.',
-      imagePath: 'incubation/vel.jpg',
-      route: '/velocity-lab',
-    },
-  ];
-
-  readonly focusedSectorPrograms: ProgramTrack[] = [
-    {
-      slug: 'industrial-hackathon',
-      title: 'INDUSTRIAL HACKATHON',
-      duration: 'Sector track',
-      selection: 'Problem statement review',
-      desc: 'Tackling real-world industrial safety gaps.',
-      imagePath: 'atp-automotive.svg',
-      route: '/industrial-hackathon',
-    },
-    {
-      slug: 'medtech',
-      title: 'MEDTECH CHALLENGE',
-      duration: 'Sector track',
-      selection: 'Challenge review',
-      desc: 'Building portable health tech solutions.',
-      imagePath: 'healthcare.svg',
-      route: '/medtech',
-    },
-    {
-      slug: 'avgc',
-      title: 'AVGC XR INCUBATION',
-      duration: 'Sector track',
-      selection: 'Scrutiny-based selection',
-      desc: 'Dedicated track for Animation, Gaming, and XR.',
-      imagePath: 'incubation/ap-vaga-xr-summit-2025.jpeg',
-      route: '/avgc',
-    },
-  ];
-
-  readonly focusedSoloPrograms: ProgramTrack[] = [
-    {
-      slug: 'innotribe',
-      title: 'INNOTRIBE',
-      duration: 'Ongoing student pathway',
-      selection: 'Screening and mentoring',
-      desc: 'Pathway taking students from idea to venture creation.',
-      imagePath: 'incubation/innotribe.jpg',
-      route: '/innotribe',
-    },
-    {
-      slug: 'rural-innovators',
-      title: 'RURAL INNOVATORS',
-      duration: 'Community track',
-      selection: 'Nomination and review',
-      desc: 'Support for independent innovators outside tech hubs.',
-      imagePath: 'bza-agri.svg',
-      route: '/rural-innovators',
-    },
-    {
-      slug: 'sunrise-connects',
-      title: 'SUNRISE CONNECTS',
-      duration: 'Ecosystem track',
-      selection: 'Open application',
-      desc: 'Opportunity track connecting founders with ecosystem exposure and startup momentum.',
-      imagePath: 'events/event4.jpg',
-      route: 'https://rtih.co.in/sunrise-connects',
-      external: true,
-    },
-  ];
+  readonly corePrograms: ProgramTrack[] = [];
 
   readonly sectorCohortPrograms: ProgramTrack[] = [];
 
@@ -1390,30 +1291,15 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   get activePrograms(): ProgramTrack[] {
-    if (this.activeMainTab === 'core') {
-      return this.corePrograms;
-    }
-
     if (this.activeMainTab === 'sectorCohorts') {
       return this.sectorCohortPrograms;
     }
 
-    return this.activeSubTab === 'sector' ? this.focusedSectorPrograms : this.focusedSoloPrograms;
+    return this.corePrograms;
   }
 
-  selectMainTab(tab: 'core' | 'focused' | 'sectorCohorts'): void {
+  selectMainTab(tab: 'core' | 'sectorCohorts'): void {
     this.activeMainTab = tab;
-
-    if (tab === 'focused') {
-      this.activeSubTab = 'sector';
-    }
-
-    this.resetCarouselScroll();
-    this.restartAutoplay();
-  }
-
-  selectSubTab(tab: 'sector' | 'solo'): void {
-    this.activeSubTab = tab;
     this.resetCarouselScroll();
     this.restartAutoplay();
   }
@@ -2380,8 +2266,8 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
   /**
    * Merges the backend's `incubation_programs` rows into the main-page
-   * program tracks (corePrograms / sectorCohortPrograms / focused*Programs)
-   * so the tabs/carousel on `/incubation` reflect admin edits, and — most
+   * program tracks (corePrograms / sectorCohortPrograms) so the
+   * tabs/carousel on `/incubation` reflect admin edits, and — most
    * importantly — so a brand-new admin-created program (one with no
    * matching static `ProgramTrack` entry) actually becomes visible there
    * instead of only existing in the static PROGRAMS map / on its own
@@ -2393,21 +2279,14 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
         return;
       }
 
-      // Only 'focused' has a single admin-facing track_group option today
-      // even though the main page splits it into a "sector" and "solo"
-      // sub-tab client-side; new admin-created 'focused' programs land in
-      // the sector sub-tab list by default.
       const targetArrayByTrackGroup: Record<string, ProgramTrack[] | undefined> = {
         core: this.corePrograms,
         'sector-cohort': this.sectorCohortPrograms,
-        focused: this.focusedSectorPrograms,
       };
 
       const allTracks: ProgramTrack[] = [
         ...this.corePrograms,
         ...this.sectorCohortPrograms,
-        ...this.focusedSectorPrograms,
-        ...this.focusedSoloPrograms,
       ];
 
       const displayOrderByTrack = new Map<ProgramTrack, number>();
@@ -2472,8 +2351,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
       this.corePrograms.sort(byDisplayOrder);
       this.sectorCohortPrograms.sort(byDisplayOrder);
-      this.focusedSectorPrograms.sort(byDisplayOrder);
-      this.focusedSoloPrograms.sort(byDisplayOrder);
 
       this.cdr.markForCheck();
     });

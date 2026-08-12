@@ -371,40 +371,10 @@
               type="button"
               role="tab"
               class="program-tab"
-              [class.active]="activeMainTab === 'focused'"
-              [attr.aria-selected]="activeMainTab === 'focused'"
-              (click)="selectMainTab('focused')">
-              Focused Tracks
-            </button>
-            <button
-              type="button"
-              role="tab"
-              class="program-tab"
               [class.active]="activeMainTab === 'sectorCohorts'"
               [attr.aria-selected]="activeMainTab === 'sectorCohorts'"
               (click)="selectMainTab('sectorCohorts')">
               Sector Specific Cohorts
-            </button>
-          </div>
-
-          <div *ngIf="activeMainTab === 'focused'" class="program-subtabs" role="tablist" aria-label="Focused tracks sub tabs">
-            <button
-              type="button"
-              role="tab"
-              class="program-tab program-tab--sub"
-              [class.active]="activeSubTab === 'sector'"
-              [attr.aria-selected]="activeSubTab === 'sector'"
-              (click)="selectSubTab('sector')">
-              Sector-Specific
-            </button>
-            <button
-              type="button"
-              role="tab"
-              class="program-tab program-tab--sub"
-              [class.active]="activeSubTab === 'solo'"
-              [attr.aria-selected]="activeSubTab === 'solo'"
-              (click)="selectSubTab('solo')">
-              Solo Innovators
             </button>
           </div>
         </div>
@@ -630,11 +600,11 @@
         <div class="cta-content">
           <span class="cta-eyebrow">Build with RTIH</span>
           <h2 id="cta-title">
-            <span>Build your startup with</span>
-            <span>RTIH AP</span>
+            <span>Build your startup</span>
+            <span>Grow with RTIH</span>
           </h2>
           <p class="cta-copy">
-            Join a focused incubation ecosystem designed for founders who want real mentorship, funding access, innovation support, and a clearer path from idea to scale.
+            Access the mentorship, funding pathways, market opportunities, technical support, and ecosystem connections you need to move from idea to impact. Build with RTIH and turn your innovation into a scalable venture.
           </p>
 
           <div class="cta-actions">
