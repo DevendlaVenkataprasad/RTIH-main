@@ -1,0 +1,284 @@
+<app-header-rtih></app-header-rtih>
+
+<app-inner-banner
+  title="Programs"
+  [subtext]="
+    '<strong>Ratan Tata Innovation Hub</strong> is a flagship initiative that brings to life the Hon’ble Chief Minister ' +
+    '<strong>Mr. N. Chandrababu Naidu’s</strong> visionary mission of One Family, One Entrepreneur.'
+  "
+  [showBreadcrumbs]="true"
+>
+</app-inner-banner>
+
+<section class="programs">
+  <div class="wrap">
+   
+    <!-- programs-rtih.component.html -->
+<aside class="side" role="navigation" aria-label="Programs steps">
+  <ul>
+    <li><button [class.active]="active === 'exploration'" (click)="scrollTo('exploration')">SPARK</button></li>
+    <li><button [class.active]="active === 'pre-incubation'" (click)="scrollTo('pre-incubation')">FUTURE FOUNDERS</button></li>
+    <li><button [class.active]="active === 'incubation'" (click)="scrollTo('incubation')">CATALYST</button></li>
+    <li><button [class.active]="active === 'acceleration'" (click)="scrollTo('acceleration')">VELOCITY LAB</button></li>
+    <li><button [class.active]="active === 'innotribe'" (click)="scrollTo('innotribe')">INNOTRIBE</button></li>
+    <li><button [class.active]="active === 'avgc'" (click)="scrollTo('avgc')">AVGC XR INCUBATION PROGRAM</button></li>
+    
+  </ul>
+</aside>
+
+
+    <!-- Content -->
+    <main class="content">
+      
+       <!-- Exploration -->
+      <section id="exploration" #progSection class="program-section">
+        <div class="stage-card">
+          <h3 class="stage-title">Explore -> Idea</h3>
+
+          <figure class="stage-media">
+            <img src="assets/programs/explore-idea.png" alt="Explore to idea" />
+          </figure>
+
+          <div class="stage-meta">
+            <div class="meta-item">
+              <div class="meta-label">Selection Method</div>
+              <div class="meta-value">Bootcamp/ walk-ins</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Duration</div>
+              <div class="meta-pill">1–2 days</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Selection Criteria</div>
+              <div class="meta-value">Open to all</div>
+            </div>
+          </div>
+            <div style="text-align: center;">
+          <a class="btn btn-register" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeQiTF9LNnJAB1LNGbYO-yGCBvcgtyoEzi5bsygCo7eGgvlYQ/viewform?usp=dialog">Apply Now</a>
+        </div>
+        </div>
+      </section>
+
+      <!-- Pre-incubation -->
+      <section id="pre-incubation" #progSection class="program-section">
+        <div class="stage-card pb-3">
+          <h3 class="stage-title">Ideation → Prototype</h3>
+          <figure class="stage-media">
+            <img src="assets/programs/Ideation.png" alt="Ideation to Prototype" />
+          </figure>
+          <div class="stage-meta">
+            <div class="meta-item">
+              <div class="meta-label">Selection Method</div>
+              <div class="meta-value">Telephonic Interview/ Walk-in</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Duration</div>
+              <div class="meta-pill">6 weeks</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Selection Criteria</div>
+              <div class="meta-value">
+                Scalability, Feasibility, Novelty, Innovation, Revenue (MSMEs)
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div style="text-align: center;">
+          <a class="btn btn-register" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe_dwm7BuR7v9Q3miyxkntViwF2O1iJ3fbC4L8cUzqlXFvhVQ/viewform">Register Now</a>
+        </div> -->
+      </section>
+
+      <!-- Incubation -->
+      <section id="incubation" #progSection class="program-section">
+        <div class="stage-card">
+          <h3 class="stage-title">Prototype → Commercialization</h3>
+
+          <figure class="stage-media">
+            <img
+              src="assets/programs/Prototype.png"
+              alt="Prototype / MVP to Commercialization / Scaling"
+              loading="lazy"
+            />
+          </figure>
+
+          <div class="stage-meta">
+            <div class="meta-item">
+              <div class="meta-label">Selection Method</div>
+              <div class="meta-value">Pitching (In person/ Virtual)</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Duration</div>
+              <div class="meta-pill">4–6 months</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Selection Criteria</div>
+              <div class="meta-value">
+                POC/MVP, Team, Impact, Scalability, Feasibility, Novelty, Technology
+              </div>
+            </div>
+                </div>
+        </div>
+      </section>
+
+      <!-- Acceleration -->
+      <section id="acceleration" #progSection class="program-section">
+        <div class="stage-card">
+          <h3 class="stage-title">Commercialization → Establishment</h3>
+
+          <figure class="stage-media">
+            <img
+              src="assets/programs/Scaling.png"
+              alt="Scaling to Establishment"
+              loading="lazy"
+            />
+          </figure>
+
+          <div class="stage-meta">
+            <div class="meta-item">
+              <div class="meta-label">Selection Method</div>
+              <div class="meta-value">Pitching (In person/ Virtual)</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Duration</div>
+              <div class="meta-pill">3–4 months</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Selection Criteria</div>
+              <div class="meta-value">
+                Team, Technology, Traction, Market Value, Investment Readiness
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- InnoTribe -->
+      <section id="innotribe" #progSection class="program-section innotribe-program-section">
+        <article class="innotribe-program-card">
+          <div class="innotribe-program-copy">
+            <span class="innotribe-program-kicker">Student Innovation Pathway</span>
+            <h3 class="stage-title">InnoTribe</h3>
+            <p>
+              InnoTribe helps students move from first exposure to screening, venture formation,
+              prototype validation, and incubation-ready startup transition.
+            </p>
+            <a class="btn btn-register" routerLink="/innotribe">Know More</a>
+          </div>
+          <img
+              src="assets\Screenshot 2026-05-06 163852.png"
+              alt="InnoTribe student innovation visual"
+              loading="lazy"
+            /> 
+          <!-- <figure class="innotribe-program-visual">
+            
+          </figure> -->
+        </article>
+      </section>
+
+      <!-- avgc -->
+      <section id="avgc" #progSection class="program-section">
+        <div class="stage-card">
+          <h3 class="stage-title">Establishment -> AVGC XR incubation Program</h3>
+
+          <figure class="stage-media">
+            <img
+              src="assets/programs/avgc.jpeg"
+              alt="Scaling to Establishment"
+              loading="lazy" style="width: auto;"
+            />
+          </figure>
+
+          <div class="stage-meta">
+            <div class="meta-item">
+              <div class="meta-label">Selection Method</div>
+              <div class="meta-value">On the basis of Scrutiny</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Duration</div>
+              <div class="meta-pill">6 months</div>
+            </div>
+
+            <div class="meta-item">
+              <div class="meta-label">Selection Criteria</div>
+              <div class="meta-value">
+                Open to all
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div style="text-align: center;">
+          <a class="btn btn-register" target="_blank" href="https://docs.google.com/forms/d/1tVR5hBqMfhzbpH_bLL5B8rrBmMFRa5TLy0rpxEKo0tE/viewform?pli=1&pli=1&edit_requested=true">Apply Now</a>
+        </div>
+    </main>
+  </div>
+</section>
+
+<section class="student-programs">
+  <div class="sp-wrap">
+    <h2 class="sp-title">Student Entrepreneurship Programs</h2>
+
+    <div class="sp-grid">
+      <article class="sp-card" *ngFor="let p of studentPrograms">
+        <div class="sp-badge">{{ p.num }}</div>
+
+        <h3 class="sp-heading">{{ p.title }}</h3>
+
+        <!-- Allow simple line breaks with <br> in desc -->
+        <p class="sp-desc" [innerHTML]="p.desc"></p>
+
+        <div class="sp-pill">{{ p.duration }}</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA: Ready to Start Your Journey -->
+<section class="cta-journey" aria-labelledby="cta-journey-title">
+  <div class="cta-wrap">
+    <h2 id="cta-journey-title">Ready to Start Your Journey?</h2>
+
+    <p class="cta-sub">
+      Join the innovation ecosystem and transform your ideas into
+      successful ventures.
+    </p>
+
+    <div class="cta-actions">
+      <a class="btn btn-yellow" role="button" (click)="openModal($event)">Future Founders</a>
+      <!--<a class="btn btn-purple" target="_blank" href="https://forms.gle/3AY2qa2JMhaRLXmg7">Register Now</a> -->
+    </div>
+  </div>
+</section>
+
+
+<dialog #foundersModal class="modal" aria-labelledby="ffTitle" aria-modal="true">
+  <button class="modal__close" type="button" (click)="closeModal()" aria-label="Close">✕</button>
+
+  <h2 id="ffTitle" class="modal__title">Future Founders</h2>
+
+  <div class="modal__content">
+    <ul class="points">
+      <li>The shortlisted applicant is expected to attend the 6-week program in person at one of the RTIH Hub or Spoke (Amaravati, Visakhapatnam, Rajamahendravaram, Vijayawada, Tirupati, Anantapur).</li>
+      <li>The applicant shall be a resident of Andhra Pradesh and citizen of India.</li>
+      <li>The shortlisted applicant is expected to register a startup by end of the program.</li>
+    </ul>
+
+    <!-- Special styled note -->
+    <p class="launch-note" aria-live="polite">Launching on <strong>17th October 2025</strong></p>
+  </div>
+
+  <div class="modal__actions">
+    <button class="btn" type="button" (click)="closeModal()">Close</button>
+  </div>
+</dialog>
+
+
+<app-footer-rtih></app-footer-rtih>

@@ -1,0 +1,204 @@
+$ink: #262566;
+$muted: #333;
+$purple: #4b1e83;
+$divider: #eef1f6;
+
+.about-rtih {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem 2.5rem;
+    align-items: start;
+
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .copy {
+    h2 {
+      margin: 0 0 .75rem;
+      color: $ink;
+      font: 800 clamp(24px, 4vw, 38px)/1.15 "Figtree", Inter, system-ui;
+    }
+
+    p {
+      color: $muted;
+      line-height: 1.8;
+      margin: 0 0 1rem;
+       font-size: 16px;
+    }
+
+    h3 {
+      margin: 1.25rem 0 .5rem;
+      color: $purple;
+      font: 800 1.25rem/1.2 "Figtree", Inter, system-ui;
+    }
+
+    .bullets {
+      list-style: none;
+      padding: 0;
+      margin: .5rem 0 0;
+
+      li {
+        position: relative;
+        padding-left: 34px;
+        margin: .6rem 0;
+        color: $ink;
+        line-height: 1.7;
+        font-size: 16px;
+
+        /* custom purple “spark” bullet */
+        &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        background: url('../../assets/rtih-icon.svg') no-repeat center center;
+        background-size: contain;
+      }
+      }
+    }
+  }
+
+  .visual {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 10px 30px rgba(16,24,40,.08);
+    }
+  }
+}
+
+
+.city-bar {
+  background: #672F8F; // purple
+  padding: 1rem 0;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+
+      // Add slash after each except last
+      &::after {
+        content: "/";
+        margin-left: 1.5rem;
+        color: rgba(255,255,255,0.5);
+      }
+
+      &:last-child::after {
+        content: "";
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    ul {
+      gap: 1rem;
+      li {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+
+
+$ink: #262566;
+$muted: #333;
+$purple: #4b1e83;
+
+.ceo-message {
+
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem 2.5rem;
+    align-items: start;
+
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  position: relative;
+  padding: 2.5rem 1rem 3rem;
+  background:
+    url("../../assets/logo-bg.png") no-repeat 0.75rem 1rem; // faint sunburst on the left
+  background-size: 110px auto;
+
+  .wrap { max-width: 1200px; margin: 0 auto; }
+
+  .head {
+    text-align: center; max-width: 820px; margin: 0 auto 1.75rem;
+    h2 { margin: 0 0 .5rem; color: $ink; font: 800 clamp(22px, 4vw, 34px)/1.2 "Figtree", Inter, system-ui; }
+    p  { margin: 0; color: $muted; }
+  }
+
+  .grid {
+    display: grid; gap: 2rem 6rem;
+    grid-template-columns: 1.15fr 1fr; align-items: center;
+
+    @media (max-width: 980px) { grid-template-columns: 1fr; }
+  }
+
+  .text {
+    color: $muted;
+    p { margin: 0 0 1rem; line-height: 1.85; font-size: 16px; }
+    .sig {
+      margin-top: 1rem; display: grid;
+      strong { color: $purple; font-weight: 800; }
+      span { color: $muted; }
+      .desig {
+    color: #672F8F;
+}
+
+    }
+  }
+
+//   .photo {
+//     display: grid; place-items: center;
+//     .ring {
+//       position: relative; width: clamp(220px, 40vw, 360px); aspect-ratio: 1;
+//       border-radius: 50%;
+//       display: grid; place-items: center;
+//       &::before {
+//         content: "";
+//         position: absolute; inset: -22px;
+//         background: url("assets/dotted-map.png") no-repeat center/cover;
+//         border-radius: 50%;
+//         opacity: .45;
+//         filter: contrast(110%) brightness(110%);
+//       }
+//       img {
+//         width: 100%; height: 100%; border-radius: 50%;
+//         object-fit: cover; display: block;
+//         box-shadow: 0 16px 40px rgba(16,24,40,.15);
+//       }
+//     }
+//   }
+}

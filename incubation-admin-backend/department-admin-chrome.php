@@ -1,0 +1,148 @@
+<?php
+declare(strict_types=1);
+
+function adminSidebar(array $portal, array $user, string $activePage): void
+{
+    $items = [
+        'dashboard' => ['dashboard.php', 'Dashboard', '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'],
+        'applications' => ['applications.php', (string) ($portal['navigation_application_label'] ?? 'Applications'), '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/>'],
+    ];
+    if (!empty($portal['landing_content_enabled'])) {
+        $items['landing-content'] = ['landing-content.php', 'Landing content', '<path d="M3 4h18v16H3z"/><path d="M3 9h18M8 9v11"/><path d="m12 15 2-2 4 4"/>'];
+    }
+    if (!empty($portal['programs_enabled'])) {
+        $items['incubation-programs'] = ['incubation-programs.php', 'Programs', '<path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>'];
+    }
+    if (!empty($portal['sections_enabled'])) {
+        $items['incubation-sections'] = ['incubation-sections.php', 'Page sections', '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>'];
+    }
+    if (!empty($portal['applications_status_enabled'])) {
+        $items['incubation-applications-status'] = ['incubation-applications-status.php', 'Application status', '<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>'];
+    }
+    if (!empty($portal['stories_events_enabled'])) {
+        $items['stories-events'] = [
+            'stories-events.php',
+            'Stories & events',
+            '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/>',
+            [
+                ['stories-events.php?section=events', 'Events', 'events'],
+                ['stories-events.php?section=stories', 'Success stories', 'stories'],
+            ],
+        ];
+    }
+    if (!empty($portal['partners_enabled'])) {
+        $items['partners'] = [
+            'partners.php',
+            'Partners',
+            '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+        ];
+    }
+    $items['chatroom'] = ['chatroom.php', 'Chatroom', '<path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/>'];
+    $items['get-help'] = ['get-help.php', 'Get help', '<circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.5 2.5 0 1 1 3.7 2.2c-.9.5-1.4 1-1.4 2M12 17h.01"/>'];
+    $activeContentSection = $activePage === 'stories-events' && (string) ($_GET['section'] ?? 'stories') === 'events'
+        ? 'events'
+        : ($activePage === 'stories-events' ? 'stories' : '');
+    ?>
+    <script src="../admin-ui.js?v=20260804-2" defer></script>
+    <div class="overlay" id="overlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <a class="brand" href="dashboard.php">
+            <span class="brand-mark"><img src="../assets/rtih-logo-white.svg?v=20260731-2" width="98" height="24" alt="RTIH"></span>
+            <span><span class="brand-name">RTIH Admin</span><span class="brand-subtitle"><?= adminEscape((string) $portal['name']) ?> Portal</span></span>
+        </a>
+        <div class="nav-label">Navigation</div>
+        <nav class="nav" aria-label="Main navigation">
+            <?php foreach ($items as $key => $item): [$href, $label, $icon] = $item; $children = $item[3] ?? []; ?>
+                <?php if ($children !== []): ?>
+                <details class="nav-group" <?= $activePage === $key ? 'open' : '' ?>>
+                    <summary class="<?= $activePage === $key ? 'active' : '' ?>">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><?= $icon ?></svg>
+                        <span><?= adminEscape($label) ?></span>
+                        <svg class="nav-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+                    </summary>
+                    <div class="nav-submenu">
+                        <?php foreach ($children as [$childHref, $childLabel, $childSection]): ?>
+                            <a class="<?= $activeContentSection === $childSection ? 'active' : '' ?>" href="<?= adminEscape($childHref) ?>" <?= $activeContentSection === $childSection ? 'aria-current="page"' : '' ?>>
+                                <span class="nav-submenu-dot" aria-hidden="true"></span><?= adminEscape($childLabel) ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </details>
+                <?php else: ?>
+                <a class="<?= $activePage === $key ? 'active' : '' ?>" href="<?= adminEscape($href) ?>" <?= $activePage === $key ? 'aria-current="page"' : '' ?>>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><?= $icon ?></svg>
+                    <?= adminEscape($label) ?>
+                </a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <a href="logout.php" data-signout-trigger><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>Sign out</a>
+        </nav>
+        <div class="sidebar-footer">
+            <a class="user-mini <?= $activePage === 'profile' ? 'active' : '' ?>" href="profile.php" aria-label="Open your profile" <?= $activePage === 'profile' ? 'aria-current="page"' : '' ?>><span class="avatar"><?php if (!empty($user['picture'])): ?><img src="<?= adminEscape((string) $user['picture']) ?>" alt=""><?php else: ?><?= adminEscape((string) $user['initials']) ?><?php endif; ?></span><span><strong><?= adminEscape((string) $user['name']) ?></strong><small><?= adminEscape((string) $user['role']) ?></small></span></a>
+        </div>
+    </aside>
+    <?php
+}
+
+function adminTopbar(array $user, string $title, string $context): void
+{
+    ?>
+    <header class="topbar">
+        <div class="topbar-start">
+            <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+            <div><div class="page-title"><?= adminEscape($title) ?></div><div class="page-context"><?= adminEscape($context) ?></div></div>
+        </div>
+        <div class="top-actions"><span class="department-chip"><?= adminEscape((string) $user['department']) ?></span><a class="logout-button" href="logout.php" data-signout-trigger>Sign out</a></div>
+    </header>
+    <dialog class="signout-dialog" id="signoutDialog" aria-labelledby="signoutTitle" aria-describedby="signoutMessage">
+        <form class="signout-card" action="logout.php" method="get">
+            <div class="signout-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+            </div>
+            <h2 id="signoutTitle">Sign out?</h2>
+            <p id="signoutMessage">Are you sure you want to sign out of your RTIH admin account?</p>
+            <div class="signout-actions">
+                <button class="signout-cancel" type="button" data-signout-cancel>Cancel</button>
+                <button class="signout-confirm" type="submit">Sign out</button>
+            </div>
+        </form>
+    </dialog>
+    <?php
+}
+
+function adminMenuScript(): void
+{
+    ?>
+    <script>
+        (() => {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const button = document.getElementById('menuButton');
+            const signoutDialog = document.getElementById('signoutDialog');
+            const signoutCancel = signoutDialog?.querySelector('[data-signout-cancel]');
+            const setMenu = open => {
+                sidebar?.classList.toggle('open', open);
+                overlay?.classList.toggle('open', open);
+                button?.setAttribute('aria-expanded', String(open));
+            };
+            button?.addEventListener('click', () => setMenu(!sidebar?.classList.contains('open')));
+            overlay?.addEventListener('click', () => setMenu(false));
+            document.querySelectorAll('[data-signout-trigger]').forEach(trigger => {
+                trigger.addEventListener('click', event => {
+                    if (!signoutDialog?.showModal) return;
+                    event.preventDefault();
+                    setMenu(false);
+                    signoutDialog.showModal();
+                    signoutCancel?.focus();
+                });
+            });
+            signoutCancel?.addEventListener('click', () => signoutDialog.close());
+            signoutDialog?.addEventListener('click', event => {
+                if (event.target === signoutDialog) signoutDialog.close();
+            });
+            document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+            window.addEventListener('resize', () => { if (window.innerWidth > 800) setMenu(false); });
+        })();
+    </script>
+    <?php
+}

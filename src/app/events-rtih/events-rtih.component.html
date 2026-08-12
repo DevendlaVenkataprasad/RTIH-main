@@ -1,0 +1,208 @@
+<app-header-rtih></app-header-rtih>
+
+<app-inner-banner
+  title="Events"
+  [subtext]="
+    '<strong>Ratan Tata Innovation Hub</strong> a flagship initiative that brings to life the Hon’ble Chief Minister ' +
+    '<strong>Mr. N. Chandrababu Naidu’s</strong> visionary mission of One Family, One Entrepreneur.'
+  "
+  [showBreadcrumbs]="true"
+>
+</app-inner-banner>
+
+<section class="programs">
+
+<!-- <main class="content">
+  <div class="scroll-wrapper">
+  <span class="blink-tag">NEW</span>
+      <div class="scroll-text">
+  <a href="assets/Hackathon-Result.pdf" target="_blank">
+    Andhra Pradesh MSME Digital Empowerment Challenge 2025 - Result
+  </a>
+</div>
+  </div>
+</main> -->
+
+  <div class="wrap">
+
+    <!-- Sticky side menu -->
+    <aside class="side" role="navigation" aria-label="Programs steps">
+      <ul>
+        <li>
+          <button
+            [class.active]="active === 'exploration'"
+            (click)="scrollTo('exploration')"
+          >
+            Bootcamp
+          </button>
+          
+        </li>
+        <li>
+          <button
+            [class.active]="active === 'workshop'"
+            (click)="scrollTo('workshop')"
+          >
+            Workshop
+          </button>
+        </li>
+        <!-- <li>
+          <button
+            [class.active]="active === 'pre-incubation'"
+            (click)="scrollTo('pre-incubation')"
+          >
+            Innovation Challenges
+          </button>
+        </li> -->
+        <!-- <li>
+          <button
+            [class.active]="active === 'incubation'"
+            (click)="scrollTo('incubation')"
+          >
+            CATALYST
+          </button>
+        </li>
+        <li>
+          <button
+            [class.active]="active === 'acceleration'"
+            (click)="scrollTo('acceleration')"
+          >
+            VELOCITY LAB
+          </button>
+        </li> -->
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- Exploration -->
+      <section id="exploration" class="program-section" tabindex="-1" #progSection>
+        <div class="stage-card">
+          <!-- <h3 class="stage-title">Explore -> Idea</h3> -->
+
+          <figure class="stage-media">
+            <img src="assets/events/startup-bootcamp-bio-medical.jpeg" alt="Explore to idea" />
+          </figure>
+
+          <div class="stage-meta">
+         
+
+            <p>
+             Learn from an investor who has built, backed, and scaled global biomedical ventures.
+The Startup Bootcamp for Biomedical & MedTech Startups 2026 is led by Dr. Anand Govindaluri, 
+Chairman of Govin Capital (Singapore) and a seasoned global venture capitalist with 23+ years of 
+investment experience across biotech, pharma, digital health, and medtech.</p>
+
+        <p> 
+          Dr. Anand’s journey—from biotech researcher to global investor—has shaped multiple 
+          successful exits, including biotech and pharma unicorns. He is also the author of 
+          “The Investor’s DNA – Impacting Biomedical Startups through Venture Capital”, a widely appreciated guide for founders navigating capital, risk, and scale.
+        </p>
+
+        <p>Previously associated with Temasek Holdings, A*STAR, and global institutions, 
+          he brings real-world investor insight into what it truly takes to build fundable, scalable healthcare startups.</p>
+            <div style="text-align: left;">
+          <a class="btn btn-register" target="_blank" href="https://docs.google.com/forms/d/1SqDm2gNlqx0Lf-DjxM5NiNA2WtX7Hbkxi7Sz68hjZBg/edit?ts=696f620b">Apply Now</a>
+        </div>
+         
+          </div>
+        </div>
+      </section>
+      <section id="workshop" class="program-section" tabindex="-1" #workshop>
+        <div class="stage-card">
+          <!-- <h3 class="stage-title">Explore -> Idea</h3> -->
+
+          <figure class="stage-media">
+            <img src="assets/events/ipr-workshop.jpeg" alt="Explore to idea" />
+          </figure>
+
+          <div class="stage-meta">
+         
+
+            <p>
+             Protecting innovation is essential for building sustainable businesses.
+Ratan Tata Innovation Hub (RTIH), in collaboration with APMSME Development Corporation, is 
+organising an IPR Workshop aimed at startups, MSMEs, innovators, and students.</p>
+
+        <p> 
+         The workshop will provide practical insights into Intellectual Property Rights, 
+         including patents, trademarks, and copyrights—enabling participants to protect ideas and strengthen business growth.
+        </p>
+
+        <div style="text-align: left;">
+          <a class="btn btn-register" target="_blank" href="https://docs.google.com/forms/d/1UPbfmXx__Jc5e8Vl5BgqdPKYbtkhh_h97kJLdyZ0d8o/edit?ts=69784913">Apply Now</a>
+        </div>
+         
+          </div>
+        </div>
+      </section>
+
+     
+      
+    </main>
+  </div>
+</section>
+
+
+
+<!-- <section class="hackathons">
+  <div class="container">
+    <h2 class="heading">Hackathons and  Challenges</h2>
+
+    <div class="cards">
+      <article class="card">
+        <figure class="media">
+          <img src="assets/events/msme-ai.png" alt="Andhra Pradesh MSME - Digital Empowerment Challenge 2025">
+        </figure>
+        <h3 class="title">Andhra Pradesh MSME- <br> Digital Empowerment <br> Challenge 2025</h3>
+        <a class="btn btn-yellow" target="_blank" href="https://apisinnovationchallenges.ap.gov.in/#/challenges/msme/msme-hackathon">Know More</a>
+      </article>
+
+      <article class="card">
+        <figure class="media">
+          <img src="assets/events/pgrs-ai.png" alt="RTGS-PGRS AI Hackathon 2025">
+        </figure>
+        <h3 class="title">RTGS-PGRS AI Hackathon <br>2025 <br><br></h3>
+        <a class="btn btn-yellow" target="_blank" href="https://apisinnovationchallenges.ap.gov.in/#/challenges/rtgs/ai-hackathon">Know More</a>
+      </article>
+
+      <article class="card">
+        <figure class="media">
+          <img src="assets/events/health-ai.png" alt="Healthtech Innovation Challenge 2025">
+        </figure>
+        <h3 class="title">Healthtech Innovation <br>Challenge 2025<br><br></h3>        
+        <button class="btn btn-yellow" routerLink="/healthtech-innovation-challenge-2025" routerLinkActive="active">Know More</button>
+      </article>
+
+      <article class="card">
+        <figure class="media">
+          <img src="assets/events/ap-ai.png" alt="Andhra Pradesh AI Hackathons Challenge 2025">
+        </figure>
+        <h3 class="title">Andhra Pradesh AI Hackathons <br>Challenge 2025<br><br></h3>
+        <a class="btn btn-yellow" target="_blank" href="https://rtgs.ap.gov.in/hackathons/#/home/index">Know More</a>
+      </article>
+    </div>
+  </div>
+</section> -->
+
+<!-- <div class="container" style="padding-top:50px; text-align: center;">
+      <section
+        id="pre-incubation"
+        class="program-section"
+        tabindex="-1"
+        #progSection
+      >
+        <div class="stage-card pb-3">
+
+          <h3 class="stage-title">Innovation Challenges</h3>
+
+          <h3 class="stage-title">Coming Soon...</h3>
+          
+        </div>
+        <div style="text-align: center;">
+    </div>
+      </section>
+
+</div> -->
+
+
+<app-footer-rtih></app-footer-rtih>

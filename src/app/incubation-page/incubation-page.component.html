@@ -1,0 +1,890 @@
+<app-header-rtih></app-header-rtih>
+
+<!-- ==================================================================================
+     MAIN MODE  ("/incubation")
+     ================================================================================== -->
+<ng-container *ngIf="mode === 'main'">
+  <div class="social-bar-wrapper">
+    <nav class="social-glass-bar" aria-label="Social links">
+      <a
+        *ngFor="let link of socialLinks; trackBy: trackBySocialHref"
+        class="social-link"
+        [href]="link.href"
+        [attr.aria-label]="link.label"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="social-icon" aria-hidden="true">
+          <ng-container [ngSwitch]="link.icon">
+            <svg *ngSwitchCase="'x'" viewBox="0 0 24 24" focusable="false">
+              <path d="M4 4h4.1l4.1 5.7L16.9 4H20l-6.5 8.3L20 20h-4.1l-4.4-6.1L6.4 20H4l6.8-8.6L4 4Zm4.8 0L15 12.1 19.2 4h-2.4l-4 5.5L6.2 4H4.8Z"></path>
+            </svg>
+            <svg *ngSwitchCase="'linkedin'" viewBox="0 0 24 24" focusable="false">
+              <path d="M6.1 8.5H3.6V20h2.5V8.5ZM4.8 3.4A1.6 1.6 0 1 0 4.8 6.6 1.6 1.6 0 0 0 4.8 3.4ZM20.4 20h-2.5v-5.7c0-1.5-.1-3.3-2.1-3.3s-2.4 1.6-2.4 3.2V20h-2.5V8.5h2.4v1.6h.1c.4-.8 1.5-1.7 3-1.7 3.2 0 3.8 2.1 3.8 4.9V20Z"></path>
+            </svg>
+            <svg *ngSwitchCase="'facebook'" viewBox="0 0 24 24" focusable="false">
+              <path d="M14.2 8.2h2.2V5.1c-.4-.1-1.6-.2-2.9-.2-2.8 0-4.7 1.7-4.7 4.9V12H6.4v3.2h2.4V20h3.2v-4.8h2.6l.4-3.2h-3v-1.9c0-.9.2-1.5 1.6-1.5Z"></path>
+            </svg>
+            <svg *ngSwitchCase="'instagram'" viewBox="0 0 24 24" focusable="false">
+              <path d="M7.4 3h9.2A4.4 4.4 0 0 1 21 7.4v9.2A4.4 4.4 0 0 1 16.6 21H7.4A4.4 4.4 0 0 1 3 16.6V7.4A4.4 4.4 0 0 1 7.4 3Zm0 2A2.4 2.4 0 0 0 5 7.4v9.2A2.4 2.4 0 0 0 7.4 19h9.2a2.4 2.4 0 0 0 2.4-2.4V7.4A2.4 2.4 0 0 0 16.6 5H7.4Zm4.6 2.2A5.4 5.4 0 1 1 12 18.4a5.4 5.4 0 0 1 0-10.8Zm0 2A3.4 3.4 0 1 0 12 16.6a3.4 3.4 0 0 0 0-6.8Zm5.4-.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"></path>
+            </svg>
+            <svg *ngSwitchCase="'youtube'" viewBox="0 0 24 24" focusable="false">
+              <path d="M21.8 7.6a2.8 2.8 0 0 0-2-2C18 5.1 12 5.1 12 5.1s-6 0-7.8.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .2 4.4 2.8 2.8 0 0 0 2 2c1.8.5 7.8.5 7.8.5s6 0 7.8-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.2-4.4ZM10 15.1V8.9l5.4 3.1L10 15.1Z"></path>
+            </svg>
+            <svg *ngSwitchDefault viewBox="0 0 24 24" focusable="false">
+              <path d="M12 4l8 8-8 8-8-8 8-8Z"></path>
+            </svg>
+          </ng-container>
+        </span>
+      </a>
+    </nav>
+  </div>
+
+  <main class="incubation-page">
+    <section class="hero" aria-label="Incubation hero">
+      <div class="hero-media">
+        <video
+          #heroVideo
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          (loadedmetadata)="heroVideo.muted = true; heroVideo.defaultMuted = true; heroVideo.volume = 0"
+          (canplay)="heroVideo.muted = true; heroVideo.defaultMuted = true; heroVideo.volume = 0">
+          <source [attr.src]="heroVideoSrc" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>{{ heroHeadline }}</h1>
+        <p class="hero-copy">{{ heroCopy }}</p>
+        <a class="hero-cta" [href]="incubationApplyUrl">{{ heroCtaLabel }} <span>&#8599;</span></a>
+      </div>
+    </section>
+
+    <section class="about" aria-labelledby="about-title">
+      <div class="about-container">
+        <div class="about-media">
+          <div class="about-image-shell">
+            <div class="about-glow" aria-hidden="true"></div>
+            <img
+              [src]="resolveAsset('incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg')"
+              alt="RTIH AP inauguration ceremony">
+          </div>
+        </div>
+        <div class="about-content">
+          <h2 id="about-title">RTIH AP Incubation Ecosystem</h2>
+          <p class="about-description">
+            RTIH AP empowers startups across Andhra Pradesh with structured incubation, expert mentorship, funding access,
+            and practical innovation support. Through collaboration with universities, industry partners, and ecosystem
+            builders, we help founders validate ideas, accelerate product development, and grow sustainably within a
+            connected startup network.
+          </p>
+          <div class="about-ctas">
+            <a class="about-btn about-btn-primary" href="#incubation-programs">Explore Programs <span>&#8594;</span></a>
+            <a class="about-btn about-btn-secondary" href="#programs">Learn More <span>&#8599;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AP interactive map widget ============ -->
+    <section class="ap-interactive-map" aria-labelledby="interactive-map-title">
+      <div class="map-shell">
+        <div class="map-header">
+          <h2 id="interactive-map-title">Focus Sectors</h2>
+        </div>
+
+        <div class="map-grid">
+          <div class="map-panel map-panel--left">
+            <div class="svg-frame" #mapWrapper>
+              <svg
+                #mapSvg
+                [attr.viewBox]="svgViewBox"
+                preserveAspectRatio="xMidYMid meet"
+                aria-label="Andhra Pradesh district map"
+                [class.is-loading]="mapLoading">
+                <g class="districts">
+                  <ng-container *ngFor="let district of districts">
+                    <path
+                      [attr.d]="district.path"
+                      [attr.fill]="district.isHighlighted && hoveredDistrict?.id === district.id ? '#F6D84A' : district.isHighlighted ? '#612B88' : '#CEBCE8'"
+                      [attr.stroke]="district.isHighlighted && hoveredDistrict?.id === district.id ? '#D8B800' : district.isHighlighted ? '#612B88' : '#B29BD4'"
+                      [attr.stroke-width]="district.isHighlighted ? 1.8 : 1"
+                      [attr.fill-opacity]="district.isHighlighted ? 1 : 1"
+                      [attr.opacity]="1"
+                      class="district"
+                      [class.district-base]="!district.isHighlighted"
+                      [class.highlighted]="district.isHighlighted"
+                      (mouseenter)="setHoveredDistrict(district)"
+                      (mouseleave)="clearHoveredDistrict(district)"
+                      aria-label="{{ district.name }}"
+                    ></path>
+                  </ng-container>
+                </g>
+
+                <g *ngFor="let annotation of annotations" class="annotation-group">
+                  <path [attr.d]="annotation.linePath" class="annotation-line" />
+                  <text
+                    [attr.x]="annotation.x"
+                    [attr.y]="annotation.y"
+                    [attr.text-anchor]="annotation.textAnchor"
+                    dy="0.35em"
+                    class="annotation-label">
+                    {{ annotation.label }}
+                  </text>
+                </g>
+
+                <g *ngIf="hubPin" class="hub-pin"
+                  (mouseenter)="setActiveDistrict(hubDistrict)"
+                  aria-label="Amaravati hub marker"
+                  role="button">
+                  <circle class="hub-pin__glow" [attr.cx]="hubPin.cx" [attr.cy]="hubPin.cy" [attr.r]="hubPin.size * 0.96" />
+                  <circle class="hub-pin__ring" [attr.cx]="hubPin.cx" [attr.cy]="hubPin.cy" [attr.r]="hubPin.size * 0.7" />
+                  <circle class="hub-pin__core" [attr.cx]="hubPin.cx" [attr.cy]="hubPin.cy" [attr.r]="hubPin.size * 0.52" />
+                  <g
+                    class="hub-pin__badge"
+                    [attr.transform]="'translate(' + (hubPin.cx - hubPin.size * 0.42) + ' ' + (hubPin.cy - hubPin.size * 0.42) + ')'">
+                    <rect class="hub-pin__base" x="6" y="24" width="12" height="4" rx="2" />
+                    <rect class="hub-pin__tower hub-pin__tower--left" x="4" y="10" width="4" height="14" rx="0.8" />
+                    <rect class="hub-pin__tower hub-pin__tower--center" x="9" y="5" width="6" height="19" rx="1" />
+                    <rect class="hub-pin__tower hub-pin__tower--right" x="16" y="13" width="4" height="11" rx="0.8" />
+                    <rect class="hub-pin__window" x="5.1" y="12" width="1.1" height="1.1" rx="0.2" />
+                    <rect class="hub-pin__window" x="5.1" y="14.6" width="1.1" height="1.1" rx="0.2" />
+                    <rect class="hub-pin__window" x="5.1" y="17.2" width="1.1" height="1.1" rx="0.2" />
+                    <rect class="hub-pin__window" x="5.1" y="19.8" width="1.1" height="1.1" rx="0.2" />
+                    <rect class="hub-pin__window" x="10.2" y="7.2" width="1.2" height="1.2" rx="0.2" />
+                    <rect class="hub-pin__window" x="10.2" y="10.1" width="1.2" height="1.2" rx="0.2" />
+                    <rect class="hub-pin__window" x="10.2" y="13" width="1.2" height="1.2" rx="0.2" />
+                    <rect class="hub-pin__window" x="13.1" y="7.2" width="1.2" height="1.2" rx="0.2" />
+                    <rect class="hub-pin__window" x="13.1" y="10.1" width="1.2" height="1.2" rx="0.2" />
+                    <rect class="hub-pin__window" x="13.1" y="13" width="1.2" height="1.2" rx="0.2" />
+                    <rect class="hub-pin__window" x="17.1" y="15" width="1" height="1" rx="0.2" />
+                    <rect class="hub-pin__window" x="17.1" y="17.5" width="1" height="1" rx="0.2" />
+                  </g>
+                  <title>Amaravati (Hub)</title>
+                </g>
+              </svg>
+
+              <div class="map-overlay" *ngIf="mapLoading">Loading map…</div>
+            </div>
+          </div>
+
+          <aside class="map-panel map-panel--right">
+            <div class="info-card">
+              <div class="panel-details">
+                <div class="panel-header-block">
+                  <h3 class="panel-title-text">{{ getDistrictPanelTitle(activeDistrict) }}</h3>
+                </div>
+
+                <div class="sectors-section-block">
+                  <div class="sector-grid-layout">
+                    <div class="sector-card-premium" *ngFor="let sector of activeDistrict?.sectors ?? sectorData['Amaravati (Hub)']">
+                      <div class="sector-card-icon-box">
+                        <img class="sector-icon-img" *ngIf="sector.icon" [src]="getIconUrl(sector.icon)" [alt]="sector.name + ' icon'" />
+                      </div>
+                      <span class="sector-card-title-text">{{ sector.name }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <section class="partners-section-block" *ngIf="hasPartnerGroup(activeDistrict)">
+                  <div class="divider-line"></div>
+
+                  <div class="promoters-grid-row">
+                    <div class="partner-card-group">
+                      <p class="partner-group-title">Lead Promoter</p>
+                      <div class="partner-logos-container">
+                        <div class="partner-logo-item-wrapper" *ngFor="let partner of getPartnerGroup(activeDistrict)?.leadPromoter">
+                          <img [src]="partner.logoSrc" [alt]="partner.logoAlt" class="partner-logo-img" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="partner-card-group">
+                      <p class="partner-group-title">Co Promoter</p>
+                      <div class="partner-logos-container">
+                        <div class="partner-logo-item-wrapper" *ngFor="let partner of getPartnerGroup(activeDistrict)?.coPromoter">
+                          <img [src]="partner.logoSrc" [alt]="partner.logoAlt" class="partner-logo-img" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider-line"></div>
+
+                  <div class="partner-card-group knowledge-partners-group">
+                    <p class="partner-group-title">Knowledge Partners</p>
+                    <div class="partner-logos-container partner-logos-container--wrap">
+                      <div class="partner-logo-item-wrapper" *ngFor="let partner of getPartnerGroup(activeDistrict)?.knowledgePartners">
+                        <img [src]="partner.logoSrc" [alt]="partner.logoAlt" class="partner-logo-img" />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="metrics"
+      [class.metric-intro-active]="hasMetricIntroStarted"
+      aria-labelledby="metrics-title"
+      #metricsSection>
+      <h2 id="metrics-title">The RTIH Network</h2>
+      <div
+        class="metric-carousel"
+        aria-label="RTIH network metrics"
+      >
+        <div
+          class="metric-track">
+          <article
+            class="metric-card"
+            *ngFor="let metric of metrics; let i = index">
+            <strong>{{ animatedMetrics[i % metrics.length] || 0 }}+</strong>
+            <span>{{ metric.label }}</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      #eventsSection
+      class="events-section"
+      [class.reveal-active]="isEventsSectionActive"
+      aria-label="RTIH AP events image carousel">
+      <div class="events-shell">
+        <div
+          class="events-carousel-card"
+          (touchstart)="onSummitTouchStart($event)"
+          (touchend)="onSummitTouchEnd($event)">
+          <button type="button" class="summit-banner-arrow summit-banner-arrow-left" aria-label="Previous slide" (click)="previousSummitSlide()">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15 6l-6 6 6 6"></path>
+            </svg>
+          </button>
+
+          <div
+            class="summit-banner-track"
+            [style.width.%]="100"
+            [style.transform]="'translateX(-' + (currentSummitSlideIndex * 100) + '%)'">
+            <article
+              class="summit-banner-slide"
+              *ngFor="let slide of summitSlides; let i = index"
+              [class.is-active]="i === currentSummitSlideIndex">
+              <img
+                class="summit-banner-image"
+                [src]="resolveAsset(slide.imageSrc)"
+                [alt]="slide.imageAlt"
+                [style.object-position]="slide.imageObjectPosition || 'center 50%'">
+              <div class="summit-banner-overlay" aria-hidden="true"></div>
+              <div class="carousel-content">
+                <h2 class="carousel-title" [attr.id]="i === 0 ? 'summit-banner-title' : null">{{ slide.title }}</h2>
+                <p class="carousel-description">{{ slide.description }}</p>
+                <div class="carousel-meta" aria-label="Event date and location">
+                  <span class="carousel-date"><span class="carousel-meta-icon" aria-hidden="true">📅</span>{{ slide.date }}</span>
+                  <span class="carousel-separator" aria-hidden="true">|</span>
+                  <span class="carousel-location"><span class="carousel-meta-icon" aria-hidden="true">📍</span>{{ slide.location }}</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <button type="button" class="summit-banner-arrow summit-banner-arrow-right" aria-label="Next slide" (click)="nextSummitSlide()">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 6l6 6-6 6"></path>
+            </svg>
+          </button>
+
+          <div class="summit-banner-dots" aria-label="RTIH AP carousel slides">
+            <button
+              *ngFor="let slide of summitSlides; let i = index"
+              type="button"
+              class="summit-banner-dot"
+              [class.active]="i === currentSummitSlideIndex"
+              [attr.aria-label]="'Go to slide ' + (i + 1)"
+              [attr.aria-current]="i === currentSummitSlideIndex ? 'true' : null"
+              (click)="goToSummitSlide(i)">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      #programsSection
+      class="programs"
+      [class.reveal-active]="isProgramsSectionActive"
+      id="programs"
+      aria-labelledby="program-title">
+      <div class="section-heading">
+        <h2 id="program-title">{{ benefitsSectionTitle }}</h2>
+      </div>
+      <div class="program-grid">
+        <article
+          class="program-card"
+          *ngFor="let program of benefitPrograms; let i = index"
+          [style.--program-index]="i"
+          [class.program-card--static]="program.disableFlip"
+          [class.program-card--link]="program.route"
+          [attr.role]="program.route ? 'link' : null"
+          tabindex="0"
+          (click)="openBenefitCard(program)"
+          (keydown.enter)="openBenefitCard(program)"
+          (keydown.space)="openBenefitCard(program); $event.preventDefault()">
+          <div class="program-card-inner">
+            <div class="program-card-face program-card-front">
+              <img [src]="resolveAsset(program.imageSrc)" [alt]="program.imageAlt">
+              <div class="program-card-overlay" aria-hidden="true">
+                <span>{{ program.title }}</span>
+                <span class="program-card-arrow">&rarr;</span>
+              </div>
+            </div>
+            <div class="program-card-face program-card-back" *ngIf="!program.disableFlip">
+              <p>{{ program.text }}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Programs carousel widget ============ -->
+    <section id="incubation-programs" class="incubation-programs" aria-labelledby="incubation-programs-title">
+      <div class="incubation-shell">
+        <div class="incubation-hero">
+          <h2 id="incubation-programs-title">Incubation Programs</h2>
+          <div class="program-tabs" role="tablist" aria-label="Incubation program tabs">
+            <button
+              type="button"
+              role="tab"
+              class="program-tab"
+              [class.active]="activeMainTab === 'core'"
+              [attr.aria-selected]="activeMainTab === 'core'"
+              (click)="selectMainTab('core')">
+              Core Incubation
+            </button>
+            <button
+              type="button"
+              role="tab"
+              class="program-tab"
+              [class.active]="activeMainTab === 'focused'"
+              [attr.aria-selected]="activeMainTab === 'focused'"
+              (click)="selectMainTab('focused')">
+              Focused Tracks
+            </button>
+            <button
+              type="button"
+              role="tab"
+              class="program-tab"
+              [class.active]="activeMainTab === 'sectorCohorts'"
+              [attr.aria-selected]="activeMainTab === 'sectorCohorts'"
+              (click)="selectMainTab('sectorCohorts')">
+              Sector Specific Cohorts
+            </button>
+          </div>
+
+          <div *ngIf="activeMainTab === 'focused'" class="program-subtabs" role="tablist" aria-label="Focused tracks sub tabs">
+            <button
+              type="button"
+              role="tab"
+              class="program-tab program-tab--sub"
+              [class.active]="activeSubTab === 'sector'"
+              [attr.aria-selected]="activeSubTab === 'sector'"
+              (click)="selectSubTab('sector')">
+              Sector-Specific
+            </button>
+            <button
+              type="button"
+              role="tab"
+              class="program-tab program-tab--sub"
+              [class.active]="activeSubTab === 'solo'"
+              [attr.aria-selected]="activeSubTab === 'solo'"
+              (click)="selectSubTab('solo')">
+              Solo Innovators
+            </button>
+          </div>
+        </div>
+
+        <div class="program-panel">
+          <div
+            class="incubation-carousel"
+            (mouseenter)="pauseAutoplay()"
+            (mouseleave)="resumeAutoplay()"
+            (touchstart)="pauseAutoplay()"
+            (touchend)="resumeAutoplay()">
+            <button
+              type="button"
+              class="incubation-arrow"
+              aria-label="Scroll incubation programs left"
+              (click)="scrollIncubationPrograms(-1)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M14.5 6.5L9 12l5.5 5.5"></path>
+              </svg>
+            </button>
+
+            <div
+              #incubationCarousel
+              class="incubation-viewport"
+              aria-label="Incubation programs">
+              <div class="incubation-strip">
+                <article class="ptrack-card" *ngFor="let program of activePrograms">
+                  <div class="program-card-image">
+                    <img [src]="resolveProgramAsset(program.imagePath)" [alt]="program.title">
+                  </div>
+
+                  <div class="program-card-body">
+                    <h3>{{ program.title }}</h3>
+                    <p class="program-desc">{{ program.duration }} | {{ program.selection }}. {{ program.desc }}</p>
+
+                    <a *ngIf="!program.external" class="program-link" [routerLink]="program.route">
+                      Read More <span aria-hidden="true">→</span>
+                    </a>
+                    <a *ngIf="program.external" class="program-link" [href]="program.route" target="_blank" rel="noopener noreferrer">
+                      Read More <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="incubation-arrow"
+              aria-label="Scroll incubation programs right"
+              (click)="scrollIncubationPrograms(1)">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M9.5 6.5L15 12l-5.5 5.5"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="startups"
+      [class.portfolio-active]="isStartupPortfolioActive"
+      aria-labelledby="startups-title"
+      #startupSection>
+      <div class="startups-head">
+        <h2 id="startups-title">Startup Portfolio</h2>
+      </div>
+
+      <div class="startup-grid">
+        <article class="startup-card" *ngFor="let startup of featuredStartupCards; let i = index" [style.--i]="i" tabindex="0">
+          <div class="startup-top">
+            <div class="startup-mark" aria-hidden="true">
+              <img [src]="resolveAsset(startup.logoSrc)" [alt]="startup.alt">
+            </div>
+            <div class="startup-meta">
+              <h3>{{ startup.name }}</h3>
+              <p>{{ startup.year }}</p>
+            </div>
+          </div>
+
+          <p class="startup-summary">{{ startup.summary }}</p>
+        </article>
+      </div>
+
+      <div class="startups-footer">
+        <a class="view-all-startups" href="#contact">
+          <span>View All Startups</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <path d="M7 5h8v8"></path>
+            <path d="M5 15l10-10"></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+
+    <section class="voices" aria-labelledby="voices-title">
+      <div class="voice-feature relative mx-auto w-[380px] aspect-[4/6] overflow-hidden rounded-[12px] bg-[#e9edf2] md:w-[430px]">
+        <video
+          #storyClip
+          class="h-full w-full object-cover"
+          autoplay
+          [muted]="isStoryMuted"
+          playsinline
+          preload="auto"
+          [src]="resolveAsset(activeStory.video)"
+          (loadedmetadata)="prepareStoryVideo(storyClip)"
+          (timeupdate)="advanceStoryAfterTenSeconds(storyClip)">
+        </video>
+        <button
+          class="play-button"
+          type="button"
+          (click)="toggleStorySound(storyClip)"
+          [attr.aria-label]="isStoryMuted ? 'Unmute founder story' : 'Mute founder story'">
+          <svg *ngIf="isStoryMuted" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+            <path d="M17 9l4 4m0-4l-4 4"></path>
+          </svg>
+          <svg *ngIf="!isStoryMuted" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z"></path>
+            <path d="M17 8a5 5 0 0 1 0 8"></path>
+            <path d="M19.5 5.5a9 9 0 0 1 0 13"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="voice-content">
+        <h2 id="voices-title">Hear From <span>Our Startups</span></h2>
+        <h3>{{ activeStory.name }}</h3>
+        <p>{{ activeStory.role }}</p>
+        <div class="story-controls" aria-label="Story controls">
+          <button class="story-nav-btn" type="button" aria-label="Previous story" (click)="showPreviousStory(storyClip)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15 6l-6 6 6 6"></path>
+            </svg>
+          </button>
+          <button class="story-nav-btn" type="button" aria-label="Next story" (click)="showNextStory(storyClip)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9 6l6 6-6 6"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="thumb-row">
+          <button
+            class="thumb-button"
+            type="button"
+            *ngFor="let story of stories; let i = index"
+            [class.active]="i === activeStoryIndex"
+            (click)="selectStory(i, storyClip)"
+            [attr.aria-label]="'Show story for ' + story.name">
+            <video
+              #thumbClip
+              muted
+              playsinline
+              preload="auto"
+              [src]="resolveAsset(story.video)"
+              (loadeddata)="prepareThumbnail(thumbClip)">
+            </video>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Incubation FAQ widget ============ -->
+    <section id="faq" class="incubation-faq" aria-labelledby="incubation-faq-title">
+      <div class="faq-shell">
+        <div class="faq-layout">
+          <aside class="faq-copy">
+            <span class="section-kicker">Frequently asked questions</span>
+            <h2 id="incubation-faq-title">RTIH Incubation</h2>
+            <p class="faq-lead">Quick answers for founders exploring the program. Open a question or show more to see the full list.</p>
+            <div class="faq-note">
+              <span>Can't find what you're looking for? <a href="mailto:incubation@rtih.co.in">Contact support</a></span>
+              <p>Eligibility, program length, support, funding, application flow, and what happens after onboarding.</p>
+            </div>
+          </aside>
+
+          <div class="faq-list-wrap">
+            <div class="faq-panel" aria-label="Incubation questions">
+              <article
+                *ngFor="let faq of visibleFaqs; let i = index"
+                class="faq-item"
+                [class.is-open]="i === activeFaqIndex">
+                <button
+                  type="button"
+                  class="faq-question"
+                  [attr.aria-expanded]="i === activeFaqIndex"
+                  [attr.aria-controls]="'faq-answer-' + i"
+                  [attr.id]="'faq-question-' + i"
+                  (click)="toggleFaq(i)">
+                  <span class="faq-question__text">{{ faq.question }}</span>
+                  <span class="faq-toggle" aria-hidden="true">
+                    <span class="faq-toggle__symbol">{{ i === activeFaqIndex ? '-' : '+' }}</span>
+                  </span>
+                </button>
+
+                <div
+                  class="faq-answer"
+                  [id]="'faq-answer-' + i"
+                  role="region"
+                  [attr.aria-labelledby]="'faq-question-' + i"
+                  [class.open]="i === activeFaqIndex">
+                  <div class="faq-answer__inner">
+                    <p>{{ faq.answer }}</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="faq-actions">
+              <button type="button" class="show-more" (click)="toggleMoreFaqs()">
+                <span>{{ showAllFaqs ? 'Show Less' : 'Show More' }}</span>
+                <span class="show-more__symbol" aria-hidden="true">{{ showAllFaqs ? '-' : '+' }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="build-your-startup" class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-shell">
+        <div class="cta-content">
+          <span class="cta-eyebrow">Build with RTIH</span>
+          <h2 id="cta-title">
+            <span>Build your startup with</span>
+            <span>RTIH AP</span>
+          </h2>
+          <p class="cta-copy">
+            Join a focused incubation ecosystem designed for founders who want real mentorship, funding access, innovation support, and a clearer path from idea to scale.
+          </p>
+
+          <div class="cta-actions">
+            <a class="cta-primary" [href]="incubationApplyUrl">Apply Now <span aria-hidden="true">&#8599;</span></a>
+
+          </div>
+        </div>
+
+        <div class="cta-illustration" aria-hidden="true">
+          <img
+            [src]="resolveAsset('incubation/cta-illustration-white.png')"
+            alt=""
+            loading="lazy"
+            decoding="async">
+        </div>
+      </div>
+    </section>
+  </main>
+</ng-container>
+
+<!-- ==================================================================================
+     PROGRAM MODE  ("/programs/:programId", "/spark", "/catalyst", etc.)
+     ================================================================================== -->
+<div class="incu-program-page" *ngIf="mode === 'program'">
+  <main
+    class="program-page"
+    *ngIf="program as program; else notFound"
+    [style.--program-primary]="program.colors.primary"
+    [style.--program-secondary]="program.colors.secondary"
+    [style.--program-light-bg]="program.colors.lightBg"
+    [style.--program-dark]="program.colors.dark">
+
+    <div class="program-loading-banner" *ngIf="programLoading" style="padding:10px 20px;text-align:center;background:#f7f2ff;color:#5b2a86;font-size:14px;">
+      Loading program details&hellip;
+    </div>
+
+    <section class="band band--hero">
+      <div class="section-inner">
+        <a class="program-hero__back" routerLink="/incubation">
+          <span>&larr;</span> Back to Incubation
+        </a>
+
+        <div class="program-hero__grid">
+          <div class="program-hero__content hero-enter">
+            <span class="eyebrow"><span class="eyebrow__dot"></span>RTIH incubation track</span>
+            <h1>{{ program.name }}</h1>
+            <p class="program-hero__tagline">{{ program.tagline }}</p>
+            <p class="program-hero__lead">{{ program.fullDescription }}</p>
+
+            <div class="program-hero__actions">
+              <a class="btn btn-primary" [href]="program.applyUrl || incubationApplyUrl" target="_blank" rel="noopener noreferrer">Apply Now</a>
+              <a class="btn btn-secondary" href="#program-overview">Explore the Track</a>
+            </div>
+          </div>
+
+          <div class="program-hero__visual hero-enter hero-enter--delay">
+            <div class="program-hero__image-frame" [class.program-hero__image-frame--placeholder]="!program.imageSrc">
+              <img *ngIf="program.imageSrc" [src]="program.imageSrc" [alt]="program.imageAlt" />
+              <div class="program-hero__image-placeholder" *ngIf="!program.imageSrc" aria-hidden="true">
+                <mat-icon>image</mat-icon>
+              </div>
+            </div>
+            <div class="program-hero__badge" *ngIf="program.programHighlights.length > 0">
+              <span>Focus</span>
+              <strong>{{ program.programHighlights[0] }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-hero__facts" *ngIf="programFacts.length > 0">
+          <article class="reveal" *ngFor="let fact of programFacts; let i = index" [style.transition-delay.ms]="i * 70">
+            <span>{{ fact.label }}</span>
+            <strong>{{ fact.value }}</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--overview" id="program-overview">
+      <div class="section-inner">
+        <div class="overview-layout">
+          <div class="overview-intro reveal">
+            <span class="section-kicker">About this track</span>
+            <h2>Built for founders who want a clear next step</h2>
+            <p class="overview-lead">{{ program.description }}</p>
+
+            <div class="chip-row" aria-label="Target audience" *ngIf="program.targetAudience.length > 0">
+              <span *ngFor="let audience of program.targetAudience">{{ audience }}</span>
+            </div>
+
+            <blockquote class="overview-quote">
+              RTIH uses this track to reduce uncertainty, surface the right mentors, and move founders into
+              the next stage of their journey with a more useful plan.
+            </blockquote>
+
+            <div class="partner-strip" aria-label="Partners" *ngIf="program.partners.length > 0">
+              <span class="partner-strip__label">Delivered with</span>
+              <span class="partner-strip__names">{{ program.partners.join(' · ') }}</span>
+            </div>
+          </div>
+
+          <aside
+            class="overview-highlights reveal"
+            style="transition-delay: 120ms"
+            *ngIf="program.programHighlights.length > 0 || program.learningOutcomes.length > 0">
+            <ng-container *ngIf="program.programHighlights.length > 0">
+              <h3>RTIH support layers</h3>
+              <ul>
+                <li *ngFor="let highlight of program.programHighlights">{{ highlight }}</li>
+              </ul>
+            </ng-container>
+
+            <ng-container *ngIf="program.learningOutcomes.length > 0">
+              <h3>You'll walk away with</h3>
+              <div class="outcome-list">
+                <span *ngFor="let outcome of program.learningOutcomes">{{ outcome }}</span>
+              </div>
+            </ng-container>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--features" *ngIf="program.features.length > 0">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Support pillars</span>
+          <h2>What participants get inside the track</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article
+            *ngFor="let feature of program.features; let i = index"
+            class="reveal"
+            [class.feature--alt]="i % 2 === 1"
+            [style.transition-delay.ms]="i * 90">
+            <mat-icon>{{ feature.icon }}</mat-icon>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--journey" *ngIf="program.applicationSteps.length > 0">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Application journey</span>
+          <h2>How the track typically moves from intake to progress</h2>
+        </div>
+
+        <div class="journey-track">
+          <div class="journey-line" aria-hidden="true"></div>
+          <article *ngFor="let step of program.applicationSteps; let i = index" class="reveal" [style.transition-delay.ms]="i * 90">
+            <span class="journey-track__number">{{ step.number }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.description }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--faq" *ngIf="program.faqs.length > 0">
+      <div class="section-inner">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Common questions</span>
+          <h2>Fast answers for founders and teams</h2>
+        </div>
+
+        <div class="faq-list">
+          <article *ngFor="let faq of program.faqs; let i = index; trackBy: trackByIndex" class="reveal" [class.is-open]="faq.open" [style.transition-delay.ms]="i * 80">
+            <button type="button" class="faq-question" (click)="toggleProgramFaq(i)" [attr.aria-expanded]="faq.open">
+              <span>{{ faq.question }}</span>
+              <span class="faq-icon" [class.open]="faq.open">+</span>
+            </button>
+            <div class="faq-answer-wrap">
+              <div class="faq-answer">
+                <p>{{ faq.answer }}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--cta">
+      <div class="section-inner">
+        <div class="program-cta reveal">
+          <div class="program-cta__copy">
+            <span class="section-kicker">Ready to build?</span>
+            <h2>Bring the idea, RTIH will bring the ecosystem.</h2>
+            <p>
+              Use this track as the next step in your incubation journey, then continue into funding,
+              partnerships, and founder support.
+            </p>
+
+            <div class="program-cta__actions">
+              <a class="btn btn-primary" *ngIf="program.contacts.email" [href]="mailtoLink(program.contacts.email)" target="_blank" rel="noopener noreferrer">Email RTIH</a>
+              <a class="btn btn-secondary" *ngIf="program.contacts.phone" [href]="telLink(program.contacts.phone)">Call Now</a>
+              <a class="btn btn-secondary" *ngIf="program.contacts.address" [href]="programMapLink(program.contacts.address)" target="_blank" rel="noopener noreferrer">Get Directions</a>
+            </div>
+          </div>
+
+          <div class="program-cta__details" *ngIf="program.contacts.email || program.contacts.phone || program.contacts.address">
+            <div *ngIf="program.contacts.email">
+              <mat-icon>mail</mat-icon>
+              <div>
+                <span>Email</span>
+                <strong>{{ program.contacts.email }}</strong>
+              </div>
+            </div>
+            <div *ngIf="program.contacts.phone">
+              <mat-icon>call</mat-icon>
+              <div>
+                <span>Phone</span>
+                <strong>{{ program.contacts.phone }}</strong>
+              </div>
+            </div>
+            <div *ngIf="program.contacts.address">
+              <mat-icon>location_on</mat-icon>
+              <div>
+                <span>Location</span>
+                <strong>{{ program.contacts.address }}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <ng-template #notFound>
+    <main class="program-page program-page--not-found">
+      <section class="program-not-found">
+        <span class="section-kicker">RTIH incubation</span>
+        <h1>Program page not found</h1>
+        <p>The requested program is not available yet. Return to the incubation hub to browse the live tracks.</p>
+        <a class="btn btn-primary" routerLink="/incubation">Return to Incubation</a>
+      </section>
+    </main>
+  </ng-template>
+</div>
+
+<!-- ==================================================================================
+     TOOLKIT MODE  ("/startup-toolkit")
+     ================================================================================== -->
+<div class="incu-toolkit-page" *ngIf="mode === 'toolkit'">
+  <main class="toolkit-page">
+    <app-startup-toolkit [categoriesOverride]="toolkitCategoriesOverride"></app-startup-toolkit>
+  </main>
+</div>
+
+<app-footer-rtih></app-footer-rtih>

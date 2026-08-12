@@ -1,0 +1,102 @@
+/* palette tuned to your mock */
+$ink: #101828;
+$muted: #667085;
+$chip: #7a4cc3;
+$chip-open: #5b2a86;
+$card-border: #eef1f6;
+
+.faq {
+  padding: 2.5rem 1rem;
+
+  .head {
+    text-align: center;
+    max-width: 880px;
+    margin: 0 auto 1.25rem;
+
+    h2 {
+      margin: 0 0 .5rem;
+      font: 800 2rem/1 "Figtree", sans-serif;
+      
+      color: #090A04;
+    }
+    p { margin: 0; color: $muted; padding-bottom: 30px; }
+  }
+
+  .faq-card {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid $card-border;
+    border-radius: 14px;
+    box-shadow: 0 30px 60px rgba(16,24,40,.06);
+    overflow: hidden;
+  }
+
+  .mat-expansion-panel {
+    border-radius: 0;
+}
+
+  /* Accordion list */
+  .list {
+    .item {
+      box-shadow: none !important;
+      border-bottom: 1px solid $card-border;
+
+      &.last { border-bottom: 0; }
+.mat-expansion-panel {
+    border-radius: 0;
+}
+      .mat-expansion-panel-header {
+        min-height: 64px;
+        padding: 0 20px;
+      }
+
+      .question {
+        color: #1e2a50;
+        font-weight: 600;
+        font-size: 16px;
+        font-family: "Figtree", sans-serif;
+        width: 95%;
+      }
+
+      .answer {
+        padding: 0 20px 16px 20px;
+        color: $muted;
+        line-height: 1.75;
+        font-family: "Figtree", sans-serif;
+      }
+
+      /* custom + / − control on the right */
+      .chip {
+        margin-left: auto;
+        width: 28px; height: 28px;
+        border-radius: 8px;
+        display: grid; place-items: center;
+        background: $chip; color: #fff;
+        font-weight: 800; font-size: 18px;
+        line-height: 1; user-select: none;
+      }
+      .chip.opened { background: $chip-open; }
+    }
+  }
+
+  .cta {
+    text-align: center;
+    margin-top: 18px;
+
+    .more {
+      background: #5b2a86;
+      color: #fff;
+      border-radius: 8px;
+      padding: .75rem 1.25rem;
+      font-weight: 400;
+      font-family: "Figtree", sans-serif;
+    }
+  }
+}
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .faq .list .item .mat-expansion-panel-header { padding: 0 16px; }
+  .faq .list .item .answer { padding: 0 16px 14px 16px; }
+}

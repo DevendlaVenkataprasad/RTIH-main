@@ -1,0 +1,221 @@
+<mat-sidenav-container class="rti-container">
+  <!-- Mobile drawer -->
+  <mat-sidenav #drawer mode="over" class="rti-drawer" [fixedInViewport]="true">
+    <nav class="drawer-nav">
+      <a mat-list-item routerLink="/" (click)="drawer.close()"
+         routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+
+      <a mat-list-item routerLink="/about" (click)="drawer.close()" routerLinkActive="active">About RTIH</a>
+      <!-- <a mat-list-item routerLink="/programs" (click)="drawer.close()" routerLinkActive="active">Programs & Events</a> -->
+       <mat-expansion-panel class="drawer-submenu">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Programs & Events</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <nav class="submenu-list">
+          <a mat-list-item [routerLink]="['/programs']" (click)="drawer.close()">
+            Programs
+          </a>
+          <a mat-list-item [routerLink]="['/events']" (click)="drawer.close()">
+            Events
+          </a>
+          <!-- Existing internal mapping:
+          <a mat-list-item [routerLink]="['/hackthons-challenges']">
+            Hackthons and Challenges
+          </a>
+          -->
+          <a mat-list-item href="https://challenges.rtih.co.in/all.html" (click)="drawer.close()">
+            Hackthons and Challenges
+          </a>
+          <mat-expansion-panel class="drawer-submenu nested-drawer-submenu">
+            <mat-expansion-panel-header>
+              <mat-panel-title>News Letters</mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <nav class="submenu-list newsletter-submenu-list">
+              <a mat-list-item href="assets/RTIH%20News%20Letter%20Jan-%20Mar%202026.pdf" target="_blank" rel="noopener" (click)="drawer.close()">
+                Jan-Mar 2026
+              </a>
+              <a mat-list-item href="assets/RTIH_NewsLetter%20Aug-%20Dec%202025.pdf" target="_blank" rel="noopener" (click)="drawer.close()">
+                Aug-Dec 2025
+              </a>
+            </nav>
+          </mat-expansion-panel>
+          <a mat-list-item [routerLink]="['/sunrise-connects']" (click)="drawer.close()">
+            Sunrise Connects
+          </a>          
+        </nav>
+      </mat-expansion-panel>
+      <a mat-list-item routerLink="/incubation" (click)="drawer.close()">Incubation</a>
+      <a mat-list-item routerLink="/grassroots-innovation" (click)="drawer.close()">Grassroot</a>
+      <mat-expansion-panel class="drawer-submenu">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Locations</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <nav class="submenu-list">
+          <a mat-list-item *ngFor="let d of districts"
+             [routerLink]="['/location', d.slug]"
+             (click)="drawer.close()">
+            {{ d.label }}
+          </a>
+        </nav>
+      </mat-expansion-panel>
+
+      
+      <!-- <a mat-list-item href="https://rtgs.ap.gov.in/hackathons/#/home/index" target="_blank">What’s New <img src="assets/new.gif" alt=""></a> -->
+       <mat-expansion-panel class="drawer-submenu">
+        <mat-expansion-panel-header>
+          <mat-panel-title>What's New</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <nav class="submenu-list">
+          <a mat-menu-item href="https://rtgs.ap.gov.in/hackathons/#/home/index" target="_blank" routerLinkActive="active" (click)="drawer.close()">
+              AI Hackthons
+            </a>
+             <a mat-menu-item (click)="goHomeFragment('partner-us'); drawer.close()" routerLinkActive="active">
+              Call for Mentors
+             </a>
+             <a mat-menu-item routerLink="/innotribe" (click)="drawer.close()" routerLinkActive="active">
+              InnoTribe
+             </a>
+             <a mat-menu-item href="https://apis.ap.gov.in/loan_mela/" target="_blank" routerLinkActive="active" (click)="drawer.close()">
+              Loan mela bankers connect
+            </a>
+            <!-- <a mat-menu-item routerLink="/RTIH-outpost-model" routerLinkActive="active">
+              RTIH-Outpost
+            </a> -->
+
+             <!-- <a mat-menu-item href="https://ap-quantum-valley-logo-rtih.softpages.in/" target="_blank" routerLinkActive="active">
+              Logo Competition
+            </a> -->
+                    
+        </nav>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="drawer-submenu">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Opportunities</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <nav class="submenu-list">
+          <a mat-button routerLink="/careers" routerLinkActive="active" (click)="drawer.close()">Careers</a>
+          <a mat-button routerLink="/tenders" routerLinkActive="active" (click)="drawer.close()">Tenders</a>    
+        </nav>
+      </mat-expansion-panel>
+    </nav>
+  </mat-sidenav>
+
+  <!-- Toolbar / header -->
+  <mat-sidenav-content>
+    <header class="rti-header mat-elevation-z2">
+      <mat-toolbar class="rti-toolbar">
+        <button class="mobile-only" mat-icon-button (click)="drawer.toggle()" aria-label="Open menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <a routerLink="/" class="brand" aria-label="RTIH Home">
+          <img src="assets/rtih-logo.svg" alt="Ratan Tata Innovation Hub" width="240" />
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="rti-nav">
+          <a mat-button routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+          <a mat-button routerLink="/about" routerLinkActive="active">About RTIH</a>
+          <!-- <a mat-button routerLink="/programs" routerLinkActive="active">Programs & Events</a> -->
+           <button mat-button [matMenuTriggerFor]="programMenu" class="menu-with-icon">
+            Programs & Events 
+          </button>
+          <mat-menu #programMenu="matMenu">
+            <button mat-menu-item routerLink="/programs" routerLinkActive="active">
+              Programs
+            </button>
+             <button mat-menu-item routerLink="/events" routerLinkActive="active">
+              Events
+            </button>
+            <!-- Existing internal mapping:
+            <button mat-menu-item routerLink="/hackthons-challenges" routerLinkActive="active">
+              Hackthons and Challenges
+            </button>
+            -->
+            <a mat-menu-item href="https://challenges.rtih.co.in/all.html">
+              Hackthons and Challenges
+            </a>
+            <button mat-menu-item [matMenuTriggerFor]="newsLettersMenu">
+              News Letters
+            </button>
+            <button mat-menu-item routerLink="/sunrise-connects" routerLinkActive="active">
+              Sunrise Connects
+            </button>
+        
+          </mat-menu>
+          <a mat-button routerLink="/incubation" routerLinkActive="active">Incubation</a>
+          <a mat-button routerLink="/grassroots-innovation" routerLinkActive="active">Grassroot</a>
+          <mat-menu #newsLettersMenu="matMenu">
+            <a mat-menu-item href="assets/RTIH%20News%20Letter%20Jan-%20Mar%202026.pdf" target="_blank" rel="noopener">
+              Jan-Mar 2026
+            </a>
+            <a mat-menu-item href="assets/RTIH_NewsLetter%20Aug-%20Dec%202025.pdf" target="_blank" rel="noopener">
+              Aug-Dec 2025
+            </a>
+          </mat-menu>
+          <!-- Desktop Spokes menu -->
+          <button mat-button [matMenuTriggerFor]="segMenu" class="menu-with-icon">
+            Locations 
+          </button>
+          
+          <mat-menu #segMenu="matMenu">
+            <button mat-menu-item *ngFor="let d of districts" (click)="goDistrict(d.slug)">
+              {{ d.label }}
+            </button>
+          </mat-menu>
+
+          <!-- <a mat-button (click)="goHomeFragment('rtih-contact')" routerLinkActive="active">Contact</a> -->
+          <!-- <a mat-button href="https://rtgs.ap.gov.in/hackathons/#/home/index" target="_blank">What’s New</a> -->
+           
+          <button mat-button [matMenuTriggerFor]="whatsMenu" class="menu-with-icon">
+            What’s New
+          </button>
+          <mat-menu #whatsMenu="matMenu">
+            <a mat-menu-item href="https://rtgs.ap.gov.in/hackathons/#/home/index" target="_blank" routerLinkActive="active">
+              AI Hackthons
+            </a>
+             <a mat-menu-item (click)="goHomeFragment('partner-us'); drawer.close()" routerLinkActive="active">
+              Call for Mentors
+             </a>
+             <a mat-menu-item routerLink="/innotribe" routerLinkActive="active">
+              InnoTribe
+             </a>
+             <a mat-menu-item href="https://apis.ap.gov.in/loan_mela/" target="_blank" routerLinkActive="active">
+            Loan mela bankers connect
+            </a>
+            <!--<a mat-menu-item routerLink="/RTIH-outpost-model" routerLinkActive="active">
+              RTIH-Outpost
+            </a>-->
+
+             <!-- <a mat-menu-item href="https://ap-quantum-valley-logo-rtih.softpages.in/" target="_blank" routerLinkActive="active">
+            Logo Competition
+            </a>    -->
+         
+        
+          </mat-menu>
+          <button mat-button [matMenuTriggerFor]="CareersMenu" class="menu-with-icon">
+            Opportunities
+          </button>
+          <mat-menu #CareersMenu="matMenu">
+            <a mat-menu-item routerLink="/careers" routerLinkActive="active">Careers</a>
+           <a mat-menu-item routerLink="/tenders" routerLinkActive="active">Tenders</a>
+         
+        
+          </mat-menu>
+
+
+        </nav>
+
+        <img src="assets/ap-logo.png" alt="Government of AP" class="ap-emblem" width="65" />
+      </mat-toolbar>
+    </header>
+
+    <!-- Router outlet goes here in your main app shell -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

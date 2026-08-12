@@ -1,0 +1,191 @@
+/* Palette (aligns with your theme) */
+$ink: #1e2a50;
+$purple: #4F107D;
+$purple-600: #6a21b3;
+$lavender: #faf7ff;
+$border: rgba(0,0,0,.08);
+
+/* Hero */
+.contact-hero{
+  background: radial-gradient(80% 60% at 0% 0%, #f7f7fb 0%, #ffffff 60%) no-repeat;
+  padding: clamp(24px, 4vw, 28px) 16px 8px;
+  .wrap{
+    max-width: 1100px; margin: 0 auto; text-align: center;
+  }
+  h1{
+    margin: 0 0 .25rem;
+    color: $ink;
+    font: 800 clamp(1.5rem, 1.2rem + 1.6vw, 2.25rem)/1.15 "Figtree", system-ui, sans-serif;
+  }
+  .lead{
+    margin: 0; color: #4a5568; font-size: 16px; font-weight: 600;
+  }
+}
+.lbl {
+    font-size: 16px;
+}
+/* Cards grid */
+.contact-grid{
+  max-width: 1100px; margin: clamp(8px, 2vw, 16px) auto 40px; padding: 0 16px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: clamp(12px, 2vw, 20px);
+
+  @media (max-width: 1000px){
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+  @media (max-width: 640px){
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.card{
+  background: #fff;
+  border: 1px solid $border;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+
+  &:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(0,0,0,.10);
+    border-color: rgba(79,16,125,.22);
+  }
+}
+
+.card__head{
+  padding: 14px 16px 8px;
+  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 8px;
+  background: linear-gradient(180deg, #ffffff, #fafbff);
+  border-bottom: 1px solid $border;
+}
+
+.card__title{
+  margin: 0;
+  color: $ink;
+  font: 800 1.05rem/1.2 "Figtree", system-ui, sans-serif;
+}
+
+.chip{
+  display: inline-block;
+  font: 700 .75rem/1 "Figtree", system-ui, sans-serif;
+  color: #fff;
+  background: linear-gradient(180deg, $purple-600, $purple);
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: 0 6px 16px rgba(79,16,125,.22);
+}
+
+.addr{
+  padding: 14px 16px 8px;
+  color: #2f374d;
+  font-style: normal;  /* <address> default italic reset */
+  line-height: 1.55;
+  background: #fff;
+  min-height: 84px;
+  display: flex; align-items: center;
+  font-size: 16px;
+    font-weight: 600;
+}
+
+.card__foot{
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding: 10px 16px 14px;
+  background: #fff;
+  border-top: 1px solid $border;
+}
+
+/* Button */
+.btn{
+  appearance: none; border: 1px solid #e6e7ef; background: #fff; color: #1f2340;
+  padding: .55rem .9rem; border-radius: 10px; font-weight: 700; cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, transform .05s;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+
+  &:hover{ border-color:#cfd3ea; box-shadow:0 6px 16px rgba(0,0,0,.06); }
+  &:active{ transform: translateY(1px); }
+  &:focus-visible{ outline:2px solid #6366f1; outline-offset:2px; }
+}
+
+/* Drawer-friendly background (optional if used inside your lavender sidenav) */
+.page-bg{
+  background: $lavender;
+}
+
+/* Safe areas for notched phones */
+:root{
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+@supports (padding: max(0px)){
+  .contact-grid{ padding-bottom: max(16px, var(--safe-bottom)); }
+}
+
+/* Distinct styling for HQ chip */
+.chip--hq{
+  background: linear-gradient(180deg, #0ea5e9, #0284c7); /* teal/blue to stand out from Spoke purple */
+  box-shadow: 0 6px 16px rgba(2,132,199,.22);
+}
+
+/* Icons for phone & email links (no HTML changes needed) */
+.contact-list a {
+  position: relative;
+  padding-left: 28px;                /* space for icon */
+  line-height: 1.4;
+}
+
+/* Base icon pill */
+.contact-list a::before{
+  content: "";
+  position: absolute;
+  left: 6px; top: 50%;
+  transform: translateY(-50%);
+  width: 18px; height: 18px;
+  background: currentColor;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  opacity: .95;
+}
+
+/* Phone icon for tel: */
+.contact-list a[href^="tel"]::before{
+  -webkit-mask-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M21 16.5v3a1.5 1.5 0 0 1-1.64 1.49A18.9 18.9 0 0 1 3 6.64 1.5 1.5 0 0 1 4.5 5h3a1 1 0 0 1 1 .86c.09.66.26 1.3.5 1.9a1 1 0 0 1-.23 1.08L8 10a15.9 15.9 0 0 0 6 6l1.16-1.77a1 1 0 0 1 1.08-.23c.6.24 1.24.41 1.9.5a1 1 0 0 1 .86 1z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M21 16.5v3a1.5 1.5 0 0 1-1.64 1.49A18.9 18.9 0 0 1 3 6.64 1.5 1.5 0 0 1 4.5 5h3a1 1 0 0 1 1 .86c.09.66.26 1.3.5 1.9a1 1 0 0 1-.23 1.08L8 10a15.9 15.9 0 0 0 6 6l1.16-1.77a1 1 0 0 1 1.08-.23c.6.24 1.24.41 1.9.5a1 1 0 0 1 .86 1z'/></svg>");
+}
+
+/* Email icon for mailto: */
+.contact-list a[href^="mailto"]::before{
+  -webkit-mask-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000' d='M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z'/></svg>");
+}
+
+/* Keep your brand color + hover effect */
+.contact-list a{
+  color: #4F107D;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background .2s, color .2s, box-shadow .2s;
+}
+.contact-list a:hover{
+  background: #efe7ff;
+  box-shadow: 0 3px 10px rgba(79,16,125,.15);
+}
+
+/* Tighter on small screens */
+@media (max-width: 600px){
+  .contact-list a{ padding-left: 26px; }
+  .contact-list a::before{ left: 4px; width: 17px; height: 17px; }
+}

@@ -1,0 +1,620 @@
+/* height of your sticky site header (used for scroll offsets) */
+$header-height: 98px;
+
+/* ---- Page layout ---- */
+.careers-card {
+    max-width: 1020px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 16px;
+
+    h2{
+      color:#262566;
+    }
+  }
+
+.careers-heading {
+  margin: 24px 0 6px;
+  text-align: center;
+  font: 800 24px/1.25 "Figtree", sans-serif;
+}
+.programs {
+    scroll-behavior: smooth;
+    padding-top: 0px;
+
+    .wrap {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px 16px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* sticky menu */
+    .side {
+        position: sticky;
+        top: calc($header-height + 16px);
+        align-self: start;
+
+        @media (max-width: 992px) {
+            position: static;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        button {
+            width: 100%;
+            text-align: left;
+            border: 0;
+            border-radius: 14px;
+            padding: 16px 18px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            color: #ffffff;
+            background: #5b2a86;
+            font-family: "Figtree", sans-serif;
+            transition: background .2s, box-shadow .2s, transform .1s;
+
+            &:hover {
+                background: #6a37a0;
+            }
+
+            &:active {
+                transform: translateY(1px);
+            }
+
+            &.active {
+                background: linear-gradient(135deg, #7a3bb5, #a76de0);
+                color: #fff;
+                box-shadow: 0 6px 16px rgba(122, 59, 181, .35);
+            }
+        }
+    }
+
+    /* content column */
+    .content {
+        display: grid;
+        gap: 56px;
+    }
+
+    /* offset for sticky header when reaching via anchor/scrollIntoView */
+    .program-section {
+        scroll-margin-top: calc($header-height + 20px);
+
+        h3,
+        h2 {
+            margin: 0 0 12px;
+            font: 800 26px/1.2 "Figtree", sans-serif;
+            color: #2a1749;
+        }        
+    }
+    
+}
+
+/* ---- Stage card styles ---- */
+$purple: #4b1e83;
+$purple-200: #d8c7ea;
+
+.stage-card {
+    //margin-bottom: 32px;
+
+    .stage-title {
+        margin: 0 0 12px;
+        font: 800 26px/1.2 "Figtree", sans-serif;
+        color: #2a1749;
+    }
+
+    .stage-media {
+        margin: 0;
+        border-radius: 14px;
+
+        overflow: hidden;
+        /* border highlight like the screenshot */
+        /* Keep the image ratio consistent on all screens */
+        display: block;
+
+        img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            display: block;
+
+            padding-bottom: 20px;
+        }
+    }
+
+    .stage-meta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 24px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+
+        .meta-item {
+            .meta-label {
+                color: $purple;
+                font: 800 16px/1.2 "Figtree", sans-serif;
+                margin-bottom: 6px;
+            }
+
+            .meta-value {
+                color: #3b3551;
+                font-size: 14px;
+                line-height: 1.45;
+            }
+
+            .meta-pill {
+                display: inline-block;
+                padding: 6px 12px;
+                border-radius: 999px;
+                background: #f1eafa;
+                color: #3b3551;
+                font-weight: 700;
+                font-size: 13px;
+                box-shadow: inset 0 0 0 1px $purple-200;
+            }
+        }
+    }
+}
+
+
+/* Section background, spacing */
+.student-programs {
+    margin-top: 50px;
+  background: radial-gradient(37.06% 88.25% at 3.99% 100%, #672F8F 0%, #1F1F4E 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+  color: #ffffff;
+
+  .sp-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 16px 56px;
+  }
+
+  .sp-title {
+    text-align: center;
+    margin: 28px 0;
+    font: 800 28px/1.2 "Figtree", sans-serif;
+    letter-spacing: .2px;
+  }
+
+  /* Responsive grid */
+  .sp-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 620px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Card */
+  .sp-card {
+    background: #262055;
+    border: 1px solid #6F30A0;
+    border-radius: 16px;
+    padding: 22px 18px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  /* Number badge */
+  .sp-badge {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 8px auto 14px;
+    font: 600 22px/1 "Figtree", sans-serif;
+    background: #8B57B0;
+        /* purple */
+    color: #fff;
+    //box-shadow: 0 8px 18px rgba(124, 80, 201, 0.35);
+  }
+
+  .sp-heading {
+    font: 800 18px/1.25 "Figtree", sans-serif;
+    margin: 0 0 10px;
+  }
+
+  .sp-desc {
+    opacity: .9;
+    margin: 0 0 16px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* Duration pill */
+  .sp-pill {
+    margin-top: auto;
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    background: #F2F2EE;           /* soft purple tint */
+    color: #262055;
+    font: 700 13px/1 "Figtree", sans-serif;
+    box-shadow: inset 0 0 0 1px rgba(124, 80, 201, 0.25);
+  }
+}
+
+
+$purple: #4b1e83;
+$purple-700: #2a1749;
+$yellow: #ffd11a;
+
+.cta-journey {
+  /* subtle background and watermark */
+  background:
+    radial-gradient(1200px 500px at 0% 100%, #eef6ff 0%, #ffffff 60%) no-repeat,
+    linear-gradient(180deg, #ffffff 0%, #fff9ff 100%) no-repeat;
+  position: relative;
+
+  /* OPTIONAL watermark icon left side */
+  &::before {
+    content: "";
+    position: absolute;
+    left: clamp(-36px, 2vw, -12px);
+    top: 10px;
+    width: clamp(80px, 18vw, 160px);
+    height: clamp(80px, 18vw, 160px);
+    background: url("../../assets/logo-bg.png") center/contain no-repeat;
+    opacity: .08;
+    pointer-events: none;
+  }
+
+  .cta-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: clamp(32px, 6vw, 64px) 16px;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    font: 800 clamp(20px, 4vw, 32px)/1.2 "Figtree", sans-serif;
+    color: $purple-700;
+    letter-spacing: .2px;
+  }
+
+  .cta-sub {
+    margin: 0 auto clamp(18px, 3vw, 28px);
+    max-width: 760px;
+    color: #4a4760;
+    font-size: clamp(14px, 2.3vw, 16px);
+    line-height: 1.6;
+  }
+
+  .cta-actions {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 15px 18px;
+    border-radius: 6px;
+    font: 700 18px/1 "Figtree", sans-serif;
+    text-decoration: none;
+    transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+    box-shadow: 0 2px 0 rgba(0,0,0,.06);
+
+    &:active { transform: translateY(1px); }
+  }
+
+  .btn-yellow {
+    background: $purple;
+    color: $purple-700;
+    &:hover { background: darken($yellow, 6%); }
+  }
+
+  .btn-purple {
+    background: $purple;
+    color: #fff;
+    &:hover { background: lighten($purple, 6%); }
+  }
+}
+.btn {
+    display: inline-block;
+    padding: 15px 18px;
+    border-radius: 6px;
+    font: 700 18px/1 "Figtree", sans-serif;
+    text-decoration: none;
+    transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+    box-shadow: 0 2px 0 rgba(0,0,0,.06);
+
+    &:active { transform: translateY(1px); }
+  }
+
+  .btn-register {
+     background: $yellow;
+     margin-top: 30px;
+    color: $purple-700;
+    &:hover { background: darken($yellow, 6%); }
+  }
+
+
+  /* Button demo only */
+.btn.btn-yellow {
+  background: #6E3498; color:#fff; border:0; padding:.9rem 1rem;
+  border-radius: 999px; font-weight:700; cursor:pointer; text-decoration:none;
+}
+
+
+/* Beautiful bullet list */
+.points{
+  margin:.25rem 0 1rem;
+  padding-left:0;           /* we’ll use custom markers */
+  font-size: 16px;
+  list-style: none;
+  display: grid;
+  gap: .65rem;
+}
+.points li{
+  position: relative;
+  padding: .85rem 1rem .85rem 3.05rem; /* room for icon */
+  background: #fff;
+  border: 1px solid #eaeaf3;
+  border-radius: 12px;
+  line-height: 1.55;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.points li:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  border-color: #d9d9ec;
+}
+/* Purple circular marker */
+.points li::before{
+  content: "";
+  position: absolute;
+  left: .85rem; top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #6a21b3, #4F107D);
+  box-shadow: 0 4px 10px rgba(79,16,125,.25);
+}
+/* White check inside the circle */
+.points li::after{
+  content: "";
+  position: absolute;
+  left: .85rem; top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 28px; border-radius: 50%;
+  background:
+    center/58% 58% no-repeat
+    url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6L9 17l-5-5'/></svg>");
+  pointer-events: none;
+}
+
+/* Optional numbered variant: add class="points points--numbered" to <ul> */
+.points.points--numbered{ counter-reset: step; }
+.points.points--numbered li{ counter-increment: step; }
+.points.points--numbered li::after{
+  content: counter(step);
+  display: grid; place-items: center;
+  color: #fff; font: 700 13px/28px system-ui, sans-serif;
+  background: transparent; /* number overlays the gradient circle from ::before */
+}
+
+/* Special note with different font & style */
+.launch-note{
+  margin: .75rem 0 0;
+  font-family: "Georgia", "Times New Roman", serif; /* different font */
+  font-size: 1.75rem;
+  color: #4F107D;
+  background: #fff3c4;
+  border-left: 4px solid #f5b400;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+}
+
+.btn{
+  appearance: none;
+  border: 1px solid #e5e7eb;
+  background: #4F107D;
+  color: #111827;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, transform .05s;
+}
+.btn:hover{ border-color:#c7cbe3; box-shadow:0 4px 14px rgba(0,0,0,.06); }
+.btn:active{ transform: translateY(1px); }
+.btn:focus-visible{ outline:2px solid #6366f1; outline-offset:2px; }
+.btn-primarys {
+  border-color: #4F107D;
+  background: #4F107D;
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(79,16,125,.25);
+}
+.btn-primarys:hover{ box-shadow: 0 10px 22px rgba(79,16,125,.32); }
+.btn-primarys:disabled{ opacity:.6; box-shadow:none; cursor:not-allowed; }
+
+.apply-btn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+.loc-p {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  width: 100%; /* Ensure the container takes up the full width */
+}
+
+.location {
+  font-size: 16px;
+  font-weight: 600;
+}
+// .card-container {
+//   display: flex;
+//   align-items: start;
+//   //justify-content: space-between; /* Ensures cards are spaced evenly */
+//   align-items: stretch; /* Makes sure all cards are the same height */
+//   padding: 20px;
+//   //overflow-x: auto; /* Allows horizontal scrolling if necessary */
+// }
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+  align-items: stretch;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// .card {
+//   background-color: #262055;
+//   width: 25%;
+//   color: #fff;
+//   padding: 20px;
+//   border-radius: 10px;
+//   text-align: center;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   //flex: 1; /* Makes all cards have the same width */
+//  margin-right: 20px;
+//   transition: transform 0.3s;
+// }
+
+.card {
+  background-color: #262055;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 260px;
+  transition: transform 0.3s;
+}
+
+
+.card:last-child {
+  margin-right: 0; /* Removes the margin on the last card */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.3;
+  margin: 0;
+  color: #fff;
+}
+
+.card-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 8px 0 16px;
+  font-weight: 600;
+}
+
+.card a {
+  display: block;
+  width: 100%;
+}
+
+.card a:first-of-type {
+  margin-top: auto;
+}
+
+.card a + a {
+  margin-top: 8px;
+}
+
+.apply-btn {
+  background-color: #FFCF06;
+  color: #000;
+  padding: 12px 50px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.apply-btn1 {
+  background-color: #672F8F;
+  color: #fff;
+  padding: 12px 20px;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+
+}
+.apply-btn:hover {
+  background-color: #edbe05;
+}
+.apply-btn1:hover {
+  background-color: #5a2680;
+}
+

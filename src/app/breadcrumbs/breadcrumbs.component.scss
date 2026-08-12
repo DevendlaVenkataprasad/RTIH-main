@@ -1,0 +1,8 @@
+.crumbs{
+  display:flex; align-items:center; gap:.5rem;
+  color: rgba(255,255,255,.9);
+  .crumb{ color: rgba(255,255,255,.9); text-decoration:none; }
+  .crumb:hover{ text-decoration: underline; }
+  .current{ font-weight:700; }
+  .sep{ opacity:.5; }
+}

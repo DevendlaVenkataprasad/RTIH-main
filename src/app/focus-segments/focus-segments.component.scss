@@ -1,0 +1,177 @@
+$purple: #4b1e83;
+$yellow: #ffd11a;
+
+.focus-segments {
+  background: linear-gradient(180deg, #1c1b3b 0%, #3a2375 100%);
+  color: #fff;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    @media (max-width: 768px) { padding: 1.5rem .75rem; }
+  }
+
+  .head {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font: 800 2rem/1.2 "Figtree", sans-serif;
+      margin-bottom: .5rem;
+      @media (max-width: 768px) { font-size: 1.5rem; }
+    }
+    p {
+      opacity: .9;
+      font-size: 16px; line-height: 1.4;
+      @media (max-width: 768px) { font-size: 14px; }
+    }
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: .75rem; margin-bottom: 2rem;
+
+    button {
+      display: flex; align-items: center; gap: .5rem;
+      border: none; border-radius: 9999px; padding: .6rem 1.2rem;
+      background: #fff; color: $purple;
+      font-weight: 600; font-size: 15px; cursor: pointer; transition: all .25s;
+      font-family: "Figtree", sans-serif;
+      img { width: 18px; height: 18px; }
+      &.active {
+        background: linear-gradient(135deg, #7a3bb5, #a76de0);
+        color: #fff; img { filter: brightness(0) invert(1); }
+      }
+      @media (max-width: 480px) { padding: .4rem .9rem; font-size: 14px; }
+    }
+  }
+
+  /* Carousel */
+  .fs-carousel {
+    position: relative;
+
+    .viewport {
+      overflow: hidden;
+      --cols: 4;
+      --gap: 20px;
+      padding-right: 5px;
+
+      /* Mobile swipe mode: horizontal scroller with snap */
+      &.snap-mode {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+      }
+      &.snap-mode::-webkit-scrollbar { display: none; }
+    }
+
+    .track {
+      display: flex; flex-wrap: nowrap; gap: var(--gap);
+      will-change: transform;
+      /* In mobile, let each card snap */
+      .card { scroll-snap-align: start; }
+    }
+
+    .card {
+      flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 22px rgba(0,0,0,.25);
+        border-color: rgba(255,255,255,.35);
+      }
+
+      &.is-active { border-color: $yellow; }
+
+      h3 {
+        color: $yellow; font-weight: 800; font-size: 1.1rem; margin: .5rem 0;
+      }
+      p {
+        color: rgba(255,255,255,.9); font-size: 14px; line-height: 1.5;
+        @media (max-width: 768px) { font-size: 13px; }
+      }
+      .badge {
+        width: 56px; height: 56px; margin: 0 auto 1rem; border-radius: 50%;
+        display: grid; place-items: center; background: #8B57B0; color: #fff;
+        font: 800 1.25rem/1 "Figtree", sans-serif;
+      }
+    }
+  }
+
+  /* Navigation arrows (hidden on mobile) */
+  .nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(75,30,131,0.85); border-radius: 50%; color: #fff;
+    &.prev { left: -3.5rem; }
+    &.next { right: -3.5rem; }
+    @media (max-width: 820px) { &.prev { left: -2rem; } &.next { right: -2rem; } }
+    @media (max-width: 560px) { display: none; } /* hide on mobile */
+  }
+
+  /* Dots */
+  .dots {
+    display: flex; justify-content: center; gap: .5rem; margin-top: 1rem;
+    span {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.4); cursor: pointer;
+      &.active { background: $yellow; }
+    }
+  }
+
+  /* Breakpoints for cols */
+  @media (max-width: 1100px) { .viewport { --cols: 3; --gap: 18px; } }
+  @media (max-width: 820px)  { .viewport { --cols: 2; --gap: 16px; } }
+  @media (max-width: 560px)  {
+    .viewport { --cols: 1; --gap: 12px; }
+    .card { padding: 1rem .75rem; }
+  }
+}
+
+@media (max-width: 560px) {
+  .focus-segments {
+    .fs-carousel {
+      .viewport {
+        --cols: 1;
+        --gap: 0;                 /* no inter-card gap in 1-up mode */
+        padding: 0;               /* remove padding that causes gutters */
+      }
+
+      /* enable horizontal swipe + snap */
+      .viewport.snap-mode {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        /* keep a tiny inset if you want rounded corners visible; else 0 */
+        scroll-padding-inline: 0;
+      }
+
+      .track {
+        gap: 0;                   /* ensure track itself has no gap */
+      }
+
+      .card {
+        flex: 0 0 100%;           /* full-bleed slide */
+        border-radius: 12px;
+        padding: 1rem .85rem;
+
+        /* optional: inner shadow on the sides feels nice */
+        /* box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); */
+
+        /* snap each slide to the left edge */
+        scroll-snap-align: start;
+      }
+    }
+
+    /* hide arrows on mobile if not already */
+    .nav { display: none; }
+  }
+}

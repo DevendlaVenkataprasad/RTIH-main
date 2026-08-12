@@ -1,0 +1,404 @@
+<!-- <header class="mat-elevation-z2">
+  <mat-toolbar color="primary" class="toolbar">
+    <a routerLink="/" class="brand">
+      <img src="assets/ratan-tata-logo-white.png" alt="Ratan Tata Innovation Hub" height="40">
+    </a>
+
+    <span class="spacer"></span>
+
+    <nav class="desktop-nav">
+      <a mat-button routerLink="/about">About</a>
+      <a mat-button routerLink="/programs">Programs</a>
+      <a mat-button routerLink="/centers">Centers</a>
+      <a mat-button routerLink="/resources">Resources</a>
+      <a mat-button routerLink="/events">Events</a>
+      <a mat-button routerLink="/partners">Partners</a>
+      <a mat-button routerLink="/contact">Contact</a>
+    </nav>
+
+    <span class="spacer"></span>
+    <a mat-stroked-button color="accent" routerLink="/login">Sign in</a>
+    <a mat-flat-button color="warn" routerLink="/apply">Apply Now</a>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-only">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/about">About</button>
+      <button mat-menu-item routerLink="/programs">Programs</button>
+      <button mat-menu-item routerLink="/centers">Centers</button>
+      <button mat-menu-item routerLink="/resources">Resources</button>
+      <button mat-menu-item routerLink="/events">Events</button>
+      <button mat-menu-item routerLink="/partners">Partners</button>
+      <button mat-menu-item routerLink="/contact">Contact</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item routerLink="/login">Sign in</button>
+      <button mat-menu-item routerLink="/apply">Apply Now</button>
+    </mat-menu>
+  </mat-toolbar>
+</header> -->
+<app-header-rtih></app-header-rtih>
+
+<div class="innotribe-welcome" *ngIf="showWelcomePopup" role="dialog" aria-modal="true" aria-labelledby="innotribeWelcomeTitle">
+  <div class="innotribe-welcome__card">
+    <button class="innotribe-welcome__close" type="button" (click)="closeWelcomePopup()" aria-label="Close welcome popup">
+      <span class="material-icons" aria-hidden="true">close</span>
+    </button>
+
+    <div class="portal-popup-head">
+      <span class="innotribe-welcome__eyebrow">Explore RTIH's latest initiatives</span>
+      <!-- <h3 id="innotribeWelcomeTitle">Explore RTIH's latest initiatives</h3> -->
+      
+    </div>
+
+    <div class="portal-popup-grid" aria-label="New RTIH portal initiatives">
+      <section class="portal-popup-column portal-popup-column--innotribe">
+        <div class="portal-popup-column__top">
+          <img src="assets/innotribe-logo.png" alt="InnoTribe logo" />
+          <span class="material-icons" aria-hidden="true">rocket_launch</span>
+        </div>
+        <h3>InnoTribe</h3>
+        <p>
+          A student innovation and entrepreneurship pathway from idea discovery to
+          prototype validation, demo days, and incubation readiness.
+        </p>
+        <ul>
+          <li><span class="material-icons" aria-hidden="true">route</span>Idea to incubation journey</li>
+          <li><span class="material-icons" aria-hidden="true">groups</span>Campus cohorts and mentoring</li>
+          <li><span class="material-icons" aria-hidden="true">emoji_events</span>Showcases and demo days</li>
+        </ul>
+        <a class="innotribe-welcome__cta" routerLink="/innotribe" (click)="closeWelcomePopup()">
+          <span>View InnoTribe</span>
+          <i class="material-icons" aria-hidden="true">arrow_forward</i>
+        </a>
+      </section>
+
+      <section class="portal-popup-column portal-popup-column--sunrise">
+        <div class="portal-popup-column__top">
+          <img src="assets/sun-rise-logo.png" alt="Sunrise Connects logo" />
+          <span class="material-icons" aria-hidden="true">hub</span>
+        </div>
+        <h3>Sunrise Connects</h3>
+        <p>
+          A platform for ecosystem engagement, startup discovery, innovation
+          conversations, and partner-led opportunities across RTIH networks.
+        </p>
+        <ul>
+          <li><span class="material-icons" aria-hidden="true">diversity_3</span>Startup and partner connects</li>
+          <li><span class="material-icons" aria-hidden="true">forum</span>Ecosystem conversations</li>
+          <li><span class="material-icons" aria-hidden="true">event_available</span>Programs and opportunities</li>
+        </ul>
+        <a class="innotribe-welcome__cta innotribe-welcome__cta--sunrise" routerLink="/sunrise-connects" (click)="closeWelcomePopup()">
+          <span>View Sunrise Connects</span>
+          <i class="material-icons" aria-hidden="true">arrow_forward</i>
+        </a>
+      </section>
+    </div>
+  </div>
+</div>
+
+<app-banner-rtih></app-banner-rtih>
+<main>
+  <!-- HERO -->
+  <!-- <section class="hero mat-elevation-z2">
+    <div class="hero-copy">
+      <h1 class="mat-headline-3">Empowering Innovation. Enabling Growth.</h1>
+      <p class="mat-body-1">
+        Andhra Pradesh's hub-and-spoke platform to help startups, MSMEs and innovators build from AP and scale globally.
+      </p>
+      <div class="cta-row">
+        <a mat-flat-button color="primary" routerLink="/apply">Apply Now</a>
+        <a mat-stroked-button color="primary" routerLink="/programs">Explore Programs</a>
+      </div>
+
+      <div class="metric-row">
+        <mat-card *ngFor="let m of metrics" class="metric">
+          <div class="metric-value">{{m.value}}</div>
+          <div class="metric-label">{{m.label}}</div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/banner.png" alt="RTIH banner">
+    </div>
+  </section> -->
+<div class="content">
+  <div class="scroll-wrapper">
+  <!-- <span class="blink-tag">NEW</span> -->
+  <div class="scroll-text">
+  <div class="scroll-inner">
+    <a href="https://rtih-govtech.softpages.in/challenge/ap-aer" target="_blank">
+      Alternate Energy for Resilient Andhra (AP-AER Mission) - Calling for solution to address the ongoing energy crises - Apply Now
+    </a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfnX3mdVSXVcElJO3YgKEklW5NLQy3vKcxlkefDGEp_Hwoc7w/viewform" target="_blank">
+      InnoTribe - Inviting Colleges to set up Innovation and Entrepreneurship Cell in their  campuses - Apply Now
+    </a>
+    <!-- <a href="https://docs.google.com/forms/d/1UPbfmXx__Jc5e8Vl5BgqdPKYbtkhh_h97kJLdyZ0d8o/edit?ts=69784913" target="_blank">
+      Register now for the IPR Workshop – 2026 (12 February 2026) — applications close on 10 February 2026.
+    </a> -->
+    <!-- <a href="https://docs.google.com/forms/d/1SqDm2gNlqx0Lf-DjxM5NiNA2WtX7Hbkxi7Sz68hjZBg/edit?ts=696f620b" target="_blank">
+      Register now for the 3-Day Startup Bootcamp 2026 (9–11 February 2026) — applications close on 07 February 2026.
+    </a> -->
+  </div>
+</div>
+</div>
+</div>
+
+  <!-- ABOUT RTIH -->
+  <section class="about-rtih">
+    <div class="container" style="margin-bottom: 10px;">
+    <main class="content">
+  
+
+
+</main>
+     
+</div>
+  <div class="container">
+    <!-- LEFT COLUMN -->
+     
+    <div class="left">
+      <h2 class="eyebrow">What is RTIH?</h2>
+
+      <p class="intro">
+        <strong>Ratan Tata Innovation Hub</strong> is Andhra Pradesh's flagship
+        initiative to transform the state into a global startup hub. Operating on a
+        Hub-and-Spoke model, RTIH at Amaravati acts as the central hub,
+        supported by five regional centers across
+        <a class="inline-link" [routerLink]="['/location', 'visakhapatnam']">Visakhapatnam</a>,
+        <a class="inline-link" [routerLink]="['/location', 'vijayawada']">Vijayawada</a>,
+        <a class="inline-link" [routerLink]="['/location', 'rajahmundry']">Rajahmundry</a>,
+        <a class="inline-link" [routerLink]="['/location', 'tirupati']">Tirupati</a>, and
+        <a class="inline-link" [routerLink]="['/location', 'anantapur']">Anantapur</a>.
+      </p>
+
+      <h3 class="section-subtitle">Ratan Tata Innovation Hub Designed to</h3>
+      <ul class="bullets" role="list">
+        <li>
+          <img src="assets/rtih-icon.svg" alt="" />
+          <span>Nurture innovation and entrepreneurship across the state</span>
+        </li>
+        <li>
+          <img src="assets/rtih-icon.svg" alt="" />
+          <span>Connect startups with markets, research, and government initiatives</span>
+        </li>
+        <li>
+          <img src="assets/rtih-icon.svg" alt="" />
+          <span>Drive cutting-edge innovation in AI, biotech, clean energy, advanced manufacturing, and emerging technologies</span>
+        </li>
+        <li>
+          <img src="assets/rtih-icon.svg" alt="" />
+          <span>Promote inclusivity by supporting women, rural innovators, and underrepresented groups</span>
+        </li>
+      </ul>
+
+      <!-- <ul class="bullets" role="list">
+  <li><span>Nurture innovation and entrepreneurship across the state</span></li>
+  <li><span>Connect startups with markets, research, and government initiatives</span></li>
+  <li><span>Drive cutting-edge innovation in AI, biotech, clean energy, advanced manufacturing, and more</span></li>
+  <li><span>Promote inclusivity by supporting women, rural innovators, and underrepresented groups</span></li>
+</ul> -->
+
+
+      <!-- GALLERY (scroll-snap; no external libs) -->
+      <div class="gallery-wrap">
+        <!-- <button class="nav prev" (click)="scrollGallery(-1)" aria-label="Previous">‹</button> -->
+
+        <div class="gallery" #galleryEl>
+          <figure class="img">
+            <img src="assets/about-slider1.png" alt="RTIH event 1" />
+          </figure>
+          <figure class="img">
+            <img src="assets/about-slider2.png" alt="RTIH event 2" />
+          </figure>
+          <figure class="img">
+            <img src="assets/about-slider3.png" alt="RTIH event 3" />
+          </figure>
+        </div>
+
+        <!-- <button class="nav next" (click)="scrollGallery(1)" aria-label="Next">›</button> -->
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right">
+      <!-- <div class="labels">
+        <span class="lab lab--ideate">IDEATE</span>
+        <span class="lab lab--innovate">INNOVATE</span>
+        <span class="lab lab--collab">COLLABORATE</span>
+        <span class="lab lab--grow">GROW</span>
+      </div> -->
+
+      <div class="circle-card">
+        <!-- use your infographic image; replace filename if different -->
+        <img src="assets/about-rtih.png" alt="RTIH ideate/innovate/collaborate/grow infographic" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARTS SECTION-->
+ <section class="rti-stats" #statsSection>
+  <!-- Optional chevrons (static now; hook up later if needed) -->
+  <!-- <button class="nav prev" aria-label="Previous" (click)="prev()">‹</button> -->
+  <header class="head">
+    <!-- <h2>
+       Build Centers of Excellence in emerging technologies
+    </h2> -->
+  </header>
+  <div class="strip">
+    <article *ngFor="let s of stats" class="tile">
+      <div class="icon"> 
+        <img [src]="s.icon" alt="" />
+      </div>
+      <div class="text">
+        <div class="val">{{ s.animatedValue }}</div>
+        <div class="lbl">{{ s.label }}</div>
+      </div>
+    </article>
+  </div>
+
+  <!-- <button class="nav next" aria-label="Next" (click)="next()">›</button> -->
+</section>
+
+<!-- what makes section-->
+<section class="unique-ap">
+  <header class="head">
+    <h2>What makes RTIH unique?</h2>
+    <p>Andhra Pradesh's innovation ecosystem stands out through strategic design, inclusive policies, and <br> technology-driven execution.</p>
+  </header>
+
+  <div class="grid">
+    <!-- Left items -->
+    <ul class="side side--left" role="list">
+      <li class="item" *ngFor="let i of left">
+        <span class="chip">
+          <img [src]="i.icon" alt="" />
+        </span>
+        <div class="copy">
+          <h3>{{ i.title }}</h3>
+          <p>{{ i.desc }}</p>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Map -->
+    <figure class="map">
+      <!-- <img src="assets/andhra-pradesh-map.png" alt="Andhra Pradesh map with highlighted hubs" /> -->
+      <!-- <figcaption class="labels">
+        <span class="lbl lbl--anant">Ananthapuramu</span>
+        <span class="lbl lbl--tirupati">Tirupati</span>
+        <span class="lbl lbl--vij">Vijayawada</span>
+        <span class="lbl lbl--raj">Rajamahendravaram</span>
+        <span class="lbl lbl--vizag">Visakhapatnam</span>
+      </figcaption>  -->
+
+      <section class="ap-map-placed">
+  <div class="mp-wrap">
+    <img class="mp-img"
+         src="assets/andhra-pradesh-map.png"
+         alt="Andhra Pradesh map with highlighted hubs" />
+
+    <!-- Each hit placed directly under mp-wrap -->
+    <button class="hit" style="--hit-x:86%; --hit-y:32%;" (click)="go('visakhapatnam')" aria-label="Visakhapatnam"></button>
+    <button class="hit" style="--hit-x:67%; --hit-y:42%;" (click)="go('rajahmundry')" aria-label="Rajamahendravaram"></button>
+    <button class="hit" style="--hit-x:58.8%; --hit-y:52.2%;" (click)="go('vijayawada')" aria-label="Vijayawada"></button>
+    <button class="hit" style="--hit-x:44%; --hit-y:83%;" (click)="go('tirupati')" aria-label="Tirupati"></button>
+    <button class="hit" style="--hit-x:17.5%; --hit-y:69%;" (click)="go('anantapur')" aria-label="Ananthapuramu"></button>
+    <button class="hit" style="--hit-x:52.6%; --hit-y:49.5%;" (click)="go('amaravati')" aria-label="Amaravati"></button>
+    <!-- Label pins stay as before -->
+    <div class="pin" style="--x:80.5%; --y:38.5%;">
+      <button class="tag" (click)="go('visakhapatnam')">Visakhapatnam</button>
+    </div>
+    <div class="pin" style="--x:70.8%; --y:50.6%;">
+      <button class="tag" (click)="go('rajahmundry')">Rajamahendravaram</button>
+    </div>
+    <div class="pin" style="--x:54.6%; --y:64.8%;">
+      <button class="tag" (click)="go('vijayawada')">Vijayawada</button>
+    </div>
+    <div class="pin" style="--x:42.6%; --y:92.8%;">
+      <button class="tag" (click)="go('tirupati')">Tirupati</button>
+    </div>
+    <div class="pin" style="--x:-4.2%; --y:86.5%;">
+      <button class="tag" (click)="go('anantapur')">Ananthapuramu</button>
+    </div>
+    <div class="pin" style="--x:17.2%; --y:39.5%;">
+      <button class="tag" (click)="go('amaravati')" style="background-color:#672F8F; color: white;">Amaravati Hub</button>
+    </div>
+  </div>
+</section>
+
+
+
+
+   <!--  <section class="ap-map-placed">
+  <div class="mp-wrap">
+    <img class="mp-img"
+         src="assets/andhra-pradesh-map.png"
+         alt="Andhra Pradesh map with highlighted hubs" />
+
+
+    <div class="pin"
+         style="--x:67.5%; --y:36.5%; --dx: 70px;  --dy:-10px; --len: 55px; --ang: 15deg;">
+      <button type="button" class="tag" (click)="go('visakhapatnam')">Visakhapatnam</button>
+    </div>
+
+    <div class="pin"
+         style="--x:43.8%; --y:48.6%; --dx:130px; --dy: 0px;  --len: 95px; --ang: 0deg;">
+      <button type="button" class="tag" (click)="go('rajahmundry')">Rajamahendravaram</button>
+    </div>
+
+    <div class="pin"
+         style="--x:52.6%; --y:42.8%; --dx: 20px; --dy: 72px; --len: 55px; --ang: 90deg;">
+      <button type="button" class="tag" (click)="go('vijayawada')">Vijayawada</button>
+    </div>
+
+    <div class="pin"
+         style="--x:32.6%; --y:77.8%; --dx: 85px; --dy: 40px; --len: 65px; --ang: 105deg;">
+      <button type="button" class="tag" (click)="go('tirupati')">Tirupati</button>
+    </div>
+
+    <div class="pin"
+         style="--x:24.2%; --y:72.5%; --dx:-170px; --dy: 30px; --len: 75px; --ang: 200deg;">
+      <button type="button" class="tag" (click)="go('anantapur')">Ananthapuramu</button>
+    </div>
+  </div>
+
+</section> --> 
+
+
+
+    </figure> 
+
+    <!-- Right items -->
+    <ul class="side side--right" role="list">
+      <li class="item" *ngFor="let i of right">
+        <span class="chip">
+          <img [src]="i.icon" alt="" />
+        </span>
+        <div class="copy">
+          <h3>{{ i.title }}</h3>
+          <p>{{ i.desc }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+  <!-- FOCUS SECTORS -->
+  <app-focus-segments></app-focus-segments>
+
+  <!-- Partner With Us -->
+ <app-partner-with-us></app-partner-with-us>
+
+<!-- Start up Toolkit -->
+<app-startup-toolkit></app-startup-toolkit>
+
+<!--faqs-->
+<app-faq-rtih></app-faq-rtih>
+
+</main>
+<app-footer-rtih></app-footer-rtih>
+

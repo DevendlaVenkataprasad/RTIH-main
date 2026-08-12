@@ -1,0 +1,142 @@
+<app-header-rtih></app-header-rtih>
+
+<main class="sr-page">
+  <section class="funding-hero">
+      <div class="funding-hero__content">
+        <h1>
+          RTIH funding
+          pathways for
+          founders who move
+          faster with
+          <span class="funding-hero__accent">clarity.</span>
+        </h1>
+        <p class="funding-lead">
+          Explore the RTIH-SIDBI Seed Fund Program alongside additional ecosystem funding routes that can support validation,
+          early growth, investor discovery, and capital readiness.
+        </p>
+
+        <div class="funding-hero__actions">
+          <a class="funding-cta funding-cta--solid" href="mailto:connect@rtih.co.in?subject=Funding%20Opportunities%20at%20RTIH">
+            Talk to RTIH
+          </a>
+          <a class="funding-cta funding-cta--ghost" href="#funding-grid">
+            Explore Pathways
+          </a>
+        </div>
+
+        <div class="funding-stats" aria-label="Funding overview">
+          <article *ngFor="let stat of flagshipStats">
+            <strong>{{ stat.value }}</strong>
+            <span>{{ stat.label }}</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="funding-hero__visual">
+        <div class="funding-hero__visual-card">
+          <div class="funding-hero__image-card">
+            <img [src]="resolveAsset('seed fund.jpg')" alt="RTIH and SIDBI partnership signing">
+          </div>
+          <div class="funding-highlight">
+            <span>Flagship opportunity</span>
+            <strong>RTIH-SIDBI Seed Fund Program</strong>
+            <p>For RTIH incubated startups preparing for sharper product, pilot, and market momentum.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="funding-opportunities" id="funding-grid">
+      <div class="section-copy section-copy--centered">
+        <h2>Additional pathways founders can explore from the same page</h2>
+        <p>
+          Inspired by global ecosystem portals, we organize funding support into a clear hierarchy of
+          routes for every stage of your journey.
+        </p>
+      </div>
+
+      <div class="opportunity-grid">
+        <article class="opportunity-card" *ngFor="let item of fundingOpportunities">
+          <h3>{{ item.title }}</h3>
+          <p class="opportunity-ticket">{{ item.ticket }}</p>
+          <p class="opportunity-description">{{ item.description }}</p>
+          <a [href]="item.href" [attr.target]="item.external ? '_blank' : null" [attr.rel]="item.external ? 'noopener noreferrer' : null">
+            {{ item.ctaLabel }}
+            <span *ngIf="!item.external" aria-hidden="true">&rarr;</span>
+            <svg *ngIf="item.external" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M14 5h5v5"></path>
+              <path d="M10 14 19 5"></path>
+              <path d="M19 14v5h-14v-14h5"></path>
+            </svg>
+          </a>
+        </article>
+      </div>
+  </section>
+
+  <section
+      #supportSection
+      class="funding-support-redesign"
+      [class.is-visible]="supportSectionVisible"
+    >
+      <div class="funding-support-redesign__layout">
+        <div class="funding-support-redesign__column funding-support-redesign__column--left">
+          <div class="funding-support-redesign__intro">
+            <h2>
+              How we help founders <br class="support-line-break" />
+              approach funding better
+            </h2>
+            <p>
+              We don't just provide links; we provide a framework for readiness. RTIH <br class="support-line-break" />
+              acts as a strategic bridge between your innovation and capital.
+            </p>
+          </div>
+
+          <article class="support-card" *ngFor="let step of leftSupportSteps">
+            <span class="support-card__number">{{ step.number }}</span>
+            <div class="support-card__copy">
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.description }}</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="funding-support-redesign__column funding-support-redesign__column--right">
+          <article class="support-card" *ngFor="let step of rightSupportSteps">
+            <span class="support-card__number">{{ step.number }}</span>
+            <div class="support-card__copy">
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.description }}</p>
+            </div>
+          </article>
+
+          <aside class="support-quote-card">
+            <p>
+              "The support layer ensured our narrative was as strong as our <br class="support-line-break" />
+              technology."
+            </p>
+            <strong>- Portfolio Founder</strong>
+          </aside>
+        </div>
+      </div>
+  </section>
+
+  <section class="funding-cta-band">
+      <div class="funding-cta-band__content">
+        <h2>Need help figuring out which funding path fits your startup stage?</h2>
+        <p>
+          RTIH can help founders map the right route before they waste time on the wrong application or capital conversation.
+        </p>
+      </div>
+
+      <div class="funding-cta-band__actions">
+        <a class="funding-cta funding-cta--solid" href="mailto:connect@rtih.co.in?subject=Funding%20Support%20Request">
+          Request Funding Guidance
+        </a>
+        <a class="funding-cta funding-cta--ghost funding-cta--ghost-light" href="/">
+          Back to Home
+        </a>
+      </div>
+  </section>
+</main>
+
+<app-footer-rtih></app-footer-rtih>

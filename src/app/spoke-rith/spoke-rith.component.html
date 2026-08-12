@@ -1,0 +1,191 @@
+<app-header-rtih></app-header-rtih>
+
+<!-- HERO -->
+<section class="spoke-hero" [style.--hero]="'url(' + spoke().heroImg + ')'">
+  <div class="hero-inner container">
+    <h1>{{ spoke().title }}</h1>
+    <div class="sub">{{ spoke().heroSub }}</div>
+    <div class="cta">
+      <!-- <a *ngIf="spoke().applyLink" class="btn btn-primary" [routerLink]="spoke().applyLink">Apply for Programs</a> -->
+      <a mat-button *ngIf="spoke().contactLink" class="btn btn-ghost" routerLink="/contact" routerLinkActive="active">Contact Us</a>
+
+      <!-- <a *ngIf="spoke().applyHref" class="btn btn-primary" [href]="spoke().applyHref" target="_blank" rel="noopener">Apply for Programs</a> -->
+      <a mat-button *ngIf="spoke().contactHref" class="btn btn-ghost" routerLink="/contact" routerLinkActive="active" target="_blank" rel="noopener">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-grid container">
+    <div class="left">
+      <h2>About RTIH {{ spoke().subtitle }}</h2>
+      <p *ngFor="let p of spoke().about">{{ p }}</p>
+
+      <div class="info">
+        <div class="badge">
+          <img src="assets/spokes/mission.svg" alt="mission">
+        </div>
+        <div class="info-content">
+          <h3>Mission & Vision</h3>
+          <p>{{ spoke().mission }}</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="badge">
+          <img src="assets/spokes/regional.svg" alt="mission">
+        </div>
+        <div class="info-content">
+          <h3>Regional Strengths</h3>
+          <p>{{ spoke().region }}</p>
+        </div>
+      </div>
+    </div>
+
+    <figure
+  class="right">
+  <!-- <img [src]="spoke().photo" [alt]="spoke().subtitle" /> -->
+   <img
+  [src]="spoke().photo"
+  [alt]="spoke().subtitle"
+  *ngIf="spoke().subtitle !== 'Tirupati'"
+  (click)="openVideo(spoke().videoUrl)"
+  style="cursor: pointer;"
+/>
+
+<!-- Non-clickable version -->
+<img
+  [src]="spoke().photo"
+  [alt]="spoke().subtitle"
+  *ngIf="spoke().subtitle === 'Tirupati'"
+/>
+</figure>
+
+  </div>
+</section>
+
+<!-- LEADERSHIP (only Vijayawada since only it has data) -->
+<section class="team" *ngIf="hasLeadership()">
+  <div class="container">
+    <h2 class="title">{{ spoke().leadership?.title || 'Leadership & Team' }}</h2>
+
+    <div class="lcards">
+  <div class="lcard" *ngFor="let m of spoke().leadership?.members">
+    <figure class="photo">
+      <img *ngIf="m.photo; else ph" [src]="m.photo" [alt]="m.name" />
+      <ng-template #ph><div class="ph"></div></ng-template>
+    </figure>
+
+    <h3 class="name">{{ m.name }}</h3>
+    <div class="role">{{ m.role }}</div>
+
+    <!-- LinkedIn icon -->
+    <div class="lcard-social" *ngIf="m.linkedin">
+      <a
+        class="linkedin-icon"
+        [href]="m.linkedin"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn profile of {{ m.name }}"
+      >
+        <!-- simple LinkedIn SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.24 8.25h4.52V24H0.24V8.25zM8.44 8.25h4.33v2.14h.06c.6-1.14 2.06-2.34 4.24-2.34 4.53 0 5.37 2.98 5.37 6.86V24h-4.52v-7.4c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.92V24H8.44V8.25z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities" *ngIf="spoke().title.includes('Vijayawada') || spoke().title.includes('Rajamahendravaram') || spoke().title.includes('Amaravati Hub') || spoke().title.includes('Anantapur') || spoke().title.includes('Tirupati') || spoke().title.includes('Visakhapatnam')">
+  <div class="container">
+    <div class="head">
+      <h2>{{ spoke().facilities?.title || 'Infrastructure & Facilities' }}</h2>
+      <p class="blurb">{{ spoke().facilities?.blurb }}</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="tile" *ngFor="let ph of spoke().facilities?.photos">
+        <img [src]="ph.src" [alt]="ph.alt" />
+      </figure>
+    </div>
+
+    <ul class="features">
+      <li *ngFor="let f of spoke().facilities?.features">
+        <span class="tick"><img src="assets/spokes/ul-icon.svg" alt="icon"></span>
+        <span class="txt">{{ f.text }}</span>
+      </li>
+    </ul>
+
+    <!-- <div class="cta">
+      <button class="btns" type="button">View More
+        <svg _ngcontent-ng-c1880802788="" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path _ngcontent-ng-c1880802788="" d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
+    </div> -->
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sectors" *ngIf="hasSectors()">
+  <div class="container">
+    <h2 class="title">{{ spoke().sectors?.title || 'Focus Sectors' }}</h2>
+
+    <div class="grid">
+      <div class="item" *ngFor="let s of spoke().sectors?.items">
+        <div class="icon-ring">
+          <img [src]="s.icon" [alt]="s.label" />
+        </div>
+        <p class="label" [innerText]="s.label"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS & SERVICES -->
+<!-- <section class="programs-services" *ngIf="hasServices()">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{ spoke().services?.title || 'Programs & Services' }}</h2>
+      <p>Andhra Pradesh's innovation ecosystem stands out through strategic design, inclusive policies, and technology-driven execution.
+</p>
+    </div>
+
+    <div class="grid">
+      <article class="cardp" *ngFor="let sv of spoke().services?.items">
+        <div class="image-wrap">
+          <img *ngIf="sv.image" [src]="sv.image" [alt]="sv.title" />
+          <div class="overlay">
+            <h3>{{ sv.title }}</h3>
+            <span class="launch-icon">↗</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section> -->
+
+<!-- PARTNERSHIPS -->
+<!-- <section class="partners-cta" *ngIf="hasPartnerships()">
+  <div class="container">
+    <h2 class="title">{{ spoke().partnerships?.title || 'Partnerships & Collaborations' }}</h2>
+    <p class="blurb">{{ spoke().partnerships?.blurb }}</p>
+
+    <div class="actions">
+      <a *ngIf="spoke().applyLink" class="btn btn--primary" [routerLink]="spoke().applyLink">Apply for Programs</a>
+      <a *ngIf="spoke().contactLink" class="btn btn--secondary" [routerLink]="spoke().contactLink">Contact Spoke</a>
+      <a *ngIf="spoke().applyHref" class="btn btn--primary" [href]="spoke().applyHref" target="_blank" rel="noopener">Apply for Programs</a>
+      <a *ngIf="spoke().contactHref" class="btn btn--secondary" [href]="spoke().contactHref" target="_blank" rel="noopener">Contact Spoke</a>
+    </div>
+  </div>
+</section> -->
+
+<app-footer-rtih></app-footer-rtih>

@@ -1,0 +1,257 @@
+<app-header-rtih></app-header-rtih>
+
+<main class="grassroots-page">
+  <section class="hero-panel">
+    <div class="hero-media hero-media-left">
+      <img src="assets/grassroot/farmer.webp" alt="Rural entrepreneur working with traditional equipment" />
+    </div>
+
+    <div class="hero-copy">
+      <h1>GRASSROOTS <span>INNOVATION &amp; ENTREPRENEURSHIP</span></h1>
+      <p class="hero-subtitle">From Rural Ideas to Sustainable Enterprises</p>
+
+      <div class="hero-tags">
+        <span>Empowering Rural Innovators</span>
+        <span>Technology Deployment</span>
+        <span>Village Enterprises</span>
+        <span>Rural Startups</span>
+        <span>Inclusive Innovation</span>
+      </div>
+
+      <p class="hero-note">
+        Building Andhra Pradesh's largest grassroots innovation and entrepreneurship ecosystem through RTIH Rural
+        Outposts (RSVCs).
+      </p>
+
+      <div class="hero-actions">
+        <button type="button" class="btn btn-green">Explore RSVCs</button>
+        <button type="button" class="btn btn-purple">Apply Now</button>
+        <button type="button" class="btn btn-outline">Become a Partner</button>
+      </div>
+    </div>
+
+    <div class="hero-media hero-media-right">
+      <img src="assets/grassroot/drons.jpg" alt="Agriculture drone flying over rural fields" />
+    </div>
+  </section>
+
+  <section class="intro-grid">
+    <article class="panel what-panel">
+      <div class="panel-title left">WHAT IS GRASSROOTS INNOVATION?</div>
+      <div class="what-content">
+        <p>
+          <strong>Grassroots Innovation &amp; Entrepreneurship</strong> at RTIH identifies local challenges,
+          discovers innovative solutions, validates appropriate technologies, nurtures entrepreneurs, and creates
+          sustainable livelihoods through Rural Smart Village Centres (RSVCs).
+        </p>
+
+        <div class="flow-row">
+          <div class="flow-step" *ngFor="let step of flowSteps; let last = last">
+            <div class="flow-icon" [class.orange]="step.color === 'orange'" [class.blue]="step.color === 'blue'">
+              <mat-icon>{{ step.icon }}</mat-icon>
+            </div>
+            <span>{{ step.title }}</span>
+            <b *ngIf="!last">&rarr;</b>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <aside class="panel vision-panel">
+      <div class="panel-title left">OUR IMPACT VISION</div>
+      <p>
+        Empower <strong>1 Million Rural Entrepreneurs by 2047</strong> through Innovation, Technology and Enterprise
+        Development
+      </p>
+      <mat-icon>diversity_3</mat-icon>
+    </aside>
+  </section>
+
+  <section class="panel rsvc-panel">
+    <div class="rsvc-layout">
+      <div class="map-block">
+        <div class="panel-title left">RTIH RURAL OUTPOSTS (RSVCs)</div>
+        <p class="caption">Our grassroots network across Andhra Pradesh</p>
+        <div class="ap-map">
+          <img src="assets/grassroot/andhra-pradesh-map.png" alt="Andhra Pradesh RSVC locations map" />
+          <span class="pin pin-one"></span>
+          <span class="pin pin-two"></span>
+          <span class="pin pin-three"></span>
+          <button type="button" class="mini-green">View All RSVCs &rarr;</button>
+        </div>
+      </div>
+
+      <div class="legend-list">
+        <div *ngFor="let item of mapLegend">
+          <span [style.background]="item.color"></span>
+          <p><strong>{{ item.name }}</strong><small>{{ item.status }}</small></p>
+        </div>
+      </div>
+
+      <article class="rsvc-card" *ngFor="let rsvc of rsvcLocations">
+        <img [src]="rsvc.image" [alt]="rsvc.name" />
+        <div>
+          <h3>{{ rsvc.name }}</h3>
+          <p class="district"><mat-icon>location_on</mat-icon>{{ rsvc.district }}</p>
+          <p><mat-icon>hub</mat-icon>{{ rsvc.focus }}</p>
+          <p><mat-icon>home_work</mat-icon>{{ rsvc.villages }}</p>
+          <button type="button" class="mini-green">Apply / Register &rarr;</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-title">WHAT WE DO</div>
+    <div class="service-grid">
+      <article class="service-card" *ngFor="let item of whatWeDoItems">
+        <mat-icon [class.orange]="item.accent === 'orange'" [class.green]="item.accent === 'green'">{{ item.icon }}</mat-icon>
+        <h3>{{ item.title }}</h3>
+        <ul>
+          <li *ngFor="let point of item.points">{{ point }}</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-title">OUR PROGRAMMES</div>
+    <div class="programme-grid">
+      <article class="icon-card" *ngFor="let prog of programItems">
+        <mat-icon [style.color]="prog.color">{{ prog.icon }}</mat-icon>
+        <h3>{{ prog.title }}</h3>
+      </article>
+    </div>
+    <div class="center-actions">
+      <button type="button" class="mini-purple">View All Programmes &rarr;</button>
+    </div>
+  </section>
+
+  <div class="split-grid">
+    <section class="panel">
+      <div class="panel-title">TECHNOLOGY GALLERY</div>
+      <div class="tabs">
+        <span class="active">Agriculture</span>
+        <span>Food Processing</span>
+        <span>Renewable Energy</span>
+        <span>Water</span>
+        <span>More</span>
+      </div>
+      <div class="tech-grid">
+        <article class="image-card" *ngFor="let tech of technologyItems">
+          <img [src]="tech.image" [alt]="tech.title" />
+          <h3>{{ tech.title }}</h3>
+          <p>Source: {{ tech.subtitle }}</p>
+          <p>{{ tech.cost }}</p>
+          <strong>{{ tech.benefits }}</strong>
+          <button type="button" class="outline-purple">Apply for Demo</button>
+        </article>
+      </div>
+      <div class="center-actions">
+        <button type="button" class="mini-purple">View All Technologies &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">SUCCESS STORIES</div>
+      <div class="story-grid">
+        <article class="image-card" *ngFor="let story of successStories">
+          <img [src]="story.image" [alt]="story.name" />
+          <h3>{{ story.name }}</h3>
+          <p>{{ story.location }}</p>
+          <strong>{{ story.income }}</strong>
+          <button type="button" class="outline-purple">Watch Video</button>
+        </article>
+      </div>
+      <div class="center-actions">
+        <button type="button" class="mini-green">View All Stories &rarr;</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="split-grid">
+    <section class="panel">
+      <div class="panel-title">OUR PARTNER ECOSYSTEM</div>
+      <div class="partner-grid">
+        <article *ngFor="let partner of partners">{{ partner }}</article>
+      </div>
+      <div class="center-actions">
+        <button type="button" class="mini-green">View All Partners &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">UPCOMING EVENTS</div>
+      <div class="event-list">
+        <article *ngFor="let event of upcomingEvents">
+          <mat-icon>event_available</mat-icon>
+          <div>
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.location }}</p>
+          </div>
+          <time>{{ event.date }}<span>{{ event.month }} {{ event.year }}</span></time>
+          <button type="button">Apply Now</button>
+        </article>
+      </div>
+      <div class="center-actions">
+        <button type="button" class="mini-purple">View All Events &rarr;</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="split-grid">
+    <section class="panel">
+      <div class="panel-title">DIGITAL RESOURCE CENTRE</div>
+      <div class="small-icon-grid">
+        <article *ngFor="let resource of resources">
+          <mat-icon>{{ resource.icon }}</mat-icon>
+          <span>{{ resource.title }}</span>
+        </article>
+      </div>
+      <div class="center-actions">
+        <button type="button" class="mini-green">Explore Resources &rarr;</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">ONLINE APPLICATION PORTAL</div>
+      <p class="caption center">One platform for all opportunities</p>
+      <div class="small-icon-grid portal">
+        <article *ngFor="let portal of portalItems">
+          <mat-icon>{{ portal.icon }}</mat-icon>
+          <span>{{ portal.title }}</span>
+        </article>
+      </div>
+      <div class="center-actions">
+        <button type="button" class="mini-green">Apply Now &rarr;</button>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel impact-panel">
+    <div class="panel-title">OUR IMPACT SO FAR</div>
+    <div class="stats-grid">
+      <article *ngFor="let stat of impactStats">
+        <mat-icon [style.color]="stat.color">{{ stat.icon }}</mat-icon>
+        <strong>{{ stat.number }}</strong>
+        <span>{{ stat.label }}</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="ecosystem-section">
+    <div class="panel-title">BECOME PART OF THE ECOSYSTEM</div>
+    <div class="cta-grid">
+      <article class="cta-card" *ngFor="let cta of ctas" [style.backgroundImage]="cta.background">
+        <mat-icon>{{ cta.icon }}</mat-icon>
+        <div>
+          <h3>{{ cta.title }}</h3>
+          <p>{{ cta.text }}</p>
+          <button type="button">{{ cta.button }} &rarr;</button>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<app-footer-rtih></app-footer-rtih>

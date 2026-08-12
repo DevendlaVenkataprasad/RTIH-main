@@ -1,0 +1,466 @@
+<app-header-rtih></app-header-rtih>
+
+<app-inner-banner
+  title="Events"
+  [subtext]="
+    '<strong>Ratan Tata Innovation Hub</strong> a flagship initiative that brings to life the Hon’ble Chief Minister ' +
+    '<strong>Mr. N. Chandrababu Naidu’s</strong> visionary mission of One Family, One Entrepreneur.'
+  "
+  [showBreadcrumbs]="true"
+>
+</app-inner-banner>
+
+<div class="container">
+
+    <!-- HERO -->
+    <header class="hero" role="banner" aria-label="Hackathon Hero">
+      <div class="overlay" aria-hidden="true"></div>
+      <div class="content">
+        <div class="hero-text">
+          <div class="kicker">MedTech Challenge</div>
+          <h1>MedTech Innovation Challenge — Portable & Cost-Effective Solutions</h1>
+          <p class="lead">
+            Invite to innovators, manufacturers and research teams to demonstrate portable medical technologies for improved healthcare delivery in underserved regions. Live demos and pilot opportunities available.
+          </p>
+
+          <div class="hero-cta" role="group" aria-label="Hero actions">
+            <a class="btn btn-primary" href="https://rtih-forms-seg.pages.dev/form-application" target="_blank">Submit Proposal</a>
+            <a class="btn btn-primary" href="https://rtih-forms-seg.pages.dev/form-query" target="_blank">Submit Query</a>
+            
+            <a class="btn btn-ghost" (click)="goHomeFragment('timeline')">Timeline</a>
+                      <!-- <a class="btn btn-ghost" mat-button (click)="goHomeFragment('focus-segments')" routerLinkActive="active">Focus Segments</a> -->
+            <a class="btn btn-ghost" (click)="goHomeFragment('contact')">Contact</a>
+          </div>
+
+          <p class="muted" style="margin-top:12px;font-size:13px">Published: 13 Nov 2025 • Submission Deadline: 05 Dec 2025 @ 11:59 PM • Event: 15 Dec 2025.</p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="false">
+          <!-- royalty-free image (Unsplash) -->
+          <picture>
+           <img src="assets/events/health-ai.png"
+                 alt="Medical device demo illustration">
+          </picture>
+        </div>
+      </div>
+    </header>
+
+    <!-- About the Challenge -->
+    <section class="card" id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About the Challenge</h2>
+      <p>
+        This Hackathon / EoI extends the Government of Andhra Pradesh's initiative to identify and demonstrate portable,
+        affordable and scalable medical technologies that can be deployed in community health centres, mobile units and rural settings.
+        We seek solutions that improve diagnostics, patient monitoring and telemedicine capabilities while being low-cost and easy to operate.
+      </p>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="card" id="problem-statement" aria-labelledby="problem-heading">
+  <h2 id="problem-heading">Problem Statement</h2>
+
+  <!-- ICON LIBRARY -->
+  <script src="https://unpkg.com/phosphor-icons"></script>
+
+
+  <div class="problem-box">
+    <div class="flare"></div>
+
+    <div class="problem-icon">
+      <i class="ph-lightbulb-filament"></i>
+    </div>
+
+    <div class="problem-title">Transforming Public Healthcare Through Innovation</div>
+
+    <div class="problem-text">
+      Andhra Pradesh aims to transform public healthcare delivery by adopting next-generation 
+      medical technologies that are portable, low-cost, and impactful. The challenge is to 
+      bring forward solutions that can meaningfully bridge healthcare gaps—especially in 
+      rural areas—through faster diagnosis, better monitoring, and improved patient care. 
+      Innovations should be practical, scalable, and ready for real-world deployment.
+    </div>
+  </div>
+
+</section>
+
+ <!-- End of Problem statements -->
+
+    <!-- Eligibility & Participation -->
+    <section class="card" id="eligibility" aria-labelledby="eligibility-heading">
+      <h2 id="eligibility-heading">Eligibility & Participation</h2>
+
+      <div class="grid cards-2" style="align-items:start">
+        <div>
+          <ul style="margin:0 0 12px 18px;color:var(--muted);line-height:1.6">
+            <li>Legally registered organizations, startups, manufacturers, research institutions.</li>
+            <li>Preferably minimum 3 years of domain experience or demonstrable competency in medical technologies.</li>
+            <li>Compliance with applicable regulatory standards (CDSCO, ISO 13485, BIS, ICMR, FDA where relevant).</li>
+            <li>Willingness to participate in live demonstration and pilot implementation in Andhra Pradesh.</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="card-small">
+            <h3>What to Prepare</h3>
+            <p class="muted">Organization profile, technology overview, TRL (Technology Readiness Level), regulatory certificates, deployment plan, and a short demo video or presentation.</p>
+          </div>
+          <div class="card-small" style="margin-top:10px">
+            <h3>Notes</h3>
+            <p class="muted">Those who applied earlier need not re-apply unless submitting a new AI/ML solution with updated clearances.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- submission process-->
+
+<section class="card" id="submission-guidelines" aria-labelledby="guidelines-heading">
+  <h2 id="guidelines-heading">Submission Guidelines</h2>
+
+  <!-- ICON LIBRARY -->
+  <script src="https://unpkg.com/phosphor-icons"></script>
+
+  
+
+  <div class="steps-wrapper">
+
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-icon"><i class="ph-book-open"></i></div>
+      <div>
+        <div class="step-title">Step 1 — Read the EOI Document</div>
+        <div class="step-text">
+          Review the EOI thoroughly to understand objectives, scope, eligibility, and submission requirements.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <!-- <div class="step-card">
+      <div class="step-icon"><i class="ph-files"></i></div>
+      <div>
+        <div class="step-title">Step 2 — Use Prescribed Templates</div>
+        <div class="step-text">
+          Prepare your proposal strictly using the templates and formats provided in the reference documents.
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <div class="step-icon"><i class="ph-clipboard-text"></i></div>
+      <div>
+        <div class="step-title">Step 2 — Compile Required Documents</div>
+        <div class="step-text">
+          Include technical details, company information, certifications, financial details (if required), and other supporting documents.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+      <div class="step-icon"><i class="ph-folder"></i></div>
+      <div>
+        <div class="step-title">Step 3 — Format & Name Files Properly</div>
+        <div class="step-text">
+          Upload documents in PDF format and name them clearly, e.g., <b>OrganizationName_DocumentType.pdf</b>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-card">
+      <div class="step-icon"><i class="ph-check-circle"></i></div>
+      <div>
+        <div class="step-title">Step 4 — Verify All Information</div>
+        <div class="step-text">
+          Double-check contact details, declarations, completeness of documents, and overall accuracy before submission.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="step-card">
+      <div class="step-icon"><i class="ph-upload-simple"></i></div>
+      <div>
+        <div class="step-title">Step 5 — Submit Before Deadline</div>
+        <div class="step-text">
+          Upload your final proposal on the official submission portal. Late submissions will not be accepted.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="step-card">
+      <div class="step-icon"><i class="ph-download-simple"></i></div>
+      <div>
+        <div class="step-title">Step 6 — Save Acknowledgment Copy</div>
+        <div class="step-text">
+          Keep a copy of the submission receipt and all documents for your reference.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- end of submission process-->
+
+    <!-- Submission Guidelines -->
+    <section class="card" id="submission" aria-labelledby="submission-heading">
+  <h2 id="submission-heading">Submission Portal & Reference Documents</h2>
+
+  <!-- ICONS LIBRARY -->
+  <script src="https://unpkg.com/phosphor-icons"></script>
+
+  <div class="submission-container">
+
+    <!-- Submit Proposal Card -->
+    <div class="submission-card">
+      <div class="sub-icon">
+        <i class="ph-upload-simple"></i>
+      </div>
+      <div class="sub-title">Submit Your Proposal</div>
+      <div class="sub-text">
+        Use the official submission portal to upload your proposal and required documents. Ensure all guidelines are followed before submitting.
+      </div>
+      <a href="https://rtih-forms-seg.pages.dev/form-application" target="_blank" class="sub-btn">Submit Proposal</a>
+    </div>
+
+    <!-- Download EOI Card -->
+    <div class="submission-card">
+      <div class="sub-icon">
+        <i class="ph-file-arrow-down"></i>
+      </div>
+      <div class="sub-title">Download EOI Document</div>
+      <div class="sub-text">
+        Download the official EOI document, instructions, and reference formats. Review all details carefully before preparing your response.
+      </div>
+
+      <!-- Replace URL with your actual EOI file link -->
+      <a href="assets/healthtech-innovation-challenge-2025.pdf" target="_blank" class="sub-btn" download>Download EOI Document</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- end of submission -->
+
+    <!-- Timeline -->
+
+<section class="card" id="timeline" aria-labelledby="timeline-heading">
+  <h2 id="timeline-heading">Timeline</h2>
+
+  <!-- ICONS LIBRARY (Open-source Phosphor Icons) -->
+  <script src="https://unpkg.com/phosphor-icons"></script>
+
+  <div class="alt-timeline">
+
+    <!-- 1. Published -->
+    <div class="alt-item alt-left">
+      <div class="alt-icon">
+        <i class="ph-calendar-blank"></i>
+      </div>
+      <div class="alt-content">
+        <div class="alt-title">EOI Published</div>
+        <div class="alt-date">13 November 2025</div>
+      </div>
+    </div>
+
+    <!-- 2. Clarification Workshop -->
+    <div class="alt-item alt-right">
+      <div class="alt-icon">
+        <i class="ph-chats-circle"></i>
+      </div>
+      <div class="alt-content">
+        <div class="alt-title">Clarification Workshop</div>
+        <div class="alt-date">20 November 2025<br>
+          <span style="font-size:13px;color:#809098">(Virtual / Physical)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Submission Deadline -->
+    <!-- <div class="alt-item alt-left">
+      <div class="alt-icon">
+        <i class="ph-upload-simple"></i>
+      </div>
+      <div class="alt-content">
+        <div class="alt-title">Submission Deadline</div>
+        <div class="alt-date">29 November 2025 — 5:00 PM</div>
+      </div>
+    </div> -->
+
+    <!-- 3. Revised Submission Deadline -->
+    <div class="alt-item alt-left">
+      <div class="alt-icon">
+        <i class="ph-upload-simple"></i>
+      </div>
+      <div class="alt-content">
+        <div class="alt-title">Revised Deadline for Submission </div>
+        <div class="alt-date">05 December 2025 — 11:59 PM</div>
+      </div>
+    </div>
+
+    <!-- 4. Shortlisting -->
+    <div class="alt-item alt-right">
+      <div class="alt-icon">
+        <i class="ph-list-checks"></i>
+      </div>
+      <div class="alt-content">
+        <div class="alt-title">Shortlisting of Technologies</div>
+        <div class="alt-date">12 December 2025</div>
+      </div>
+    </div>
+
+    <!-- 5. Main Event -->
+    <div class="alt-item alt-left">
+      <div class="alt-icon">
+        <i class="ph-lightbulb-filament"></i>
+      </div>
+      <div class="alt-content">
+        <div class="alt-title">MedTech / HealthTech Event (Live Demonstrations)</div>
+        <div class="alt-date">15 December 2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+  <!-- end of timeline-->
+ 
+
+ 
+
+    <!-- Prizes & Benefits -->
+   <section class="card" id="prizes" aria-labelledby="prizes-heading">
+  <h2 id="prizes-heading">Prizes & Benefits</h2>
+
+  <div class="prize-grid">
+
+    <div class="prize-box">
+      <div class="prize-icon"><span>🎯</span></div>
+      <h3 class="prize-title">Pilot Deployment Opportunities</h3>
+      <p class="prize-text">
+        Selected solutions may be invited for **on-ground pilot implementations** in government health facilities across Andhra Pradesh.  
+        This includes real-world testing, visibility to senior officials, and pathway to state-wide adoption.
+      </p>
+    </div>
+
+    <div class="prize-box">
+      <div class="prize-icon"><span>🌿</span></div>
+      <h3 class="prize-title">Government & Ecosystem Visibility</h3>
+      <p class="prize-text">
+        Teams gain exposure to **healthcare departments, hospitals, investors, and innovation partners**, opening doors for collaborations,
+        procurement pathways, and scale-up opportunities.
+      </p>
+    </div>
+
+    <div class="prize-box">
+      <div class="prize-icon"><span>💡</span></div>
+      <h3 class="prize-title">Technical Mentorship & Support</h3>
+      <p class="prize-text">
+        Access to expert reviews, evaluation feedback, and guidance related to deployment readiness, compliance, and operational integration 
+        across public healthcare systems.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- end of prize-->
+
+    <!-- Contact / Support -->
+   <section class="card" id="contact" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">Contact & Support</h2>
+
+  <!-- ICON LIBRARY -->
+  <script src="https://unpkg.com/phosphor-icons"></script>
+
+
+  <!-- 3-column contact row -->
+  <div class="contact-grid">
+
+    <!-- Email -->
+    <div class="contact-card">
+      <div class="contact-icon">
+        <i class="ph-envelope-simple"></i>
+      </div>
+      <div>
+        <div class="contact-info-title">Email Support</div>
+        <div class="contact-info-text">
+        <a href="mailto:rtih-amvt@ap.gov.in" itemprop="email">connect@rtih.co.in</a> <br>
+          <!-- rtihamaravati@gmail.com -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="contact-card">
+      <div class="contact-icon">
+        <i class="ph-phone"></i>
+      </div>
+      <div>
+        <div class="contact-info-title">Phone / WhatsApp</div>
+        <div class="contact-info-text">
+        <a href="tel:+917396752244" itemprop="telephone">+91 73967 52244</a> <br>
+        <a href="tel:+917396852244" itemprop="telephone">+91 73968 52244</a> <br>
+                <div class="contact-info-title">For any doubts or queries, please reach out to</div>
+
+        <div><strong>Saurabh Gaur, IAS</strong>
+      <p>Secretary, Health and Family Welfare, Government of Andhra Pradesh </p>
+      <a href="tel:+919599533056" itemprop="telephone">+91 95995 33056</a> 
+        </div>
+        <div><strong>Mallikarjuna</strong>
+      <p>Chief Innovation Officer, Health & Family Welfare Department, Government of Andhra Pradesh </p>
+      <a href="tel:+917042488871" itemprop="telephone">+91 70424 88871</a> 
+        </div>
+        <div><strong>Sreedhar, Innovation Manager</strong>
+      <p>Health & Family Welfare Department </p>
+      <a href="tel:+919052108526" itemprop="telephone">+91 90521 08526</a> 
+        </div>    
+    </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="contact-card">
+      <div class="contact-icon">
+        <i class="ph-map-pin"></i>
+      </div>
+      <div>
+        <div class="contact-info-title">Office Address</div>
+        <div class="contact-info-text">
+          The Chief Executive Officer<br>
+          Andhra Pradesh Innovation Society<br>
+          Ratan Tata Innovation Hub, 4th Floor<br>
+          Mayuri Tech Park, Mangalagiri, Guntur<br>
+          Andhra Pradesh — 522503
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Map BELOW the three cards -->
+  <div class="map-box">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61235.3327266946!2d80.48772464863279!3d16.414244300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f6b505eda9a7%3A0x78bc4cda0a07679e!2sMayuri%20Tech%20Park!5e0!3m2!1sen!2sin!4v1763180994569!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+
+</section>
+
+<!-- Call to Action -->
+    <section style="text-align:center;margin:18px 0">
+      <a class="btn btn-primary" href="https://rtih-forms-seg.pages.dev/form-application" target="_blank" style="font-size:16px;padding:12px 20px">Prepare & Submit Your Proposal</a>
+    </section>
+
+</div>
+
+<app-footer-rtih></app-footer-rtih>

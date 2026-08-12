@@ -1,0 +1,93 @@
+/* --- RTIH Footer theme --- */
+$purple-900: #3f156f;
+$purple-800: #4b1e83;  // main background (matches screenshot)
+$purple-600: #7a4cc3;  // outlines/tints
+$text-on-purple: #ffffff;
+$text-muted: rgba(255,255,255,.85);
+$divider: rgba(255,255,255,.15);
+$apply-yellow: #ffd11a;   // Apply Now
+$apply-text: #2b1a59;
+
+.rti-footer{
+  color: $text-on-purple;
+  background: $purple-800;
+
+  a { color: $text-on-purple; text-decoration: none;
+      &:hover { text-decoration: underline } }
+
+  /* top grid */
+  .rti-footer__top{
+    display:grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap:2rem; padding:2.5rem 1.25rem; border-bottom:1px solid $divider;
+
+    @media (max-width: 1100px){ grid-template-columns: 1fr 1fr }
+    @media (max-width: 640px){ grid-template-columns: 1fr }
+  }
+
+  .col{ display:flex; flex-direction:column; gap:.75rem }
+  .col--brand { gap:1rem }
+  .col--cta { align-items:flex-start }
+
+  h3{ font-weight:700; margin:0 0 .5rem }
+
+    .brand-logo {
+      // height: 44px;
+      width: 250px;
+      display: block
+    }  .desc{ color: $text-muted; margin: .25rem 0 1rem; max-width: 44ch }
+
+  .contact{
+    list-style:none; padding:0; margin:0; display:grid; gap:.6rem;
+
+    li{ display:flex; align-items:flex-start; gap:.6rem }
+    .ico{ width:22px; height:22px; flex:0 0 22px; filter: drop-shadow(0 1px 0 rgba(0,0,0,.08)) }
+    a{ color:$text-on-purple }
+  }
+
+  .social{
+    display:flex; gap:.8rem; margin-top:.5rem; padding:0; list-style:none;
+    img{ width:18px; height:18px; display:block }
+  }
+
+  .links{
+    list-style:none; padding:0; margin:0; display:grid; gap:.6rem;
+    a{ color:$text-on-purple; opacity:.95 }
+  }
+
+  /* Material outline color tuning */
+  .email-field{
+    width:100%;
+    --mdc-outlined-text-field-outline-color: #{$purple-600};
+    ::ng-deep .mdc-notched-outline__leading,
+    ::ng-deep .mdc-notched-outline__notch,
+    ::ng-deep .mdc-notched-outline__trailing{ border-color: #{$purple-600} !important; }
+    input{ color:$text-on-purple }
+    mat-label{ color:$text-muted }
+  }
+
+  .btn-subscribe{
+    width:100%; background:#fff; color:$purple-800; margin:.25rem 0 .5rem;
+  }
+  .btn-apply{
+    width:100%; background:$apply-yellow; color:$apply-text;
+    &:hover{ filter: brightness(.95) }
+  }
+
+  /* bottom bar */
+  .rti-footer__bottom{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:1rem; padding:1rem 1.25rem; border-top:1px solid #5C158F;
+
+    @media (max-width: 800px){
+      flex-direction:column; align-items:flex-start;
+    }
+
+    .legal{ display:flex; gap:2rem; align-items:center; flex-wrap:wrap; opacity:.95 }
+    .legal-links a{ margin-right:1rem }
+
+    .credits{ display:flex; align-items:center; gap:.75rem; opacity:.95 }
+    .rtgs-logo{ 
+      // height:28px;
+       width:auto; display:block }
+  }
+}

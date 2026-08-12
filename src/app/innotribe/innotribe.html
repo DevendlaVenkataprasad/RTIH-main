@@ -1,0 +1,493 @@
+<app-header-rtih></app-header-rtih>
+
+<main class="innotribe-page">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="hero-branding" aria-label="Program brand partners">
+          <div class="hero-partner-row">
+            <div class="hero-brand-group">
+              <!-- <span class="hero-brand-label">Flagship initiative by</span> -->
+              <img class="hero-logo-row__rtih" src="assets/rtih-logo.png" alt="RTIH logo" />
+            </div>
+            <div class="hero-brand-group">
+              <!-- <span class="hero-brand-label">Sponsored by</span> -->
+              <img class="hero-logo-row__union" src="assets/union-bank-social-foundation.jpg" alt="Union Bank Social Foundation logo" />
+            </div>
+            <div class="hero-innotribe-lockups">
+           
+            
+          </div>
+          </div>
+          <div class="hero-innotribe-lockup">
+             <img class="hero-logo-row__innotribe" src="assets/innotribe-logo.png" alt="InnoTribe logo" />
+            <span>INNOTRIBE</span></div>
+        </div>
+
+        <h1>Andhra Pradesh's Student Innovation & Entrepreneurship Program</h1>
+        <p class="subtitle">From Idea to Incubation – a structured pathway to entrepreneurship for students.</p>
+
+        <div class="hero-actions">
+          <a
+            class="btn btn-primary"
+            href="https://docs.google.com/forms/d/1jAEMpXZ_Dj_LsT6sSpdCN3S7FTWV1zZIomXjtGV9Szs/viewform?chromeless=1&edit_requested=true"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Partner with us</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-head">
+          <span>Program Snapshot</span>
+          <strong>2026-2027</strong>
+        </div>
+        <div class="snapshot-list">
+          <div *ngFor="let metric of heroMetrics">
+            <strong>{{ metric.value }}</strong>
+            <span>{{ metric.label }}</span>
+          </div>
+        </div>
+        <button class="video-tile" type="button" (click)="openVideoModal()" aria-label="Play InnoTribe explainer video">
+          <span class="play-icon">&#9658;</span>
+          <div>
+            <strong>Explainer Video</strong>
+            <p>Explore the Program</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="entrepreneurial-journey-section" aria-label="Student entrepreneurial journey with InnoTribe">
+    <div class="container">
+      <h2>Student Entrepreneurial Journey with Innotribe</h2>
+      <div class="journey-strip">
+        <div class="journey-step">
+          <span class="material-icons" aria-hidden="true">emoji_objects</span>
+          <strong>Idea</strong>
+        </div>
+        <span class="journey-arrow" aria-hidden="true">&rarr;</span>
+        <div class="journey-step">
+          <span class="material-icons" aria-hidden="true">settings</span>
+          <strong>Prototype</strong>
+        </div>
+        <span class="journey-arrow" aria-hidden="true">&rarr;</span>
+        <div class="journey-step">
+          <span class="material-icons" aria-hidden="true">widgets</span>
+          <strong>Showcase</strong>
+        </div>
+        <span class="journey-arrow" aria-hidden="true">&rarr;</span>
+        <div class="journey-step">
+          <span class="material-icons" aria-hidden="true">local_florist</span>
+          <strong>Incubation</strong>
+        </div>
+        <span class="journey-arrow" aria-hidden="true">&rarr;</span>
+        <div class="journey-step">
+          <span class="material-icons" aria-hidden="true">send</span>
+          <strong>Startup</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro-section designed-section" aria-label="Program overview">
+    <div class="container intro-showcase">
+      <div class="intro-main">
+        <div class="overview-title-row">
+          <div>
+            <!-- <p class="section-label">Program Overview</p> -->
+            <h2>About InnoTribe</h2>
+          </div>
+          <!-- <span class="overview-badge">Student Innovation Pathway</span> -->
+        </div>
+
+        <!-- <p class="overview-lead">
+          InnoTribe is a structured campus-to-incubation pathway that helps students discover
+          real problems, build capability, form venture teams, validate prototypes, and move
+          toward startup readiness.
+        </p> -->
+
+        <div class="overview-lead">
+          <p>InnoTribe is a structured campus-to-incubation pathway that helps students:</p>
+          <ul class="overview-lead-list">
+            <li>Identify real-world problems</li>
+            <li>Build startup capabilities</li>
+            <li>Form venture teams</li>
+            <li>Validate and launch ideas</li>
+          </ul>
+        </div>
+
+        <div class="overview-pillars" aria-label="Program overview highlights">
+          <article>
+            <span class="material-icons" aria-hidden="true">person_add</span>
+            <strong>Open Entry</strong>
+            <p>Students from any discipline can begin with awareness, problem discovery, and orientation.</p>
+          </article>
+          <article>
+            <span class="material-icons" aria-hidden="true">construction</span>
+            <strong>Guided Build</strong>
+            <p>Selected learners receive screening, capability building, mentoring, and prototype support.</p>
+          </article>
+          <article>
+            <span class="material-icons" aria-hidden="true">rocket_launch</span>
+            <strong>Venture Bridge</strong>
+            <p>Promising teams move through showcases, validation, incubation, and startup transition.</p>
+          </article>
+        </div>
+
+        <!-- <div class="overview-route" aria-label="Program route">
+          <span>Discover</span>
+          <span>Screen</span>
+          <span>Build</span>
+          <span>Validate</span>
+          <span>Incubate</span>
+        </div> -->
+        </div>
+
+      <div class="objective-panel">
+        <div class="objective-heading">
+          <span class="material-icons" aria-hidden="true">flag</span>
+          <div>
+            <h1>Program Outcomes</h1>
+            <!-- <p>The outcomes this pathway is designed to create for students and institutions.</p> -->
+          </div>
+        </div>
+        <ul class="objective-list">
+          <li *ngFor="let objective of objectives">
+            <span class="material-icons" aria-hidden="true">{{ objective.icon }}</span>
+            <p>{{ objective.text }}</p>
+          </li>
+        </ul>
+        <div class="priority-visual" aria-label="InnoTribe pathway focus">
+          <div class="priority-node">
+            <span class="material-icons" aria-hidden="true">search</span>
+            <strong>Discover</strong>
+          </div>
+          <div class="priority-node">
+            <span class="material-icons" aria-hidden="true">psychology</span>
+            <strong>Capability</strong>
+          </div>
+          <div class="priority-node">
+            <span class="material-icons" aria-hidden="true">groups</span>
+            <strong>Venture Teams</strong>
+          </div>
+          <div class="priority-node">
+            <span class="material-icons" aria-hidden="true">rocket_launch</span>
+            <strong>Startup Ready</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pathway-section">
+    <div class="container">
+      <div class="section-head centered">
+        <!-- <p class="section-label">Student Journey</p> -->
+        <h2>InnoTribe Student Journey</h2>
+        <p>
+          A stage-wise flow that moves students from first exposure to screening, venture
+          formation, prototype validation, and incubation-ready startup transition.
+        </p>
+      </div>
+
+      <div class="journey-flow" aria-label="InnoTribe student journey flow">
+        <article *ngFor="let stage of journeyStages; let i = index" [class.flow-fest-item]="stage.markerIcon">
+          <div class="flow-fest-circle" *ngIf="stage.markerIcon">
+            <span class="material-icons" aria-hidden="true">{{ stage.markerIcon }}</span>
+            <strong>{{ stage.title }}</strong>
+          </div>
+
+          <div class="flow-marker" *ngIf="!stage.markerIcon">
+            <span>{{ i + 1 }}</span>
+          </div>
+
+          <div class="flow-card" *ngIf="!stage.markerIcon">
+            <div class="flow-card-head">
+              <span>{{ stage.stage }}</span>
+              <h3>{{ stage.title }}</h3>
+            </div>
+
+            <div class="flow-card-body">
+              <div>
+                <p>{{ stage.activities }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="participation-section">
+    <div class="container">
+      <div class="participation-head">
+        <div>
+          <p class="section-label">Participation Framework</p>
+          <h2>Clear entry points for every stakeholder</h2>
+          <p class="participation-stp">
+            <span>S</span>electing Institutions
+            <span>T</span>argeting Students
+            <span>P</span>ositioning to Startup
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="participation-layout">
+        <div class="audience-stack">
+          <article *ngFor="let card of audienceCards; let i = index">
+            <div class="audience-number">
+              <span class="material-icons" aria-hidden="true">{{ card.icon }}</span>
+            </div>
+            <div>
+              <h3>{{ card.title }}</h3>
+              <p>{{ card.subtitle }}</p>
+              <ul>
+                <li *ngFor="let item of card.items">{{ item }}</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="institution-panel">
+          <div class="table-title">
+            <p class="section-label">Institutions</p>
+            <h3>Engagement maturity levels</h3>
+            <p>Institutions can move from basic participation to a sustained campus innovation ecosystem.</p>
+          </div>
+          <div class="level-cards">
+            <article *ngFor="let level of institutionLevels">
+              <span class="level-icon material-icons" aria-hidden="true">{{ level.icon }}</span>
+              <div>
+                <span>{{ level.level }}</span>
+               
+                <h4>{{ level.role }}</h4>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="architecture-section designed-section dark-section">
+    <div class="container architecture-wrap">
+      <div class="section-head centered architecture-head">
+        <p class="section-label">Program Architecture</p>
+        <h2>An Operating Model Designed for Scale, Support, and Governance</h2>
+        <p class="architecture-lead">
+          InnoTribe connects campus activity, regional validation, mentorship, and governance
+          data into one coordinated delivery system.
+        </p>
+ 
+      </div>
+
+      <div class="architecture-content">
+        <div class="architecture-block-title">
+          <h3>Program Pillars</h3>
+          <p>Each pillar has a clear movement path from campus activation to measurable outcomes.</p>
+        </div>
+
+        <div class="axis-flow">
+          <article *ngFor="let axis of axes; let i = index">
+            <div class="axis-head">
+              <span class="axis-number material-icons" aria-hidden="true">{{ axis.icon }}</span>
+              <div>
+                <h3>{{ axis.title }}</h3>
+                <p>{{ axis.detail }}</p>
+              </div>
+            </div>
+
+            <div class="axis-steps" [attr.aria-label]="axis.title + ' flow'">
+              <ng-container *ngFor="let step of axis.flow; let last = last">
+                <span class="axis-step">
+                  <span class="material-icons" aria-hidden="true">{{ step.icon }}</span>
+                  <strong>{{ step.label }}</strong>
+                </span>
+                <i
+                  class="axis-arrow material-icons"
+                  [class.axis-arrow--plus]="axis.title === 'Governance & Data Axis'"
+                  *ngIf="!last"
+                  aria-hidden="true"
+                >
+                  {{ axis.title === 'Governance & Data Axis' ? 'add' : 'arrow_forward' }}
+                </i>
+              </ng-container>
+            </div>
+          </article>
+        </div>
+
+        <!-- <div class="infrastructure-panel">
+          <div class="architecture-block-title infrastructure-title">
+            <h3>Key Infrastructure</h3>
+          </div>
+          <div class="infra-grid">
+            <article *ngFor="let item of infrastructure">
+              <span class="material-icons" aria-hidden="true">{{ item.icon }}</span>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.detail }}</p>
+            </article>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="tracking-section designed-section">
+    <div class="container tracking-grid">
+      <div class="tracking-card">
+        <div class="tracking-heading">
+          <div>
+            <p class="section-label">MIS Dashboard</p>
+            <h2>Transparency & impact tracking</h2>
+          </div>
+          <span>Live Progression View</span>
+        </div>
+        <p class="tracking-lead">
+          The MIS dashboard gives RTIH, institutions, and program teams a shared view of cohort
+          progression, prototype movement, and incubation readiness.
+        </p>
+        <div class="dashboard-grid">
+          <article *ngFor="let feature of dashboardFeatures; let i = index">
+            <span>0{{ i + 1 }}</span>
+            <strong>{{ feature }}</strong>
+          </article>
+        </div>
+      </div>
+
+      <div class="metrics-card">
+        <h3>Public Metrics</h3>
+        <p>Headline indicators published for accountability and ecosystem visibility.</p>
+        <div class="metric-list">
+          <span *ngFor="let metric of publicMetrics">{{ metric }}</span>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-head centered">
+        <!-- <p class="section-label">Current Cohort Timeline</p> -->
+        <h2>2026-2027 Calendar</h2>
+        <p>
+          A phased cohort plan for launch, institutional onboarding, awareness, validation,
+          demo days, and the state-level InnoTribe Fest.
+        </p>
+      </div>
+
+      <div class="cohort-showcase">
+        <article *ngFor="let item of timeline; let i = index">
+          <div class="cohort-phase">
+            <span>{{ item.phase }}</span>
+            <!-- <strong>0{{ i + 1 }}</strong> -->
+             <!-- <strong>⏳</strong> -->
+          </div>
+          <div class="cohort-card">
+            <strong>{{ item.date }}</strong>
+            <p>{{ item.activity }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container faq-grid" [class.faq-grid--expanded]="showAllFaqs">
+      <div class="faq-copy">
+        <!-- <p class="section-label"></p> -->
+        <h2>Frequently Asked Questions</h2>
+        <p>
+          Quick answers for students, faculty, and institutions before joining the InnoTribe pathway.
+        </p>
+        <div class="faq-help-card">
+          <strong>Need more clarity?</strong>
+          <span>Reach the Youth Outreach team through the contact section below.</span>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details *ngFor="let faq of visibleFaqs; let i = index" [open]="i === 0">
+          <summary>{{ faq.question }}</summary>
+          <p>{{ faq.answer }}</p>
+        </details>
+        <button class="faq-toggle" type="button" (click)="toggleFaqs()">
+          {{ showAllFaqs ? 'Show Less' : 'Show More' }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="start-section" id="get-started">
+    <div class="container start-card">
+      <div class="start-copy">
+        <p class="section-label">Get Started</p>
+        <h2>Activate your InnoTribe participation</h2>
+        <p>
+          Register as a student, submit institutional interest, or contact the RTIH Youth Outreach
+          team for coordination support.
+        </p>
+      </div>
+
+      <div class="start-actions">
+        <a
+          class="btn btn-primary"
+          href="https://docs.google.com/forms/u/7/d/1jAEMpXZ_Dj_LsT6sSpdCN3S7FTWV1zZIomXjtGV9Szs/edit?usp=drivesdk&ouid=110257595124980297744&chromeless=1"
+          target="_blank"
+          rel="noopener"
+        >
+          Expression of Interest
+        </a>
+        <!-- <a class="btn btn-primary" href="#">Register Now</a> -->
+          <a class="btn btn-light disabled-btn" href="#">Download I & E-Cell Playbook</a>
+        <a class="btn btn-light disabled-btn" href="#">Download Student Guide</a>
+          
+         
+          <button class="btn btn-light video-action" type="button" (click)="openVideoModal()">Explainer Video</button>
+      </div>
+
+      <div class="contact-panel">
+        <h3>Contact Details</h3>
+        <ul>
+          <li *ngFor="let contact of contacts">{{ contact }}</li>
+        </ul>
+        <a class="contact-link" href="mailto:innotribe@rtih.co.in">
+          <span class="material-icons" aria-hidden="true">mail</span>
+          <span>innotribe@rtih.co.in</span>
+        </a>
+        <!-- <a class="contact-link" href="tel:+917396852244">
+          <span class="material-icons" aria-hidden="true">call</span>
+          <span>7396852244</span>
+        </a> -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<div
+  class="video-modal"
+  *ngIf="isVideoModalOpen"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="innotribe-video-title"
+  (click)="closeVideoModal()"
+>
+  <div class="video-modal__dialog" (click)="$event.stopPropagation()">
+    <div class="video-modal__header">
+      <h2 id="innotribe-video-title">InnoTribe Explainer Video</h2>
+      <button class="video-modal__close" type="button" (click)="closeVideoModal()" aria-label="Close video">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <video class="video-modal__player" controls autoplay playsinline>
+      <source [src]="innotribeVideoSrc" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<app-footer-rtih></app-footer-rtih>

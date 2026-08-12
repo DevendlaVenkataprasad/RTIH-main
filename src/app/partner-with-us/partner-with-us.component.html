@@ -1,0 +1,60 @@
+<section class="partner" id="partner-us">
+  <header class="head">
+    <h2>Partner With Us</h2>
+    <p>Tailored support for different entrepreneur categories, ensuring inclusive growth <br>
+      across Andhra Pradesh's innovation ecosystem.</p>
+  </header>
+
+  <div class="grid">
+    <article class="card" *ngFor="let c of cards">
+  <div class="card-top">
+  <div class="avatar">
+    <img [src]="c.icon" alt="" />
+  </div>
+
+  <!-- <a *ngIf="c.joinNow" class="join-now-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfIHCyne5Gbfo7Wbhx-zsq6Rz4iCqDlCM72pfHx47oypYbhOQ/viewform?usp=sharing&ouid=110257595124980297744" target="_blank">
+    Join Now
+  </a> -->
+
+  <a 
+  *ngIf="c.buttonText"
+  class="join-now-btn"
+  [href]="c.buttonLink"
+  target="_blank">
+  {{ c.buttonText }}
+</a>
+
+
+</div>
+  <div class="card-header">
+    <h3 class="title">{{ c.title }}</h3>
+
+   
+  </div>
+
+  <p class="blurb">{{ c.blurb }}</p>
+
+  <div class="benefits">
+    <h4>{{ c.subtitle }}</h4>
+    <ul class="checks">
+      <li *ngFor="let b of c.benefits" [class.empty]="b==='—'">
+        <span class="tick">✔</span> <span>{{ b }}</span>
+      </li>
+    </ul>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="cta-partner" aria-labelledby="cta-partner-title">
+  <div class="cp-wrap">
+    <p id="cta-partner-title" class="cp-line">
+      <span class="cp-emoji" aria-hidden="true">👉</span>
+      <strong>Join us in building a world-class innovation ecosystem.</strong>
+    </p>
+
+    <!-- Use routerLink if you're in Angular routing; otherwise replace with href="#" -->
+    <a class="cp-btn" href="https://forms.gle/XTGbLw8dwHRL8nt17" target="_blank">Become a Partner Today</a>
+  </div>
+</section>
+

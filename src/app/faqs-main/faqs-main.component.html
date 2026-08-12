@@ -1,0 +1,33 @@
+<app-header-rtih></app-header-rtih>
+<section class="faq">
+  <header class="head">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about Ratantata Innovation Hub in Andhra Pradesh</p>
+  </header>
+
+  <div class="faq-card">
+    <mat-accordion class="list" multi>
+      <mat-expansion-panel *ngFor="let f of faqs" [expanded]="f.expanded" (opened)="f.expanded = true"
+        (closed)="f.expanded = false" hideToggle class="item">
+        <mat-expansion-panel-header>
+          <span class="question">{{ f.q }}</span>
+
+          <!-- Custom square icon -->
+          <span class="chip" [class.opened]="f.expanded">
+            <span *ngIf="!f.expanded">+</span>
+            <span *ngIf="f.expanded">−</span>
+          </span>
+        </mat-expansion-panel-header>
+
+        <div class="answer">{{ f.a }}</div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+
+  <!-- <div class="cta">
+    <button mat-flat-button class="more">Explore More FAQ’s</button>
+  </div> -->
+</section>
+
+<app-footer-rtih></app-footer-rtih>

@@ -1,0 +1,54 @@
+<section class="focus-segments" id="focus-segments">
+  <div class="container">
+    <header class="head">
+      <h2>Focus Segments</h2>
+      <p>
+        Comprehensive support ecosystem designed to nurture innovation at every stage of<br>
+        your entrepreneurial journey.
+      </p>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button *ngFor="let tab of tabs"
+              [class.active]="tab.label === active"
+              (click)="setActive(tab.label)">
+        <img [src]="tab.icon" alt="" />
+        <span>{{ tab.label }}</span>
+      </button>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="fs-carousel" (mouseenter)="pause()" (mouseleave)="play()">
+      <div class="viewport"
+           #viewport
+           (scroll)="onScroll()"
+           [class.snap-mode]="cols === 1">
+        <div class="track"
+             [style.transform]="cols === 1 ? 'none' : 'translateX(-' + (currentIndex * stepPx) + 'px)'"
+             [style.transition]="animating && cols !== 1 ? 'transform 600ms ease' : 'none'">
+          <article *ngFor="let s of list; let i = index" class="card" [class.is-active]="i === currentIndex">
+            <div class="badge">{{ i + 1 }}</div>
+            <h3>{{ s.title }}</h3>
+            <p>{{ s.desc }}</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Arrows (hidden on mobile) -->
+      <button mat-icon-button class="nav prev" (click)="prev()" aria-label="Prev" *ngIf="cols > 1">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button class="nav next" (click)="next()" aria-label="Next" *ngIf="cols > 1">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+
+      <!-- Dots -->
+      <div class="dots" *ngIf="dotsCount > 1">
+        <span *ngFor="let _ of dots; let i = index"
+              [class.active]="i === currentIndex"
+              (click)="go(i)"></span>
+      </div>
+    </div>
+  </div>
+</section>

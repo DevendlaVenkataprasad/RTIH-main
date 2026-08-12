@@ -1,0 +1,51 @@
+<section class="startup-toolkit-partners" aria-labelledby="startup-toolkit-title">
+  <header class="toolkit-head">
+    <h2 id="startup-toolkit-title">Startup Toolkit</h2>
+  </header>
+
+  <div class="toolkit-panel">
+    <nav class="category-tabs" aria-label="Startup toolkit partner categories">
+      <button
+        *ngFor="let category of categories; let i = index"
+        type="button"
+        class="category-tab"
+        [class.active]="activeCategoryIndex === i"
+        (click)="selectCategory(i)"
+      >
+        {{ category.title }}
+      </button>
+    </nav>
+
+    <div class="category-divider" aria-hidden="true"></div>
+
+    <div class="toolkit-content">
+      <div class="logo-stage" aria-live="polite">
+        <div class="logo-grid">
+          <div class="logo-box" *ngFor="let logo of activeCategory.logos">
+            <img [src]="resolveAsset(logo.src)" [alt]="logo.alt" />
+          </div>
+        </div>
+      </div>
+
+      <article class="category-summary">
+        <h3>{{ activeCategory.title }}</h3>
+        <p>{{ activeCategory.description }}</p>
+        <div class="key-offerings">
+          <h4>Key Offerings</h4>
+          <ul>
+            <li *ngFor="let offering of activeCategory.keyOfferings">{{ offering }}</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <p class="toolkit-join">
+    <a
+      href="mailto:connect@rtih.co.in"
+      (click)="openJoinMail($event)"
+    >
+      Build alongside RTIH and bring your startup support to Andhra Pradesh's founders.
+    </a>
+  </p>
+</section>
