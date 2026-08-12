@@ -432,43 +432,6 @@
       </div>
     </section>
 
-    <section
-      class="startups"
-      [class.portfolio-active]="isStartupPortfolioActive"
-      aria-labelledby="startups-title"
-      #startupSection>
-      <div class="startups-head">
-        <h2 id="startups-title">Startup Portfolio</h2>
-      </div>
-
-      <div class="startup-grid">
-        <article class="startup-card" *ngFor="let startup of featuredStartupCards; let i = index" [style.--i]="i" tabindex="0">
-          <div class="startup-top">
-            <div class="startup-mark" aria-hidden="true">
-              <img [src]="resolveAsset(startup.logoSrc)" [alt]="startup.alt">
-            </div>
-            <div class="startup-meta">
-              <h3>{{ startup.name }}</h3>
-              <p>{{ startup.year }}</p>
-            </div>
-          </div>
-
-          <p class="startup-summary">{{ startup.summary }}</p>
-        </article>
-      </div>
-
-      <div class="startups-footer">
-        <a class="view-all-startups" href="#contact">
-          <span>View All Startups</span>
-          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-            <path d="M7 5h8v8"></path>
-            <path d="M5 15l10-10"></path>
-          </svg>
-        </a>
-      </div>
-    </section>
-
-
     <section class="voices" aria-labelledby="voices-title">
       <div class="voice-feature relative mx-auto w-[380px] aspect-[4/6] overflow-hidden rounded-[12px] bg-[#e9edf2] md:w-[430px]">
         <video

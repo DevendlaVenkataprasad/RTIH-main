@@ -676,16 +676,6 @@ type ProgramBenefit = {
   disableFlip?: boolean;
 };
 
-type StartupCard = {
-  logoSrc: string;
-  alt: string;
-  name: string;
-  year: string;
-  summary: string;
-  raised: string;
-  teamSize: string;
-};
-
 type Story = {
   name: string;
   role: string;
@@ -840,8 +830,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
   hasMetricIntroStarted = false;
   isEventsSectionActive = false;
   isProgramsSectionActive = false;
-  isStartupPortfolioActive = false;
-
   benefitPrograms: ProgramBenefit[] = [
     {
       title: 'Funding opportunities',
@@ -886,63 +874,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
         'Work with experienced mentors across strategy, product, finance, branding, operations, legal, and go-to-market planning. Mentorship helps founders test assumptions, sharpen decisions, improve execution, and move from idea to growth with clearer direction.',
       imageSrc: 'program-icons/mentor.jpeg',
       imageAlt: 'Mentorship support',
-    },
-  ];
-
-  startupCards: StartupCard[] = [
-    {
-      logoSrc: 'startup-logos/agrosense-logo.png',
-      alt: 'AgroSense AI logo',
-      name: 'AgroSense AI',
-      year: 'Since 2021',
-      summary: 'AI-powered precision agriculture platform for smallholder farmers across AP.',
-      raised: '₹3.2Cr',
-      teamSize: '24',
-    },
-    {
-      logoSrc: 'startup-logos/medi.png',
-      alt: 'MediTrack360 logo',
-      name: 'MediTrack360',
-      year: 'Since 2022',
-      summary: 'Digital health records and telemedicine for rural Andhra Pradesh.',
-      raised: '₹1.8Cr',
-      teamSize: '12',
-    },
-    {
-      logoSrc: 'startup-logos/edunexa.png',
-      alt: 'EduNexa logo',
-      name: 'EduNexa',
-      year: 'Since 2020',
-      summary: 'Vernacular-first adaptive learning platform serving 1.2M students.',
-      raised: '₹2.5Cr',
-      teamSize: '31',
-    },
-    {
-      logoSrc: 'startup-logos/grid.png',
-      alt: 'GridFlow Energy logo',
-      name: 'GridFlow Energy',
-      year: 'Since 2019',
-      summary: 'Smart microgrid management for industrial and commercial sectors.',
-      raised: '₹5.1Cr',
-      teamSize: '45',
-    },
-    {
-      logoSrc: 'startup-logos/supply.png',
-      alt: 'SupplyNest logo',
-      name: 'SupplyNest',
-      year: 'Since 2023',
-      summary: 'B2B supply chain visibility platform for manufacturing SMEs.',
-      raised: '₹90L',
-      teamSize: '8',
-    },
-    {
-      logoSrc: 'startup-logos/neuro.jpeg',
-      alt: 'NeuroCraft logo',
-      name: 'NeuroCraft',
-      year: 'Since 2023',
-      summary: 'Edge AI inference chips designed for IoT and autonomous systems.',
-      raised: '₹45L',
-      teamSize: '6',
     },
   ];
 
@@ -996,23 +927,17 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
   @ViewChild('metricsSection') metricsSection?: ElementRef<HTMLElement>;
   @ViewChild('eventsSection') eventsSection?: ElementRef<HTMLElement>;
-  @ViewChild('startupSection') startupSection?: ElementRef<HTMLElement>;
   @ViewChild('programsSection') programsSection?: ElementRef<HTMLElement>;
 
   private metricsObserver?: IntersectionObserver;
   private eventsObserver?: IntersectionObserver;
   private programsObserver?: IntersectionObserver;
-  private startupObserver?: IntersectionObserver;
   private counterFrame?: number;
   private metricStartTimer?: number;
   private summitAutoplayTimer?: number;
   private summitTouchStartX?: number;
   private summitTouchStartY?: number;
   private hasAnimatedMetrics = false;
-
-  get featuredStartupCards(): StartupCard[] {
-    return this.startupCards.slice(0, 3);
-  }
 
   get activeStory(): Story {
     return this.stories[this.activeStoryIndex];
@@ -1191,26 +1116,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     );
 
     this.programsObserver.observe(section);
-  }
-
-  private observeStartupPortfolio(): void {
-    const section = this.startupSection?.nativeElement;
-
-    if (!section) {
-      return;
-    }
-
-    this.startupObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          this.isStartupPortfolioActive = true;
-          this.startupObserver?.disconnect();
-        }
-      },
-      { threshold: 0.22 },
-    );
-
-    this.startupObserver.observe(section);
   }
 
   private animateMetricCounters(): void {
@@ -2454,7 +2359,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
       this.observeMetrics();
       this.observeEventsSection();
       this.observeProgramsSection();
-      this.observeStartupPortfolio();
       this.startSummitAutoplay();
       void this.loadMapData();
     }
@@ -2499,7 +2403,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     this.metricsObserver?.disconnect();
     this.eventsObserver?.disconnect();
     this.programsObserver?.disconnect();
-    this.startupObserver?.disconnect();
     this.revealObserver?.disconnect();
 
     if (this.counterFrame) {
