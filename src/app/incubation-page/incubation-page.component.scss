@@ -468,6 +468,9 @@
     font-size: clamp(16px, 1.2vw, 19px);
     line-height: 1.75;
     font-weight: 500;
+    text-align: justify;
+    text-align-last: left;
+    hyphens: auto;
   }
 
 
