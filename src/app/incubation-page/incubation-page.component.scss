@@ -1,5 +1,6 @@
 :host {
   display: block;
+  overflow-x: hidden;
 }
 
 
@@ -4033,7 +4034,7 @@
 /* -- AP interactive map widget (main mode) -- */
 
 .ap-interactive-map {
-  font-family: 'Manrope';
+  font-family: "Figtree", sans-serif;
   color: #312f55;
   padding: 2.1rem 1.1rem 1.6rem;
   background: #FFFFFF !important;
