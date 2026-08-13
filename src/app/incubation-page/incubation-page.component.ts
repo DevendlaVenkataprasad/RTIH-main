@@ -11,6 +11,7 @@ import {
   inject,
 } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MaterialModule } from '../shared/material.module';
 import { FooterRtihComponent } from '../footer-rtih/footer-rtih.component';
 import { HeaderRtihComponent } from '../header-rtih/header-rtih.component';
@@ -789,6 +790,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
   private readonly hostRef: ElementRef<HTMLElement> = inject(ElementRef);
   private readonly contentService = inject(IncubationContentService);
   private readonly cdr = inject(ChangeDetectorRef);
+  private readonly sanitizer = inject(DomSanitizer);
 
   /* ---- mode / program resolution ---- */
   readonly mode: IncubationPageMode = this.resolveMode();
@@ -806,6 +808,40 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
   get programApplyStatusText(): string {
     return this.program?.applyStatusText || 'Applications opening soon';
+  }
+
+  /* ---- Apply Now modal (program mode) ---- */
+  applyModalUrl: string | null = null;
+  private applyModalSafeUrl: SafeResourceUrl | null = null;
+
+  get applyModalFrameUrl(): SafeResourceUrl | null {
+    return this.applyModalSafeUrl;
+  }
+
+  openApplyModal(url: string): void {
+    this.applyModalUrl = url;
+    this.applyModalSafeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  closeApplyModal(): void {
+    this.applyModalUrl = null;
+    this.applyModalSafeUrl = null;
+  }
+
+  @HostListener('document:keydown.escape')
+  onApplyModalEscape(): void {
+    if (this.applyModalUrl) {
+      this.closeApplyModal();
+    }
+  }
+
+  /** Scrolls to an in-page section instead of relying on a bare `href="#id"`
+   *  anchor — with the global `<base href="/">`, a fragment-only href
+   *  resolves against the base and navigates to "/#id" (the home page)
+   *  rather than staying on the current route. */
+  scrollToSection(sectionId: string, event: Event): void {
+    event.preventDefault();
+    this.hostRef.nativeElement.querySelector(`#${sectionId}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   /* =============================================================================

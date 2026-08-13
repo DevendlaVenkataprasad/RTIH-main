@@ -79,8 +79,8 @@
             RTIH AP brings together incubation, mentorship, funding pathways, market access, technical support, and industry connections to help startups move from early ideas to scalable ventures. Through our hub-and-spoke ecosystem, founders gain access to the people, resources, and opportunities needed to build with confidence.
           </p>
           <div class="about-ctas">
-            <a class="about-btn about-btn-primary" href="#incubation-programs">Explore Programs <span>&#8594;</span></a>
-            <a class="about-btn about-btn-secondary" href="#programs">Learn More <span>&#8599;</span></a>
+            <a class="about-btn about-btn-primary" href="#incubation-programs" (click)="scrollToSection('incubation-programs', $event)">Explore Programs <span>&#8594;</span></a>
+            <a class="about-btn about-btn-secondary" href="#programs" (click)="scrollToSection('programs', $event)">Learn More <span>&#8599;</span></a>
           </div>
         </div>
       </div>
@@ -615,9 +615,9 @@
             <p class="program-hero__lead">{{ program.fullDescription }}</p>
 
             <div class="program-hero__actions">
-              <a *ngIf="canApplyToProgram" class="btn btn-primary" [href]="program.applyUrl" target="_blank" rel="noopener noreferrer">Apply Now</a>
+              <button *ngIf="canApplyToProgram" type="button" class="btn btn-primary" (click)="openApplyModal(program.applyUrl!)">Apply Now</button>
               <span *ngIf="!canApplyToProgram" class="apply-status-pill">{{ programApplyStatusText }}</span>
-              <a class="btn btn-secondary" href="#program-overview">Explore the Track</a>
+              <a class="btn btn-secondary" href="#program-overview" (click)="scrollToSection('program-overview', $event)">Explore the Track</a>
             </div>
           </div>
 
@@ -795,6 +795,19 @@
         </div>
       </div>
     </section>
+
+    <div class="apply-modal-overlay" *ngIf="applyModalUrl" (click)="closeApplyModal()">
+      <div class="apply-modal" role="dialog" aria-modal="true" [attr.aria-label]="'Apply to ' + program.name" (click)="$event.stopPropagation()">
+        <div class="apply-modal__header">
+          <h2>Apply — {{ program.name }}</h2>
+          <div class="apply-modal__header-actions">
+            <a class="apply-modal__open-tab" [href]="applyModalUrl" target="_blank" rel="noopener noreferrer">Open in new tab <span aria-hidden="true">&#8599;</span></a>
+            <button type="button" class="apply-modal__close" (click)="closeApplyModal()" aria-label="Close apply form">&times;</button>
+          </div>
+        </div>
+        <iframe class="apply-modal__frame" [src]="applyModalFrameUrl" title="Program application form"></iframe>
+      </div>
+    </div>
   </main>
 
   <ng-template #notFound>

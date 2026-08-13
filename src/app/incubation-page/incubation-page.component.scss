@@ -6419,6 +6419,127 @@ svg {
 
 
 
+  /* ---------- Apply Now modal ---------- */
+  .apply-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: clamp(16px, 4vw, 40px);
+    background: rgba(16, 20, 33, 0.6);
+    backdrop-filter: blur(4px);
+  }
+
+
+
+  .apply-modal {
+    display: flex;
+    flex-direction: column;
+    width: min(720px, 100%);
+    height: min(760px, 90vh);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 30px 80px rgba(10, 12, 24, 0.35);
+  }
+
+
+
+  .apply-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e7e9f0;
+    background: color-mix(in srgb, var(--program-primary) 6%, #ffffff);
+  }
+
+
+
+  .apply-modal__header h2 {
+    margin: 0;
+    color: #102033;
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+
+
+  .apply-modal__header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+
+
+  .apply-modal__open-tab {
+    color: var(--program-primary);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+
+
+  .apply-modal__open-tab:hover,
+  .apply-modal__open-tab:focus-visible {
+    text-decoration: underline;
+  }
+
+
+
+  .apply-modal__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--program-primary) 10%, #ffffff);
+    color: #102033;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 160ms ease;
+  }
+
+
+
+  .apply-modal__close:hover,
+  .apply-modal__close:focus-visible {
+    background: color-mix(in srgb, var(--program-primary) 18%, #ffffff);
+  }
+
+
+
+  .apply-modal__frame {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: #ffffff;
+  }
+
+
+
+  @media (max-width: 640px) {
+    .apply-modal-overlay {
+      padding: 0;
+    }
+
+    .apply-modal {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+
+
+
   @media (max-width: 1100px) {
     .program-hero__grid,
     .overview-layout,
