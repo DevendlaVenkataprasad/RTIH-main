@@ -76,10 +76,17 @@ export type ProgramData = {
   location: string;
   imageSrc: string;
   imageAlt: string;
-  /** Program-specific "Apply Now" link (e.g. a dedicated Google Form).
-   *  Optional — when unset, the template falls back to the site-wide
-   *  `incubationApplyUrl`. */
+  /** Program-specific "Apply Now" link, set via the admin portal.
+   *  When unset, the template shows `applyStatusText` (or a default
+   *  "not open yet" message) instead of an Apply Now button. */
   applyUrl?: string;
+  /** Admin-portal toggle for whether this program is currently taking
+   *  applications. Defaults to `true` so programs created before this
+   *  field existed keep showing Apply Now once an applyUrl is set. */
+  acceptingApplications?: boolean;
+  /** Admin-portal override for the message shown when Apply Now isn't
+   *  available (no applyUrl, or acceptingApplications is false). */
+  applyStatusText?: string;
   colors: {
     primary: string;
     secondary: string;
@@ -792,6 +799,14 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
    *  instead of flashing empty labels. */
   programLoading = false;
   program: ProgramData | undefined = this.resolveProgram();
+
+  get canApplyToProgram(): boolean {
+    return Boolean(this.program?.applyUrl) && this.program?.acceptingApplications !== false;
+  }
+
+  get programApplyStatusText(): string {
+    return this.program?.applyStatusText || 'Applications opening soon';
+  }
 
   /* =============================================================================
    * MAIN MODE fields (formerly incubation-page.component.ts)
@@ -2316,7 +2331,9 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
         location: content.location || base.location,
         imageSrc: content.imageSrc || base.imageSrc,
         imageAlt: content.imageAlt || base.imageAlt,
-        applyUrl: content.applyUrl || base.applyUrl,
+        applyUrl: match.apply_url || base.applyUrl,
+        acceptingApplications: match.accepting_applications ?? base.acceptingApplications ?? true,
+        applyStatusText: match.apply_status_text || base.applyStatusText,
         colors: content.colors
           ? {
               primary: content.colors.primary || base.colors.primary,

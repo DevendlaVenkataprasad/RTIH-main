@@ -5519,6 +5519,21 @@ svg {
 
 
 
+  .apply-status-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 999px;
+    color: color-mix(in srgb, var(--program-primary) 70%, #000);
+    background: color-mix(in srgb, var(--program-primary) 10%, #ffffff);
+    border: 1.5px dashed color-mix(in srgb, var(--program-primary) 30%, #ffffff);
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+
+
   /* ---------- Hero band ---------- */
   .band--hero {
     padding-top: clamp(28px, 4vw, 44px);

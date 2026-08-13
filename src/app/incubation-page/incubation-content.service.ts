@@ -33,9 +33,6 @@ export type IncubationProgramFeedContent = {
   location?: string;
   imageSrc?: string;
   imageAlt?: string;
-  /** Program-specific "Apply Now" link override (falls back to the
-   *  site-wide apply URL on the Angular side when unset). */
-  applyUrl?: string;
   colors?: { primary?: string; secondary?: string; lightBg?: string; dark?: string };
   targetAudience?: string[];
   features?: { icon: string; title: string; description: string }[];
@@ -57,6 +54,9 @@ export type IncubationProgramFeedItem = {
   display_order: number;
   active: boolean;
   content: IncubationProgramFeedContent;
+  apply_url?: string | null;
+  accepting_applications?: boolean;
+  apply_status_text?: string | null;
   updated_at?: string;
 };
 
