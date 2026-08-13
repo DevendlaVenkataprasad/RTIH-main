@@ -6221,9 +6221,18 @@ svg {
 
 
 
+  /* Overrides the unrelated `.faq-answer` rule from the main-page FAQ
+     widget (display: grid; grid-template-rows: 0fr; opacity: 0), which
+     leaks in here because both widgets share this component's style
+     scope. That rule only opens via a `.open` class this template never
+     applies (the collapse/expand here is driven by `.faq-answer-wrap`
+     instead), so without this override every answer stayed permanently
+     collapsed regardless of the question's open state. */
   .faq-answer {
+    display: block;
     min-height: 0;
     overflow: hidden;
+    opacity: 1;
   }
 
 
