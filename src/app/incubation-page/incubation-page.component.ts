@@ -100,7 +100,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   spark: {
     id: 'spark',
     name: 'SPARK',
-    tagline: 'Explore -> Idea',
+    tagline: 'Explore → Idea',
     description: 'A founder-first bootcamp that helps early-stage teams test ideas, sharpen problem statements, and plan the first build.',
     fullDescription:
       'SPARK is the front door to the RTIH incubation journey. The track helps aspiring founders move from rough ideas to a validated startup direction through workshops, customer discovery, mentor feedback, and practical next-step planning.',
@@ -145,7 +145,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   'future-founders': {
     id: 'future-founders',
     name: 'Future Founders',
-    tagline: 'Ideation -> Prototype',
+    tagline: 'Ideation → Prototype',
     description: 'Structured pre-incubation for founders who are ready to build, test, and validate a first prototype.',
     fullDescription:
       'Future Founders bridges ideation and formal incubation. The program combines mentor-led sessions, customer validation, prototype support, and startup fundamentals so teams can move from concept to something tangible.',
@@ -190,7 +190,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   catalyst: {
     id: 'catalyst',
     name: 'Catalyst Cohort',
-    tagline: 'Prototype -> Commercialization',
+    tagline: 'Prototype → Commercialization',
     description: 'Growth-focused incubation for startups ready to move beyond product development and into market execution.',
     fullDescription:
       'Catalyst is a four-to-six month incubation journey for startups that already have a prototype or MVP. Teams get support across commercialization, investor readiness, customer acquisition, and operational clarity.',
@@ -235,7 +235,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   'velocity-lab': {
     id: 'velocity-lab',
     name: 'Velocity Lab',
-    tagline: 'Commercialization -> Establishment',
+    tagline: 'Commercialization → Establishment',
     description: 'Acceleration support for startups that already have traction and want to grow faster.',
     fullDescription:
       'Velocity Lab is the scale-up track for proven startups. The program focuses on market expansion, operational discipline, and strategic growth decisions that help a team move from early traction to durable business performance.',
@@ -280,7 +280,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   medtech: {
     id: 'medtech',
     name: 'MedTech Challenge',
-    tagline: 'Healthcare Innovation -> Deployment',
+    tagline: 'Healthcare Innovation → Deployment',
     description: 'A challenge-led track for teams building portable, affordable, and deployable healthcare technology.',
     fullDescription:
       'The MedTech Challenge supports founders who are solving real healthcare problems. The track emphasizes deployment readiness, clinical feedback, and practical product design for clinics, hospitals, and field settings.',
@@ -325,7 +325,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   'avgc-xr': {
     id: 'avgc-xr',
     name: 'AVGC-XR Incubation',
-    tagline: 'Creative Innovation -> Industry Leadership',
+    tagline: 'Creative Innovation → Industry Leadership',
     description: 'A dedicated track for animation, VFX, gaming, comics, and immersive technology ventures.',
     fullDescription:
       'The AVGC-XR track supports creators and startups building in animation, VFX, gaming, comics, AR, VR, and immersive digital experiences. It combines creative mentorship with product and market guidance.',
@@ -370,7 +370,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   innotribe: {
     id: 'innotribe',
     name: 'InnoTribe',
-    tagline: 'Learning -> Venture Building',
+    tagline: 'Learning → Venture Building',
     description: 'A student innovation pathway that helps colleges and universities turn campus curiosity into venture-ready teams.',
     fullDescription:
       'InnoTribe builds entrepreneurial confidence among students through idea generation, problem solving, startup basics, and practical venture-building experiences. It creates a path from campus exploration to incubation-ready teams.',
@@ -415,7 +415,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   'student-entrepreneurship': {
     id: 'student-entrepreneurship',
     name: 'Student Entrepreneurship',
-    tagline: 'Learning -> Building -> Launching',
+    tagline: 'Learning → Building → Launching',
     description: 'A dedicated pathway for student founders to turn ideas into sustainable businesses with institutional support.',
     fullDescription:
       'RTIH student entrepreneurship programs empower the next generation of founders across Andhra Pradesh. The pathway blends mentorship, campus outreach, and access to the wider incubation ecosystem so students can move from idea to venture-ready execution.',
@@ -460,7 +460,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   climatetech: {
     id: 'climatetech',
     name: 'ClimateTech Cohort',
-    tagline: 'Climate Risk -> Deployable Solutions',
+    tagline: 'Climate Risk → Deployable Solutions',
     description: 'A sector-focused cohort for startups building climate resilience, clean energy, and sustainability solutions.',
     fullDescription:
       'The ClimateTech Cohort supports founders working on climate adaptation, renewable energy, water and waste management, and sustainability tech. Teams get sector mentorship, pilot access with public and industry partners, and support to move from concept to deployable climate solutions.',
@@ -505,7 +505,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   mobility: {
     id: 'mobility',
     name: 'Mobility Cohort',
-    tagline: 'Transport Innovation -> Market Fit',
+    tagline: 'Transport Innovation → Market Fit',
     description: 'A dedicated track for startups building smarter, safer, and more sustainable mobility solutions.',
     fullDescription:
       'The Mobility Cohort supports founders working on transportation, logistics, fleet technology, and sustainable mobility. The track combines sector mentorship, industry pilots, and go-to-market support to help teams move mobility solutions toward real-world adoption.',
@@ -550,7 +550,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   foodtech: {
     id: 'foodtech',
     name: 'FoodTech Cohort',
-    tagline: 'Farm & Food Innovation -> Scale',
+    tagline: 'Farm & Food Innovation → Scale',
     description: 'A sector cohort for startups building food processing, agri-tech, and food safety innovations.',
     fullDescription:
       'The FoodTech Cohort supports founders working across food processing, agri-supply chains, food safety, and nutrition tech. Teams get sector-specific mentorship, access to processing and farm-partner networks, and support to move solutions from concept to market.',
@@ -595,7 +595,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
   evtech: {
     id: 'evtech',
     name: 'EVTech Cohort',
-    tagline: 'Electric Mobility -> Industry Readiness',
+    tagline: 'Electric Mobility → Industry Readiness',
     description: 'A dedicated track for startups building electric vehicle, battery, and charging infrastructure innovations.',
     fullDescription:
       'The EVTech Cohort supports founders building electric vehicles, battery technology, charging infrastructure, and EV supply-chain solutions. The track combines sector mentorship, testing support, and industry linkages to help teams move toward manufacturing and market readiness.',
