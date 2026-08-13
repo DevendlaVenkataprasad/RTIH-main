@@ -615,7 +615,7 @@
             <p class="program-hero__lead">{{ program.fullDescription }}</p>
 
             <div class="program-hero__actions">
-              <a class="btn btn-primary" [href]="program.applyUrl || incubationApplyUrl" target="_blank" rel="noopener noreferrer">Apply Now</a>
+              <a *ngIf="program.applyUrl" class="btn btn-primary" [href]="program.applyUrl" target="_blank" rel="noopener noreferrer">Apply Now</a>
               <a class="btn btn-secondary" href="#program-overview">Explore the Track</a>
             </div>
           </div>
