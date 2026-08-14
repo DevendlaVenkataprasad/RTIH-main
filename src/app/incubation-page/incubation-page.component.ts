@@ -2260,7 +2260,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
         if (existing) {
           existing.title = match.title || existing.title;
-          existing.desc = match.tagline || existing.desc;
+          existing.desc = match.content?.description || existing.desc;
           displayOrderByTrack.set(existing, match.display_order);
           changed = true;
           continue;
@@ -2279,7 +2279,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
           title: match.title || match.program_key,
           duration: match.content?.duration || '',
           selection: '',
-          desc: match.tagline || match.content?.description || '',
+          desc: match.content?.description || '',
           imagePath: match.content?.imageSrc || '',
           route: matchRoute,
         };
