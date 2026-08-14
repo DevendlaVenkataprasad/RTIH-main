@@ -147,7 +147,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
       phone: '+91 73968 52244',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh 522503',
     },
-    partners: ['Government of Andhra Pradesh', 'RTIH mentors'],
+    partners: [],
     programHighlights: ['Problem framing', 'Customer discovery', 'Pitch practice'],
   },
   'future-founders': {
