@@ -405,7 +405,7 @@
 
                   <div class="program-card-body">
                     <h3>{{ program.title }}</h3>
-                    <p class="program-desc">{{ program.duration }} | {{ program.selection }}. {{ program.desc }}</p>
+                    <p class="program-desc">{{ program.desc }}</p>
 
                     <a *ngIf="!program.external" class="program-link" [routerLink]="program.route">
                       Read More <span aria-hidden="true">→</span>
