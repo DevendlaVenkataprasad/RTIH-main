@@ -581,17 +581,6 @@
 
 
 
-  .metrics {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 54px clamp(20px, 6vw, 92px) 60px;
-    background: #f9fafb;
-  }
-
-
-
-  .metrics h2,
   .section-heading h2,
   .voice-content h2 {
     margin: 0;
@@ -601,163 +590,6 @@
     font-weight: 900;
     letter-spacing: -0.04em;
     text-align: center;
-  }
-
-
-
-  .metrics h2 {
-    width: min(1260px, 100%);
-    margin-inline: auto;
-  }
-
-
-
-  .metric-carousel {
-    position: relative;
-    overflow: visible;
-    width: min(1260px, 100%);
-    margin: 28px auto 0;
-    padding: 0;
-  }
-
-
-
-  .metric-track {
-    --metric-gap: 12px;
-
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    align-items: stretch;
-    width: 100%;
-    gap: var(--metric-gap);
-  }
-
-
-
-  .metric-card {
-    min-width: 0;
-    min-height: 112px;
-    padding: 22px 18px 18px;
-    border-radius: 8px;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 1px #e5e7eb;
-    opacity: 0;
-    transform: translateY(26px) scale(0.98);
-  }
-
-
-
-  .metric-intro-active .metric-card {
-    animation: metricCardIn 560ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(1),
-  .metric-intro-active .metric-card:nth-child(7) {
-    animation-delay: 0ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(2),
-  .metric-intro-active .metric-card:nth-child(8) {
-    animation-delay: 90ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(3),
-  .metric-intro-active .metric-card:nth-child(9) {
-    animation-delay: 180ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(4),
-  .metric-intro-active .metric-card:nth-child(10) {
-    animation-delay: 270ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(5),
-  .metric-intro-active .metric-card:nth-child(11) {
-    animation-delay: 360ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(6),
-  .metric-intro-active .metric-card:nth-child(12) {
-    animation-delay: 450ms;
-  }
-
-
-
-  .metric-card strong {
-    display: block;
-    color: #6f3298;
-    font-size: clamp(30px, 2.6vw, 36px);
-    line-height: 1;
-    font-weight: 900;
-    opacity: 0;
-    transform: translateY(16px) scale(0.8);
-    transform-origin: left bottom;
-  }
-
-
-
-  .metric-intro-active .metric-card strong {
-    animation: metricNumberPop 520ms cubic-bezier(0.16, 1.25, 0.3, 1) forwards;
-    animation-delay: 160ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(2) strong,
-  .metric-intro-active .metric-card:nth-child(8) strong {
-    animation-delay: 250ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(3) strong,
-  .metric-intro-active .metric-card:nth-child(9) strong {
-    animation-delay: 340ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(4) strong,
-  .metric-intro-active .metric-card:nth-child(10) strong {
-    animation-delay: 430ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(5) strong,
-  .metric-intro-active .metric-card:nth-child(11) strong {
-    animation-delay: 520ms;
-  }
-
-
-
-  .metric-intro-active .metric-card:nth-child(6) strong,
-  .metric-intro-active .metric-card:nth-child(12) strong {
-    animation-delay: 610ms;
-  }
-
-
-
-  .metric-card span {
-    display: block;
-    margin-top: 12px;
-    color: #574463;
-    font-size: clamp(12px, 0.92vw, 15px);
-    font-weight: 800;
-    line-height: 1.2;
-    white-space: nowrap;
   }
 
 
@@ -3109,10 +2941,6 @@
       min-height: 640px;
     }
 
-    .metric-track {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
     .program-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -3164,10 +2992,6 @@
 
     .program-grid {
       grid-template-columns: repeat(2, minmax(180px, 1fr));
-    }
-
-    .metric-track {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .voices {
@@ -3229,7 +3053,6 @@
       font-size: 16px;
     }
 
-    .metrics,
     .programs,
     .voices,
     .startups,
@@ -3297,11 +3120,6 @@
       padding: 42px 22px;
     }
 
-    .metric-track {
-      grid-template-columns: 1fr;
-    }
-
-    .metric-card,
     .program-card,
     .startup-card,
     .incubation-card,
@@ -3365,11 +3183,6 @@
 
     .startup-summary {
       margin-top: 20px;
-    }
-
-    .metric-card {
-      min-height: 118px;
-      padding: 22px 16px;
     }
 
     .voices {
@@ -3482,7 +3295,6 @@
   @media (max-width: 900px) {
 
     .about,
-    .metrics,
     .programs,
     .incubation-programs,
     .startups,
@@ -3510,7 +3322,6 @@
     }
 
     .about-content h2,
-    .metrics h2,
     .section-heading h2,
     .startups-head h2,
     .voice-content h2,
@@ -3607,7 +3418,6 @@
     }
 
     .about,
-    .metrics,
     .programs,
     .incubation-programs,
     .startups,
@@ -3685,7 +3495,6 @@
       height: 32px;
     }
 
-    .metric-card,
     .startup-card,
     .incubation-card {
       padding-inline: 18px;
@@ -3784,23 +3593,6 @@
 
 
   @media (prefers-reduced-motion: reduce) {
-    .metric-track {
-      animation: none;
-      transition: none;
-    }
-
-    .metric-card {
-      animation: none;
-      opacity: 1;
-      transform: none;
-    }
-
-    .metric-card strong {
-      animation: none;
-      opacity: 1;
-      transform: none;
-    }
-
     .startups::before,
     .startup-card::before {
       animation: none;
@@ -3857,7 +3649,6 @@
 
 
   :host :is(.about-content h2,
-    .metrics h2,
     .section-heading h2,
     .startups-head h2,
     .voice-content h2,
@@ -3894,35 +3685,6 @@
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes metricCardIn {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes metricNumberPop {
-  0% {
-    opacity: 0;
-    transform: translateY(18px) scale(0.78);
-  }
-
-  70% {
-    opacity: 1;
-    transform: translateY(-2px) scale(1.06);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 

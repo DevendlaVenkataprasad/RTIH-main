@@ -670,11 +670,6 @@ function isProgramId(value: string): value is ProgramId {
  * Main-mode data types (formerly incubation-page.component.ts)
  * ========================================================================== */
 
-type Metric = {
-  value: number;
-  label: string;
-};
-
 type ProgramBenefit = {
   title: string;
   text: string;
@@ -870,17 +865,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
    * backend is unreachable or hasn't been deployed yet. */
   toolkitCategoriesOverride?: ToolkitCategory[];
 
-  metrics: Metric[] = [
-    { value: 250, label: 'Corporates' },
-    { value: 100, label: 'Startups' },
-    { value: 20, label: 'Value Partners' },
-    { value: 50, label: 'Mentors' },
-    { value: 100, label: 'Investors' },
-    { value: 20, label: 'Innovation Partners' },
-  ];
-
-  animatedMetrics = this.metrics.map(() => 0);
-  hasMetricIntroStarted = false;
   isEventsSectionActive = false;
   isProgramsSectionActive = false;
   benefitPrograms: ProgramBenefit[] = [
@@ -978,19 +962,14 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
   isStoryMuted = true;
   currentSummitSlideIndex = 0;
 
-  @ViewChild('metricsSection') metricsSection?: ElementRef<HTMLElement>;
   @ViewChild('eventsSection') eventsSection?: ElementRef<HTMLElement>;
   @ViewChild('programsSection') programsSection?: ElementRef<HTMLElement>;
 
-  private metricsObserver?: IntersectionObserver;
   private eventsObserver?: IntersectionObserver;
   private programsObserver?: IntersectionObserver;
-  private counterFrame?: number;
-  private metricStartTimer?: number;
   private summitAutoplayTimer?: number;
   private summitTouchStartX?: number;
   private summitTouchStartY?: number;
-  private hasAnimatedMetrics = false;
 
   get activeStory(): Story {
     return this.stories[this.activeStoryIndex];
@@ -1111,32 +1090,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     void video.play();
   }
 
-  private observeMetrics(): void {
-    const section = this.metricsSection?.nativeElement;
-
-    if (!section) {
-      return;
-    }
-
-    this.metricsObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting || this.hasAnimatedMetrics) {
-            continue;
-          }
-
-          this.hasMetricIntroStarted = true;
-          this.animateMetricCounters();
-          this.metricsObserver?.disconnect();
-          break;
-        }
-      },
-      { threshold: 0.3 },
-    );
-
-    this.metricsObserver.observe(section);
-  }
-
   private observeEventsSection(): void {
     const section = this.eventsSection?.nativeElement;
 
@@ -1169,36 +1122,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     );
 
     this.programsObserver.observe(section);
-  }
-
-  private animateMetricCounters(): void {
-    if (this.hasAnimatedMetrics) {
-      return;
-    }
-
-    this.hasAnimatedMetrics = true;
-    const duration = 2000;
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-      this.animatedMetrics = this.metrics.map((metric) => Math.floor(metric.value * easedProgress));
-
-      if (progress < 1) {
-        this.counterFrame = requestAnimationFrame(tick);
-        return;
-      }
-
-      this.animatedMetrics = this.metrics.map((metric) => metric.value);
-      this.counterFrame = undefined;
-      this.metricStartTimer = window.setTimeout(() => {
-        this.metricStartTimer = undefined;
-      }, 0);
-    };
-
-    this.counterFrame = requestAnimationFrame(tick);
   }
 
   private startSummitAutoplay(): void {
@@ -2413,7 +2336,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
   ngAfterViewInit(): void {
     if (this.mode === 'main') {
-      this.observeMetrics();
       this.observeEventsSection();
       this.observeProgramsSection();
       this.startSummitAutoplay();
@@ -2457,18 +2379,9 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   ngOnDestroy(): void {
-    this.metricsObserver?.disconnect();
     this.eventsObserver?.disconnect();
     this.programsObserver?.disconnect();
     this.revealObserver?.disconnect();
-
-    if (this.counterFrame) {
-      cancelAnimationFrame(this.counterFrame);
-    }
-
-    if (this.metricStartTimer) {
-      window.clearTimeout(this.metricStartTimer);
-    }
 
     this.clearSummitAutoplay();
     this.clearAutoplay();

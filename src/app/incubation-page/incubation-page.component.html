@@ -228,28 +228,6 @@
     </section>
 
     <section
-      class="metrics"
-      [class.metric-intro-active]="hasMetricIntroStarted"
-      aria-labelledby="metrics-title"
-      #metricsSection>
-      <h2 id="metrics-title">The RTIH Network</h2>
-      <div
-        class="metric-carousel"
-        aria-label="RTIH network metrics"
-      >
-        <div
-          class="metric-track">
-          <article
-            class="metric-card"
-            *ngFor="let metric of metrics; let i = index">
-            <strong>{{ animatedMetrics[i % metrics.length] || 0 }}+</strong>
-            <span>{{ metric.label }}</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section
       #eventsSection
       class="events-section"
       [class.reveal-active]="isEventsSectionActive"
