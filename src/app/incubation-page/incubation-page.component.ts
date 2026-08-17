@@ -848,7 +848,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
    * MAIN MODE fields (formerly incubation-page.component.ts)
    * ========================================================================== */
 
-  heroVideoSrc = '/assets/hero-compressed.mp4';
+  heroVideoSrc = '/assets/hero-section-video.mp4';
   incubationApplyUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc4krS7ZhXY8CqZE1O84Eg0EbTc_1_1DeKSVuNtgqx3xzemxA/viewform';
 
   /* Hero copy — hardcoded defaults, optionally overridden by the PHP
