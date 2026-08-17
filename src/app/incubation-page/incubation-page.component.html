@@ -59,7 +59,7 @@
       <div class="hero-content">
         <h1>{{ heroHeadline }}</h1>
         <p class="hero-copy">{{ heroCopy }}</p>
-        <a class="hero-cta" [href]="incubationApplyUrl">{{ heroCtaLabel }} <span>&#8599;</span></a>
+        <button type="button" class="hero-cta" (click)="openApplyModal(incubationApplyUrl)">{{ heroCtaLabel }} <span>&#8599;</span></button>
       </div>
     </section>
 
@@ -568,7 +568,7 @@
           </p>
 
           <div class="cta-actions">
-            <a class="cta-primary" [href]="incubationApplyUrl">Apply Now <span aria-hidden="true">&#8599;</span></a>
+            <button type="button" class="cta-primary" (click)="openApplyModal(incubationApplyUrl)">Apply Now <span aria-hidden="true">&#8599;</span></button>
 
           </div>
         </div>
@@ -615,7 +615,7 @@
             <p class="program-hero__lead">{{ program.fullDescription }}</p>
 
             <div class="program-hero__actions">
-              <button *ngIf="canApplyToProgram" type="button" class="btn btn-primary" (click)="openApplyModal(program.applyUrl!)">Apply Now</button>
+              <button *ngIf="canApplyToProgram" type="button" class="btn btn-primary" (click)="openApplyModal(program.applyUrl!, 'Apply — ' + program.name)">Apply Now</button>
               <span *ngIf="!canApplyToProgram" class="apply-status-pill">{{ programApplyStatusText }}</span>
               <a class="btn btn-secondary" href="#program-overview" (click)="scrollToSection('program-overview', $event)">Explore the Track</a>
             </div>
@@ -796,18 +796,6 @@
       </div>
     </section>
 
-    <div class="apply-modal-overlay" *ngIf="applyModalUrl" (click)="closeApplyModal()">
-      <div class="apply-modal" role="dialog" aria-modal="true" [attr.aria-label]="'Apply to ' + program.name" (click)="$event.stopPropagation()">
-        <div class="apply-modal__header">
-          <h2>Apply — {{ program.name }}</h2>
-          <div class="apply-modal__header-actions">
-            <a class="apply-modal__open-tab" [href]="applyModalUrl" target="_blank" rel="noopener noreferrer">Open in new tab <span aria-hidden="true">&#8599;</span></a>
-            <button type="button" class="apply-modal__close" (click)="closeApplyModal()" aria-label="Close apply form">&times;</button>
-          </div>
-        </div>
-        <iframe class="apply-modal__frame" [src]="applyModalFrameUrl" title="Program application form"></iframe>
-      </div>
-    </div>
   </main>
 
   <ng-template #notFound>
@@ -829,6 +817,23 @@
   <main class="toolkit-page">
     <app-startup-toolkit [categoriesOverride]="toolkitCategoriesOverride"></app-startup-toolkit>
   </main>
+</div>
+
+<!-- ==================================================================================
+     Apply Now modal — shared by main mode (site-wide apply link) and program
+     mode (per-program admin-set apply link)
+     ================================================================================== -->
+<div class="apply-modal-overlay" *ngIf="applyModalUrl" (click)="closeApplyModal()">
+  <div class="apply-modal" role="dialog" aria-modal="true" [attr.aria-label]="applyModalTitle" (click)="$event.stopPropagation()">
+    <div class="apply-modal__header">
+      <h2>{{ applyModalTitle }}</h2>
+      <div class="apply-modal__header-actions">
+        <a class="apply-modal__open-tab" [href]="applyModalUrl" target="_blank" rel="noopener noreferrer">Open in new tab <span aria-hidden="true">&#8599;</span></a>
+        <button type="button" class="apply-modal__close" (click)="closeApplyModal()" aria-label="Close apply form">&times;</button>
+      </div>
+    </div>
+    <iframe class="apply-modal__frame" [src]="applyModalFrameUrl" title="Application form"></iframe>
+  </div>
 </div>
 
 <app-footer-rtih></app-footer-rtih>

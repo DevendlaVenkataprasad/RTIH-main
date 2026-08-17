@@ -810,16 +810,18 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     return this.program?.applyStatusText || 'Applications opening soon';
   }
 
-  /* ---- Apply Now modal (program mode) ---- */
+  /* ---- Apply Now modal (shared across main + program mode) ---- */
   applyModalUrl: string | null = null;
+  applyModalTitle = 'Apply for Incubation';
   private applyModalSafeUrl: SafeResourceUrl | null = null;
 
   get applyModalFrameUrl(): SafeResourceUrl | null {
     return this.applyModalSafeUrl;
   }
 
-  openApplyModal(url: string): void {
+  openApplyModal(url: string, title: string = 'Apply for Incubation'): void {
     this.applyModalUrl = url;
+    this.applyModalTitle = title;
     this.applyModalSafeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
@@ -849,7 +851,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
    * ========================================================================== */
 
   heroVideoSrc = '/assets/hero-section-video.mp4';
-  incubationApplyUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc4krS7ZhXY8CqZE1O84Eg0EbTc_1_1DeKSVuNtgqx3xzemxA/viewform';
+  incubationApplyUrl = 'https://admin.rtih.co.in/incubation/apply.php';
 
   /* Hero copy — hardcoded defaults, optionally overridden by the PHP
    * backend's incubation-sections-feed.php ('hero' section). See
@@ -2172,8 +2174,10 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
         if (hero.headline) this.heroHeadline = hero.headline;
         if (hero.subtitle) this.heroCopy = hero.subtitle;
         if (hero.cta_label) this.heroCtaLabel = hero.cta_label;
-        if (hero.cta_url) this.incubationApplyUrl = hero.cta_url;
-        if (hero.video_src) this.heroVideoSrc = hero.video_src;
+        // cta_url / video_src intentionally NOT applied here: the CMS still
+        // has a stale Google Form link and a since-removed video file
+        // stored from before, which would otherwise silently override the
+        // current incubationApplyUrl / heroVideoSrc defaults on every load.
       }
 
       const benefits = sections.benefits;
