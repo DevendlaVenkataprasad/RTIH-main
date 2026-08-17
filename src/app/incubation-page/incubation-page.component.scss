@@ -5383,6 +5383,19 @@ svg {
 
 
 
+  /* Every heading — the program name, section titles, support-pillar and
+     journey-step titles — always starts each word with a capital letter,
+     regardless of how the copy is cased in the static defaults or in
+     admin-entered content. FAQ questions and body copy are untouched since
+     they aren't heading elements. */
+  h1,
+  h2,
+  h3 {
+    text-transform: capitalize;
+  }
+
+
+
   .program-page {
     overflow: hidden;
   }
