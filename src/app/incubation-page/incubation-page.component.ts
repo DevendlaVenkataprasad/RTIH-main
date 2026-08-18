@@ -115,7 +115,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '1-2 Days',
     format: 'Bootcamp',
     location: 'RTIH, Amaravati',
-    imageSrc: '/incubation/spark.jpg',
+    imageSrc: '/assets/incubation/spark.jpg',
     imageAlt: 'SPARK bootcamp participants collaborating',
     colors: {
       primary: '#7c3aed',
@@ -160,7 +160,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '6 Weeks',
     format: 'Structured Pre-Incubation',
     location: 'RTIH Amaravati Hub & Regional Spokes',
-    imageSrc: '/incubation/ff.jpg',
+    imageSrc: '/assets/incubation/ff.jpg',
     imageAlt: 'Future Founders workshop',
     colors: {
       primary: '#6f3298',
@@ -205,7 +205,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '4-6 Months',
     format: 'Hybrid Incubation',
     location: 'RTIH Amaravati Hub & Regional Spokes',
-    imageSrc: '/incubation/catalyst.jpg',
+    imageSrc: '/assets/incubation/catalyst.jpg',
     imageAlt: 'Catalyst incubation cohort',
     colors: {
       primary: '#5b2a86',
@@ -250,7 +250,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '3-4 Months',
     format: 'Acceleration Program',
     location: 'RTIH Amaravati Hub & Regional Spokes',
-    imageSrc: '/incubation/vel.jpg',
+    imageSrc: '/assets/incubation/vel.jpg',
     imageAlt: 'Velocity Lab startup scale-up session',
     colors: {
       primary: '#4b1e83',
@@ -295,7 +295,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '6-8 Weeks',
     format: 'Challenge Track',
     location: 'RTIH Amaravati Hub & Healthcare Partner Networks',
-    imageSrc: '/incubation/medtech.jpg',
+    imageSrc: '/assets/incubation/medtech.jpg',
     imageAlt: 'MedTech challenge participants collaborating on a healthcare solution',
     colors: {
       primary: '#059669',
@@ -340,7 +340,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: 'Up to 6 Months',
     format: 'Sector-Specific Incubation',
     location: 'RTIH Amaravati Hub (INNO-XR Lab)',
-    imageSrc: '/incubation/ap-vaga-xr-summit-2025.jpeg',
+    imageSrc: '/assets/incubation/ap-vaga-xr-summit-2025.jpeg',
     imageAlt: 'AVGC-XR summit stage and audience',
     colors: {
       primary: '#7c3aed',
@@ -385,7 +385,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: 'Ongoing student pathway',
     format: 'Campus / Hybrid / Cohort-based',
     location: 'Partner institutions across Andhra Pradesh',
-    imageSrc: '/incubation/innotribe.jpg',
+    imageSrc: '/assets/incubation/innotribe.jpg',
     imageAlt: 'InnoTribe student innovation cohort',
     colors: {
       primary: '#4338ca',
@@ -430,7 +430,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: 'Varied by cohort',
     format: 'Campus / Hybrid / Cohort-based',
     location: 'Partner campuses across Andhra Pradesh',
-    imageSrc: '/incubation/VIP.jpg',
+    imageSrc: '/assets/incubation/VIP.jpg',
     imageAlt: 'Student Entrepreneurship Program cohort',
     colors: {
       primary: '#059669',
@@ -475,7 +475,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '4-6 Months',
     format: 'Sector-Specific Incubation',
     location: 'RTIH Amaravati Hub & Regional Spokes',
-    imageSrc: '/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
+    imageSrc: '/assets/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
     imageAlt: 'ClimateTech cohort founders reviewing a sustainability solution',
     colors: {
       primary: '#5b2a86',
@@ -520,7 +520,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '4-6 Months',
     format: 'Sector-Specific Incubation',
     location: 'RTIH Amaravati Hub & Regional Spokes',
-    imageSrc: '/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
+    imageSrc: '/assets/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
     imageAlt: 'Mobility cohort founders presenting a transportation solution',
     colors: {
       primary: '#6f3298',
@@ -565,7 +565,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '4-6 Months',
     format: 'Sector-Specific Incubation',
     location: 'RTIH Amaravati Hub & Regional Spokes',
-    imageSrc: '/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
+    imageSrc: '/assets/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
     imageAlt: 'FoodTech cohort founders reviewing a food processing innovation',
     colors: {
       primary: '#4b1e83',
@@ -610,7 +610,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     duration: '4-6 Months',
     format: 'Sector-Specific Incubation',
     location: 'RTIH Amaravati Hub & Regional Spokes',
-    imageSrc: '/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
+    imageSrc: '/assets/incubation/6A7EE4DF-4157-43FA-A851-78B6789B52DD.jpeg',
     imageAlt: 'EVTech cohort founders working on an electric vehicle prototype',
     colors: {
       primary: '#9333ea',
@@ -839,7 +839,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
    * MAIN MODE fields (formerly incubation-page.component.ts)
    * ========================================================================== */
 
-  heroVideoSrc = '/assets/hero-section-video.mp4';
+  heroVideoSrc = '/assets/incubation/hero-section-video.mp4';
   incubationApplyUrl = 'https://admin.rtih.co.in/incubation/apply.php';
 
   /* Hero copy — hardcoded defaults, optionally overridden by the PHP
@@ -866,7 +866,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
       title: 'Funding opportunities',
       text:
         'Get access to investor connects, grant pathways, startup schemes, pitch-readiness guidance, and capital-readiness support for your growth stage. Founders receive help preparing stronger funding documents, understanding suitable capital routes, and reaching the right ecosystem partners.',
-      imageSrc: 'program-icons/fund.jpeg',
+      imageSrc: 'incubation/program-icons/fund.jpeg',
       imageAlt: 'Funding opportunities',
       route: '/funding-opportunities',
       disableFlip: true,
@@ -875,35 +875,35 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
       title: 'Co Working space',
       text:
         'Work from a focused startup environment built for team discussions, product planning, mentor reviews, and daily execution. The space supports founders with a professional setting to build, collaborate, host meetings, and stay connected with other growing teams.',
-      imageSrc: 'program-icons/co.jpeg',
+      imageSrc: 'incubation/program-icons/co.jpeg',
       imageAlt: 'Co working space',
     },
     {
       title: 'Networking Events',
       text:
         'Join workshops, founder circles, partner sessions, investor interactions, and ecosystem meetups designed for useful introductions. These events help startups discover collaborators, learn from peers, meet domain experts, and build relationships that continue beyond the room.',
-      imageSrc: 'program-icons/net.jpeg',
+      imageSrc: 'incubation/program-icons/net.jpeg',
       imageAlt: 'Networking events',
     },
     {
       title: 'Market Access',
       text:
         'Connect with potential customers, corporates, departments, pilot partners, and ecosystem stakeholders who can help validate and scale your solution. We support clearer market entry, stronger use cases, early adoption pathways, and practical growth conversations.',
-      imageSrc: 'program-icons/market.jpeg',
+      imageSrc: 'incubation/program-icons/market.jpeg',
       imageAlt: 'Market access',
     },
     {
       title: 'Technical and Legal Resources',
       text:
         'Access support across product architecture, technology validation, compliance, incorporation, accounting, intellectual property, contracts, and other founder essentials. These resources help teams reduce avoidable risk, improve operations, and build a stronger business foundation.',
-      imageSrc: 'program-icons/legal.jpeg',
+      imageSrc: 'incubation/program-icons/legal.jpeg',
       imageAlt: 'Technical and legal resources',
     },
     {
       title: 'Mentorship Support',
       text:
         'Work with experienced mentors across strategy, product, finance, branding, operations, legal, and go-to-market planning. Mentorship helps founders test assumptions, sharpen decisions, improve execution, and move from idea to growth with clearer direction.',
-      imageSrc: 'program-icons/mentor.jpeg',
+      imageSrc: 'incubation/program-icons/mentor.jpeg',
       imageAlt: 'Mentorship support',
     },
   ];
@@ -915,7 +915,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
         'Bringing together founders, innovators, and startup enthusiasts for insightful sessions focused on startup growth, validation, and building scalable ventures',
       date: '12th May 2025',
       location: 'RTIH, Amaravati',
-      imageSrc: 'cohort1.JPG',
+      imageSrc: 'incubation/cohort1.JPG',
       imageAlt: 'Cohort',
     },
     {
@@ -924,7 +924,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
         'Bringing together startup mentors, incubation leaders, branding experts, legal advisors, and aspiring entrepreneurs from across Andhra Pradesh to strengthen innovation, business strategy, and startup ecosystem development.',
       date: 'May 2026',
       location: 'RTIH, Amaravati',
-      imageSrc: 'future founders.JPG',
+      imageSrc: 'incubation/future founders.JPG',
       imageAlt: 'Future Founders',
     },
   ];
@@ -946,6 +946,39 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     return `/assets/${path.replace(/^\/+/, '')}`;
+  }
+
+  /**
+   * All incubation-page images/video/logos were consolidated into
+   * src/assets/incubation/ on 2026-08-18 (previously scattered across
+   * public/incubation, public/partner-logos, src/assets, src/assets/
+   * program-icons). The admin CMS (admin.rtih.co.in) can still have
+   * content saved with the old paths from before that move -- rewrite
+   * those on the fly so a stale record 404s into a broken image instead
+   * of just silently pointing at a file that no longer exists there.
+   */
+  private normalizeLegacyAssetPath(path: string): string {
+    if (!path || /^(https?:)?\/\//.test(path)) {
+      return path;
+    }
+
+    const rewrites: [RegExp, string][] = [
+      [/^\/incubation\//, '/assets/incubation/'],
+      [/^\/partner-logos\//, '/assets/incubation/partner-logos/'],
+      [/^\/assets\/hero-section-video\.mp4$/, '/assets/incubation/hero-section-video.mp4'],
+      [/^program-icons\//, 'incubation/program-icons/'],
+      [/^\/assets\/program-icons\//, '/assets/incubation/program-icons/'],
+      [/^cohort1\.JPG$/i, 'incubation/cohort1.JPG'],
+      [/^future founders\.JPG$/i, 'incubation/future founders.JPG'],
+    ];
+
+    for (const [pattern, replacement] of rewrites) {
+      if (pattern.test(path)) {
+        return path.replace(pattern, replacement);
+      }
+    }
+
+    return path;
   }
 
   openBenefitCard(program: ProgramBenefit): void {
@@ -1302,74 +1335,74 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
   hubPin: { cx: number; cy: number; size: number } | null = null;
 
   readonly vijayawadaPartners = {
-    leadPromoter: [{ name: 'MEIL', logoSrc: '/partner-logos/meil.png', logoAlt: 'MEIL' }],
+    leadPromoter: [{ name: 'MEIL', logoSrc: '/assets/incubation/partner-logos/meil.png', logoAlt: 'MEIL' }],
     coPromoter: [
-      { name: 'NSL Group', logoSrc: '/partner-logos/nsl-group.png', logoAlt: 'NSL Group' },
-      { name: 'Mohan Spintex', logoSrc: '/partner-logos/mohan-spintex.png', logoAlt: 'Mohan Spintex' },
+      { name: 'NSL Group', logoSrc: '/assets/incubation/partner-logos/nsl-group.png', logoAlt: 'NSL Group' },
+      { name: 'Mohan Spintex', logoSrc: '/assets/incubation/partner-logos/mohan-spintex.png', logoAlt: 'Mohan Spintex' },
     ],
     knowledgePartners: [
-      { name: 'SRM University AP', logoSrc: '/partner-logos/srm-amaravathi.png', logoAlt: 'SRM University AP' },
-      { name: 'VIT-AP University', logoSrc: '/partner-logos/vit-amaravathi.png', logoAlt: 'VIT-AP University' },
+      { name: 'SRM University AP', logoSrc: '/assets/incubation/partner-logos/srm-amaravathi.png', logoAlt: 'SRM University AP' },
+      { name: 'VIT-AP University', logoSrc: '/assets/incubation/partner-logos/vit-amaravathi.png', logoAlt: 'VIT-AP University' },
     ],
   };
 
   readonly rajahmundryPartners = {
-    leadPromoter: [{ name: 'greenk', logoSrc: '/partner-logos/greenk.svg', logoAlt: 'greenk' }],
+    leadPromoter: [{ name: 'greenk', logoSrc: '/assets/incubation/partner-logos/greenk.svg', logoAlt: 'greenk' }],
     coPromoter: [
-      { name: 'Avanti Feeds Limited', logoSrc: '/partner-logos/avanthi-feeds.png', logoAlt: 'Avanti Feeds Limited' },
-      { name: 'ONGC', logoSrc: '/partner-logos/ongc.png', logoAlt: 'ONGC' },
+      { name: 'Avanti Feeds Limited', logoSrc: '/assets/incubation/partner-logos/avanthi-feeds.png', logoAlt: 'Avanti Feeds Limited' },
+      { name: 'ONGC', logoSrc: '/assets/incubation/partner-logos/ongc.png', logoAlt: 'ONGC' },
     ],
     knowledgePartners: [
-      { name: 'JNTU Kakinada', logoSrc: '/partner-logos/jntu-kakinada.png', logoAlt: 'JNTU Kakinada' },
-      { name: 'Andhra University', logoSrc: '/partner-logos/andhra-university.png', logoAlt: 'Andhra University' },
+      { name: 'JNTU Kakinada', logoSrc: '/assets/incubation/partner-logos/jntu-kakinada.png', logoAlt: 'JNTU Kakinada' },
+      { name: 'Andhra University', logoSrc: '/assets/incubation/partner-logos/andhra-university.png', logoAlt: 'Andhra University' },
     ],
   };
 
   readonly visakhapatnamPartners = {
-    leadPromoter: [{ name: 'GMR', logoSrc: '/partner-logos/gmr.png', logoAlt: 'GMR' }],
-    coPromoter: [{ name: 'AM/NS India', logoSrc: '/partner-logos/amns-india.png', logoAlt: 'AM/NS India' }],
+    leadPromoter: [{ name: 'GMR', logoSrc: '/assets/incubation/partner-logos/gmr.png', logoAlt: 'GMR' }],
+    coPromoter: [{ name: 'AM/NS India', logoSrc: '/assets/incubation/partner-logos/amns-india.png', logoAlt: 'AM/NS India' }],
     knowledgePartners: [
-      { name: 'Andhra University', logoSrc: '/partner-logos/andhra-university.png', logoAlt: 'Andhra University' },
+      { name: 'Andhra University', logoSrc: '/assets/incubation/partner-logos/andhra-university.png', logoAlt: 'Andhra University' },
       {
         name: 'IIPE Vizag',
-        logoSrc: '/partner-logos/iipe-vizag.png',
+        logoSrc: '/assets/incubation/partner-logos/iipe-vizag.png',
         logoAlt: 'Indian Institute of Petroleum and Energy, Visakhapatnam',
       },
-      { name: 'GITAM', logoSrc: '/partner-logos/gitam.png', logoAlt: 'GITAM' },
+      { name: 'GITAM', logoSrc: '/assets/incubation/partner-logos/gitam.png', logoAlt: 'GITAM' },
     ],
   };
 
   readonly amaravatiHubPartners = {
-    leadPromoter: [{ name: 'TATA', logoSrc: '/partner-logos/tata.png', logoAlt: 'TATA' }],
-    coPromoter: [{ name: 'L&T', logoSrc: '/partner-logos/LT.png', logoAlt: 'L&T' }],
+    leadPromoter: [{ name: 'TATA', logoSrc: '/assets/incubation/partner-logos/tata.png', logoAlt: 'TATA' }],
+    coPromoter: [{ name: 'L&T', logoSrc: '/assets/incubation/partner-logos/LT.png', logoAlt: 'L&T' }],
     knowledgePartners: [
-      { name: 'IIT Madras', logoSrc: '/partner-logos/iit-chennai.png', logoAlt: 'IIT Madras' },
-      { name: 'IIM Visakhapatnam', logoSrc: '/partner-logos/iim-vizag.png', logoAlt: 'IIM Visakhapatnam' },
-      { name: 'SRM University AP', logoSrc: '/partner-logos/srm-amaravathi.png', logoAlt: 'SRM University AP' },
-      { name: 'VIT-AP University', logoSrc: '/partner-logos/vit-amaravathi.png', logoAlt: 'VIT-AP University' },
-      { name: 'NIT Andhra Pradesh', logoSrc: '/partner-logos/nit-tadepalli.png', logoAlt: 'NIT Andhra Pradesh' },
+      { name: 'IIT Madras', logoSrc: '/assets/incubation/partner-logos/iit-chennai.png', logoAlt: 'IIT Madras' },
+      { name: 'IIM Visakhapatnam', logoSrc: '/assets/incubation/partner-logos/iim-vizag.png', logoAlt: 'IIM Visakhapatnam' },
+      { name: 'SRM University AP', logoSrc: '/assets/incubation/partner-logos/srm-amaravathi.png', logoAlt: 'SRM University AP' },
+      { name: 'VIT-AP University', logoSrc: '/assets/incubation/partner-logos/vit-amaravathi.png', logoAlt: 'VIT-AP University' },
+      { name: 'NIT Andhra Pradesh', logoSrc: '/assets/incubation/partner-logos/nit-tadepalli.png', logoAlt: 'NIT Andhra Pradesh' },
     ],
   };
 
   readonly ananthapuramuPartners = {
-    leadPromoter: [{ name: 'JSW', logoSrc: '/partner-logos/jsw.png', logoAlt: 'JSW' }],
+    leadPromoter: [{ name: 'JSW', logoSrc: '/assets/incubation/partner-logos/jsw.png', logoAlt: 'JSW' }],
     coPromoter: [
-      { name: 'KIA', logoSrc: '/partner-logos/kia.png', logoAlt: 'KIA' },
-      { name: 'Raymond', logoSrc: '/partner-logos/raymond.png', logoAlt: 'Raymond' },
+      { name: 'KIA', logoSrc: '/assets/incubation/partner-logos/kia.png', logoAlt: 'KIA' },
+      { name: 'Raymond', logoSrc: '/assets/incubation/partner-logos/raymond.png', logoAlt: 'Raymond' },
     ],
     knowledgePartners: [
-      { name: 'IIT Tirupati', logoSrc: '/partner-logos/iit-tirupathi.png', logoAlt: 'IIT Tirupati' },
-      { name: 'JNTU Anantapur', logoSrc: '/partner-logos/jntu-ananthapur.png', logoAlt: 'JNTU Anantapur' },
+      { name: 'IIT Tirupati', logoSrc: '/assets/incubation/partner-logos/iit-tirupathi.png', logoAlt: 'IIT Tirupati' },
+      { name: 'JNTU Anantapur', logoSrc: '/assets/incubation/partner-logos/jntu-ananthapur.png', logoAlt: 'JNTU Anantapur' },
     ],
   };
 
   readonly tirupatiPartners = {
-    leadPromoter: [{ name: 'Adani', logoSrc: '/partner-logos/adani.png', logoAlt: 'Adani' }],
+    leadPromoter: [{ name: 'Adani', logoSrc: '/assets/incubation/partner-logos/adani.png', logoAlt: 'Adani' }],
     coPromoter: [
-      { name: 'Navayuga', logoSrc: '/partner-logos/navayuga.png', logoAlt: 'Navayuga' },
-      { name: 'Amara Raja', logoSrc: '/partner-logos/amaraja.png', logoAlt: 'Amara Raja' },
+      { name: 'Navayuga', logoSrc: '/assets/incubation/partner-logos/navayuga.png', logoAlt: 'Navayuga' },
+      { name: 'Amara Raja', logoSrc: '/assets/incubation/partner-logos/amaraja.png', logoAlt: 'Amara Raja' },
     ],
-    knowledgePartners: [{ name: 'IIT Tirupati', logoSrc: '/partner-logos/iit-tirupathi.png', logoAlt: 'IIT Tirupati' }],
+    knowledgePartners: [{ name: 'IIT Tirupati', logoSrc: '/assets/incubation/partner-logos/iit-tirupathi.png', logoAlt: 'IIT Tirupati' }],
   };
 
   readonly hubDistrict: DistrictFeature = {
@@ -2025,7 +2058,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
           this.benefitPrograms = benefits.items.map((item) => ({
             title: item.title ?? '',
             text: item.text ?? '',
-            imageSrc: item.imageSrc ?? '',
+            imageSrc: this.normalizeLegacyAssetPath(item.imageSrc ?? ''),
             imageAlt: item.imageAlt ?? '',
             route: item.route || undefined,
           }));
@@ -2046,7 +2079,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
           description: item.description ?? '',
           date: item.date ?? '',
           location: item.location ?? '',
-          imageSrc: item.imageSrc ?? '',
+          imageSrc: this.normalizeLegacyAssetPath(item.imageSrc ?? ''),
           imageAlt: item.imageAlt ?? '',
         }));
         // The carousel's autoplay/interval reads this.summitSlides.length
@@ -2122,7 +2155,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
           duration: match.content?.duration || '',
           selection: '',
           desc: match.content?.description || '',
-          imagePath: match.content?.imageSrc || '',
+          imagePath: this.normalizeLegacyAssetPath(match.content?.imageSrc || ''),
           route: matchRoute,
         };
 
@@ -2168,7 +2201,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
           description: item.description ?? '',
           keyOfferings: Array.isArray(item.keyOfferings) ? item.keyOfferings : [],
           logos: Array.isArray(item.logos)
-            ? item.logos.map((logo) => ({ src: logo.src ?? '', alt: logo.alt ?? '' }))
+            ? item.logos.map((logo) => ({ src: this.normalizeLegacyAssetPath(logo.src ?? ''), alt: logo.alt ?? '' }))
             : [],
         }));
 
@@ -2207,7 +2240,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
         duration: content.duration || base.duration,
         format: content.format || base.format,
         location: content.location || base.location,
-        imageSrc: content.imageSrc || base.imageSrc,
+        imageSrc: content.imageSrc ? this.normalizeLegacyAssetPath(content.imageSrc) : base.imageSrc,
         imageAlt: content.imageAlt || base.imageAlt,
         applyUrl: match.apply_url || base.applyUrl,
         acceptingApplications: match.accepting_applications ?? base.acceptingApplications ?? true,
