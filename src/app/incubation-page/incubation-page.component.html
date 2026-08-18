@@ -255,6 +255,7 @@
                 class="summit-banner-image"
                 [src]="resolveAsset(slide.imageSrc)"
                 [alt]="slide.imageAlt"
+                [attr.loading]="i === 0 ? 'eager' : 'lazy'"
                 [style.object-position]="slide.imageObjectPosition || 'center 50%'">
               <div class="summit-banner-overlay" aria-hidden="true"></div>
               <div class="carousel-content">
@@ -313,7 +314,7 @@
           (keydown.space)="openBenefitCard(program); $event.preventDefault()">
           <div class="program-card-inner">
             <div class="program-card-face program-card-front">
-              <img [src]="resolveAsset(program.imageSrc)" [alt]="program.imageAlt">
+              <img [src]="resolveAsset(program.imageSrc)" [alt]="program.imageAlt" [attr.loading]="i === 0 ? 'eager' : 'lazy'">
               <div class="program-card-overlay" aria-hidden="true">
                 <span>{{ program.title }}</span>
                 <span class="program-card-arrow">&rarr;</span>
