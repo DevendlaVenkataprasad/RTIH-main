@@ -679,12 +679,6 @@ type ProgramBenefit = {
   disableFlip?: boolean;
 };
 
-type Story = {
-  name: string;
-  role: string;
-  video: string;
-};
-
 type SummitSlide = {
   title: string;
   description: string;
@@ -935,31 +929,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     },
   ];
 
-  stories: Story[] = [
-    {
-      name: 'Dr. sridevi talluri',
-      role: 'Founder, Spaceinf',
-      video: 'https://pub-09a86f28527e468dafd3caffe418e16f.r2.dev/rtih_ap-20260522-0001.mp4',
-    },
-    {
-      name: 'Harsha Vardhan',
-      role: 'Founder, Deeplure',
-      video: 'https://pub-09a86f28527e468dafd3caffe418e16f.r2.dev/rtih_ap-20260522-0002.mp4',
-    },
-    {
-      name: 'Vineel koka',
-      role: 'Founder, Vakeel kutami',
-      video: 'https://pub-09a86f28527e468dafd3caffe418e16f.r2.dev/rtih_ap-20260522-0003.mp4',
-    },
-    {
-      name: 'Ajay kumar',
-      role: 'Founder, Grassip',
-      video: 'https://pub-09a86f28527e468dafd3caffe418e16f.r2.dev/rtih_ap-20260522-0004.mp4',
-    },
-  ];
-
-  activeStoryIndex = 1;
-  isStoryMuted = true;
   currentSummitSlideIndex = 0;
 
   @ViewChild('eventsSection') eventsSection?: ElementRef<HTMLElement>;
@@ -970,10 +939,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
   private summitAutoplayTimer?: number;
   private summitTouchStartX?: number;
   private summitTouchStartY?: number;
-
-  get activeStory(): Story {
-    return this.stories[this.activeStoryIndex];
-  }
 
   resolveAsset(path: string): string {
     if (/^(https?:)?\/\//.test(path)) {
@@ -989,48 +954,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     window.location.href = program.route;
-  }
-
-  prepareStoryVideo(video: HTMLVideoElement): void {
-    video.muted = this.isStoryMuted;
-    video.volume = this.isStoryMuted ? 0 : 1;
-    video.currentTime = 0;
-    void video.play();
-  }
-
-  toggleStorySound(video: HTMLVideoElement): void {
-    this.isStoryMuted = !this.isStoryMuted;
-    video.muted = this.isStoryMuted;
-    video.volume = this.isStoryMuted ? 0 : 1;
-    void video.play();
-  }
-
-  prepareThumbnail(video: HTMLVideoElement): void {
-    video.pause();
-    video.muted = true;
-    video.volume = 0;
-    video.currentTime = Math.min(1, video.duration || 1);
-  }
-
-  showPreviousStory(video?: HTMLVideoElement): void {
-    this.activeStoryIndex = (this.activeStoryIndex - 1 + this.stories.length) % this.stories.length;
-    this.resetStoryVideo(video);
-  }
-
-  showNextStory(video?: HTMLVideoElement): void {
-    this.activeStoryIndex = (this.activeStoryIndex + 1) % this.stories.length;
-    this.resetStoryVideo(video);
-  }
-
-  selectStory(index: number, video?: HTMLVideoElement): void {
-    this.activeStoryIndex = index;
-    this.resetStoryVideo(video);
-  }
-
-  advanceStoryAfterTenSeconds(video: HTMLVideoElement): void {
-    if (video.currentTime >= 10) {
-      this.showNextStory(video);
-    }
   }
 
   goToSummitSlide(index: number): void {
@@ -1077,17 +1000,6 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     this.previousSummitSlide();
-  }
-
-  private resetStoryVideo(video?: HTMLVideoElement): void {
-    if (!video) {
-      return;
-    }
-
-    video.currentTime = 0;
-    video.muted = this.isStoryMuted;
-    video.volume = this.isStoryMuted ? 0 : 1;
-    void video.play();
   }
 
   private observeEventsSection(): void {
