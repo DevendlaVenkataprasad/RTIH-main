@@ -144,7 +144,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73968 52244',
+      phone: '',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh 522503',
     },
     partners: [],
@@ -234,7 +234,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73966 03335',
+      phone: '',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh',
     },
     partners: ['Investors', 'Corporate partners', 'RTIH mentors'],
@@ -324,7 +324,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'medtech@rtih.co.in',
-      phone: '+91 73968 52244',
+      phone: '',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh 522503',
     },
     partners: ['Hospitals', 'Clinics', 'Biomedical labs'],
@@ -414,7 +414,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73968 52244',
+      phone: '',
       address: 'Partner campuses across Andhra Pradesh',
     },
     partners: ['Universities', 'Innovation cells', 'Faculty mentors'],
@@ -459,7 +459,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73968 52244',
+      phone: '',
       address: 'Partner campuses across Andhra Pradesh',
     },
     partners: ['25+ universities', 'Innovation cells', 'Faculty mentors'],
@@ -504,7 +504,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73966 03335',
+      phone: '',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh',
     },
     partners: ['Government of Andhra Pradesh', 'Climate action partners', 'RTIH mentors'],
@@ -549,7 +549,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73966 03335',
+      phone: '',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh',
     },
     partners: ['Automotive partners', 'Logistics operators', 'RTIH mentors'],
@@ -594,7 +594,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73966 03335',
+      phone: '',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh',
     },
     partners: ['Farmer producer organizations', 'Food processing partners', 'RTIH mentors'],
@@ -639,7 +639,7 @@ export const PROGRAMS: Record<ProgramId, ProgramData> = {
     ],
     contacts: {
       email: 'connect@rtih.co.in',
-      phone: '+91 73966 03335',
+      phone: '',
       address: 'Mayuri Tech Park, Mangalagiri, Andhra Pradesh',
     },
     partners: ['EV manufacturers', 'Charging infrastructure partners', 'RTIH mentors'],
