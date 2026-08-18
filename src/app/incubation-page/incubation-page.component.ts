@@ -1012,6 +1012,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     this.eventsObserver = new IntersectionObserver(
       (entries) => {
         this.isEventsSectionActive = entries.some((entry) => entry.isIntersecting);
+        this.cdr.markForCheck();
       },
       { threshold: 0.22 },
     );
@@ -1029,6 +1030,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
     this.programsObserver = new IntersectionObserver(
       (entries) => {
         this.isProgramsSectionActive = entries.some((entry) => entry.isIntersecting);
+        this.cdr.markForCheck();
       },
       { threshold: 0.24 },
     );
@@ -1043,6 +1045,7 @@ export class IncubationPageComponent implements OnInit, AfterViewInit, OnDestroy
 
     this.summitAutoplayTimer = window.setInterval(() => {
       this.currentSummitSlideIndex = (this.currentSummitSlideIndex + 1) % this.summitSlides.length;
+      this.cdr.markForCheck();
     }, 6000);
   }
 
