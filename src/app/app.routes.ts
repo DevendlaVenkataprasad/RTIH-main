@@ -1,21 +1,13 @@
-import { FaqsMainComponent } from './faqs-main/faqs-main.component';
-import { HomeRtih } from './home-rtih/home-rtih';
 import { Routes } from '@angular/router';
-import { SpokeRithComponent } from './spoke-rith/spoke-rith.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { CareersRtihComponent } from './careers-rtih/careers-rtih.component';
-import { Tenders } from './tenders/tenders';
-import { RtihOutpostModelComponent } from './rtih-outpost-model/rtih-outpost-model.component';
-import { GrassrootsInnovationComponent } from './grassroots-innovation/grassroots-innovation.component';
 
 
 export const routes: Routes = [
-  { path: '', component: HomeRtih },
-  { path: 'home', component: HomeRtih },
-  { path: 'faqs', component: FaqsMainComponent },
-  { path: 'contact', component: ContactUsComponent},
-  { path: 'careers', component: CareersRtihComponent},
-  { path: 'tenders', component: Tenders},
+  { path: '', loadComponent: () => import('./home-rtih/home-rtih').then(m => m.HomeRtih) },
+  { path: 'home', loadComponent: () => import('./home-rtih/home-rtih').then(m => m.HomeRtih) },
+  { path: 'faqs', loadComponent: () => import('./faqs-main/faqs-main.component').then(m => m.FaqsMainComponent) },
+  { path: 'contact', loadComponent: () => import('./contact-us/contact-us.component').then(m => m.ContactUsComponent) },
+  { path: 'careers', loadComponent: () => import('./careers-rtih/careers-rtih.component').then(m => m.CareersRtihComponent) },
+  { path: 'tenders', loadComponent: () => import('./tenders/tenders').then(m => m.Tenders) },
   // { path: 'RTIH-outpost-model', component: RtihOutpostModelComponent},
   //{ path: 'iih', component: IihComponent},
   { path: 'sidbi-seed-fund', redirectTo: 'funding-opportunities', pathMatch: 'full' },
@@ -61,10 +53,10 @@ export const routes: Routes = [
   { path: 'events', data: { breadcrumb: 'Events' },
   loadComponent: () => import('./events-rtih/events-rtih.component').then(m => m.EventsRtihComponent) },  
   { path: 'grassroots-innovation', data: { breadcrumb: 'Grassroots Innovation' },
-  component: GrassrootsInnovationComponent },
+  loadComponent: () => import('./grassroots-innovation/grassroots-innovation.component').then(m => m.GrassrootsInnovationComponent) },
   { path: 'hackathons-challenges', data: { breadcrumb: 'Hackathons & Challenges' },
   loadComponent: () => import('./hackthons-challanges/hackthons-challanges').then(m => m.HackthonsChallanges) },
-  { path: 'location/:district', component: SpokeRithComponent },
+  { path: 'location/:district', loadComponent: () => import('./spoke-rith/spoke-rith.component').then(m => m.SpokeRithComponent) },
   { path: 'sunrise-connects', data: { breadcrumb: 'sunrise-connects' },
   loadComponent: () => import('./sunrise-connects/sunrise-connects.component').then(m => m.SunriseConnectsComponent) },
   { path: 'healthtech-innovation-challenge-2025', data: { breadcrumb: 'sunrise-connects' },

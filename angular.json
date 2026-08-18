@@ -31,7 +31,7 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/styles.scss", "src/icons.css"],
+            "styles": ["src/styles.scss"],
             "scripts": ["src/assets/rti-nav.js"]
           },
           "configurations": {
@@ -84,7 +84,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss", "src/icons.css"]
+            "styles": ["src/styles.scss"]
           }
         }
       }

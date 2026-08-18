@@ -3,6 +3,7 @@ import { HeaderRtihComponent } from "../header-rtih/header-rtih.component";
 import { InnerBannerComponent } from "../inner-banner/inner-banner.component";
 import { FooterRtihComponent } from "../footer-rtih/footer-rtih.component";
 import { Router, RouterModule } from '@angular/router';
+import { loadStylesheetOnce } from '../shared/load-stylesheet';
 
 @Component({
   selector: 'app-ed-tech-innovation',
@@ -16,6 +17,7 @@ export class EdTechInnovationComponent implements OnInit {
 constructor(private router: Router) { }
 
   ngOnInit() {
+    loadStylesheetOnce('/icons.css');
     this.getTableData();
   }
   goHomeFragment(fragment: string) {
